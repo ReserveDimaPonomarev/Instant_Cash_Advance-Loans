@@ -85,7 +85,7 @@ final class RegistrationViewController: UIViewController {
         }
         registrationLabel.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
-            make.top.equalTo(view.safeAreaLayoutGuide).offset(8)
+            make.top.equalTo(view.safeAreaLayoutGuide).offset(24)
         }
         accountIcon.snp.makeConstraints { make in
             make.bottom.equalTo(registrationLabel).inset(8)

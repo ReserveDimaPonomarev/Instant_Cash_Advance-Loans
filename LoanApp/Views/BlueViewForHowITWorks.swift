@@ -28,7 +28,6 @@ class BlueViewForHowITWorks: UIView {
     
     private func setupUI() {
         addViews()
-        setupSubViews()
         setupView()
         setupConstraints()
     }
@@ -47,30 +46,42 @@ class BlueViewForHowITWorks: UIView {
     
     private func setupConstraints() {
         numberOnBlueViewLabel.snp.makeConstraints { make in
-            make.top.leading.equalToSuperview().inset(10)
+            make.top.left.equalToSuperview().inset(10)
         }
         titleOnBlueViewLabel.snp.makeConstraints { make in
-            make.leading.equalTo(numberOnBlueViewLabel.snp.trailing).offset(8)
-            make.trailing.equalToSuperview().inset(16)
+            make.left.equalTo(numberOnBlueViewLabel.snp.right).offset(10)
+            make.right.equalToSuperview().inset(16)
             make.top.equalTo(numberOnBlueViewLabel).offset(16)
         }
         subtitleOnBlueViewLabel.snp.makeConstraints { make in
-            make.leading.trailing.equalTo(titleOnBlueViewLabel)
-            make.top.equalTo(titleOnBlueViewLabel.snp.bottom).offset(16)
+            make.left.right.equalTo(titleOnBlueViewLabel)
+            make.top.equalTo(titleOnBlueViewLabel.snp.bottom).offset(8)
         }
     }
     
     private func setupSubViews() {
-        numberOnBlueViewLabel.text = "1"
+
+    }
+    
+    func setupTextInsideView(number: Int, title: String, subtitle: String) {
+        numberOnBlueViewLabel.text = "\(number)"
+
         numberOnBlueViewLabel.textColor = .white
         numberOnBlueViewLabel.font = .systemFont(ofSize: 80, weight: .black)
-        titleOnBlueViewLabel.text = "Submit A Request"
+        numberOnBlueViewLabel.setContentCompressionResistancePriority(.defaultHigh, for: .horizontal)
+        titleOnBlueViewLabel.setContentHuggingPriority(.defaultLow, for: .horizontal)
+        titleOnBlueViewLabel.text = title
+        titleOnBlueViewLabel.minimumScaleFactor = 0.5
+        titleOnBlueViewLabel.adjustsFontSizeToFitWidth = true
         titleOnBlueViewLabel.textColor = .white
-        titleOnBlueViewLabel.font = .systemFont(ofSize: 30, weight: .black)
-        
-        subtitleOnBlueViewLabel.text = "lololololololololololololololololololololololololololololololololololololololololololololololololololololololololololololololololololololololololololololololololololololololololoqqqqqq"
+        titleOnBlueViewLabel.font = .systemFont(ofSize: 24, weight: .black)
+        subtitleOnBlueViewLabel.text = subtitle
+        subtitleOnBlueViewLabel.minimumScaleFactor = 0.5
+        subtitleOnBlueViewLabel.adjustsFontSizeToFitWidth = true
         subtitleOnBlueViewLabel.textColor = .white
         subtitleOnBlueViewLabel.numberOfLines = 0
-        subtitleOnBlueViewLabel.font = .systemFont(ofSize: 20, weight: .regular)
+        subtitleOnBlueViewLabel.font = .systemFont(ofSize: 16, weight: .regular)
+        
+
     }
 }

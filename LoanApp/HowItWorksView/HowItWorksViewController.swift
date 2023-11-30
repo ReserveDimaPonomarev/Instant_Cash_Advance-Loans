@@ -59,26 +59,24 @@ final class HowItWorksViewController: UIViewController {
         stackView.spacing = 5
         stackView.distribution = .fillProportionally
         
-        topSubtitleLabel.text = "blablablablablablablablablablablablablablablablablablablablablablablablablablablabla"
+        topSubtitleLabel.text = "The process is super fast and simple.\nIt takes minutes to see results and enjoy your extra cash"
         topSubtitleLabel.textColor = .blue
-        topSubtitleLabel.font = .systemFont(ofSize: 20, weight: .regular)
+        topSubtitleLabel.font = .systemFont(ofSize: 16, weight: .regular)
         topSubtitleLabel.numberOfLines = 0
-
-
-
-
+        blueView.setupTextInsideView(number: 1, title: "Submit A Request", subtitle: "Submit A Request \nAll paperwork is gone! The whole process is completely online. Just fill in a few details about yourself and hit \"Get Started\"!")
+        secondBlueView.setupTextInsideView(number: 2, title: "Check The Offers", subtitle: "If the offer suits your needs and desires, and you agree with all the terms - simply e-sign the deal and get ready to enjoy the money!")
+        thirdBlueView.setupTextInsideView(number: 3, title: "Receive Your Money", subtitle: "Once you submit your request, get your offer, and e-sign it, you'll be able to get the funds to your bank account in no time!")
     }
         
     private func setupConstraints() {
         questionLabel.snp.makeConstraints { make in
             make.top.equalTo(view.safeAreaLayoutGuide)
-            make.leading.equalTo(view.safeAreaLayoutGuide).offset(20)
-
+            make.leading.equalTo(view.safeAreaLayoutGuide).inset(40)
         }
         topTitlelabel.snp.makeConstraints { make in
-            make.leading.equalTo(questionLabel.snp.trailing).offset(20)
+            make.leading.equalTo(questionLabel.snp.trailing)
             make.trailing.equalToSuperview().inset(20)
-            make.bottom.equalTo(questionLabel)
+            make.bottom.equalTo(questionLabel).inset(5)
         }
         topSubtitleLabel.snp.makeConstraints { make in
             make.leading.trailing.equalTo(topTitlelabel)

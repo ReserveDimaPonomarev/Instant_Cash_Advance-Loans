@@ -60,7 +60,10 @@ extension RegisterPageCoordinator: RegisterPageScreenOutput {
     }
     
     func showUserInfoVC() {
-//        let userInfoVC = 
+        let userInfoVC = UserInfoViewController()
+        
+        router.push(userInfoVC)
+
     }
     
 }
