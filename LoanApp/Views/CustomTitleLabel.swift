@@ -15,6 +15,16 @@ class CustomTitleLabel: UILabel {
         self.font = .systemFont(ofSize: 30, weight: .black)
         self.textAlignment = .center
     }
+    
+    func setupCustomLabelOnMainScreen(text: String, fontSize: CGFloat, allignment: NSTextAlignment) {
+        self.text = text
+        self.textColor = .blue
+        self.font = .systemFont(ofSize: fontSize, weight: .black)
+        self.textAlignment = allignment
+        self.minimumScaleFactor = 0.5
+        self.adjustsFontForContentSizeCategory = true
+    }
+
 }
 
 

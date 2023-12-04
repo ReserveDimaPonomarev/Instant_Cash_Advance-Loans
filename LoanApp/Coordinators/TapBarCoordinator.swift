@@ -57,8 +57,8 @@ final class TabBarCoordinator: BaseCoordinator {
     
     private func howItWorksScreen() {
         let howItWorksVC = HowItWorksViewController()
-        howItWorksVC.tabBarItem = UITabBarItem().setupTabBarItem(image: .howItWorksPageIcon, text: "How It wotks")
-
+        howItWorksVC.tabBarItem = UITabBarItem().setupTabBarItem(image: .howItWorksPageIcon, text: "How It works")
+        
         tabBarViewController.viewControllers?.append(howItWorksVC)
     }
     

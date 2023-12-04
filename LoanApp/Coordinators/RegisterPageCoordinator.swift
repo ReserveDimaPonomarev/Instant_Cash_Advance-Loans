@@ -54,16 +54,22 @@ final class RegisterPageCoordinator: BaseCoordinator {
 extension RegisterPageCoordinator: RegisterPageScreenOutput {
     
     func showSignUpScreen() {
-        let signUpVC = SignUpViewController(output: self)
+        let signUpPresenter = SignUpPresenter(coordinator: self)
+        let signUpVC = SignUpViewController(presenter: signUpPresenter)
+        signUpPresenter.controller = signUpVC
         
         router.push(signUpVC)
     }
     
     func showUserInfoVC() {
-        let userInfoVC = UserInfoViewController()
+        let userInfoPresenter = UserInfoPresenter(coordinator: self)
+        let userInfoVC = UserInfoViewController(presenter: userInfoPresenter)
+        userInfoPresenter.controller = userInfoVC
         
         router.push(userInfoVC)
 
     }
+    
+    
     
 }

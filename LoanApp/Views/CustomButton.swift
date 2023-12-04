@@ -26,4 +26,12 @@ class CustomButton: UIButton {
         self.layer.borderWidth = 4
         self.setTitleColor(titleColor, for: .normal)
     }
+    
+    func setupButtonForMainView(title: String, color: UIColor, titleColor: UIColor) {
+        self.setTitle(title, for: .normal)
+        self.backgroundColor = color
+        self.layer.cornerRadius = 40
+        self.setTitleColor(titleColor, for: .normal)
+        self.titleLabel?.font = UIFont.systemFont(ofSize: 30, weight: .heavy)
+    }
 }

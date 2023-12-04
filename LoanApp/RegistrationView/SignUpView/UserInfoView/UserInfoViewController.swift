@@ -8,8 +8,15 @@
 
 import UIKit
 
+protocol UserInfoDisplayLogic: AnyObject {
+    
+}
 
 final class UserInfoViewController: UIViewController {
+    
+    //  MARK: External dependencies
+
+    var presenter: UserInfoPresenterProtocol
     
     //  MARK: - UI properties
     
@@ -27,6 +34,21 @@ final class UserInfoViewController: UIViewController {
     
     private let notification = NotificationCenter.default
 
+    
+    //  MARK: - init
+
+    init(presenter: UserInfoPresenterProtocol) {
+        self.presenter = presenter
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    deinit {
+        print("deinited")
+    }
     
     //  MARK: - life Cycle
 
@@ -178,4 +200,10 @@ final class UserInfoViewController: UIViewController {
     @objc func keyboardWillHide(notification: NSNotification) {
         self.view.frame.origin.y = 0
     }
+}
+
+//  MARK: - extension UserInfoDisplayLogic
+
+extension UserInfoViewController: UserInfoDisplayLogic {
+    
 }

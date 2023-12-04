@@ -7,12 +7,15 @@
 
 import UIKit
 
-protocol SplashScreenOutput: AnyObject {
-    func showWelcomeScreen()
+protocol SignUpDisplayLogic: AnyObject {
+    func sendTextField() -> String?
 }
 
 final class SignUpViewController: UIViewController {
     
+    //  MARK: External dependencies
+    
+    var presenter: SignUpPresenterProtocol
     
     //  MARK: - UI properties
     
@@ -24,17 +27,20 @@ final class SignUpViewController: UIViewController {
     private let saveButton = CustomButton()
     
     private let notification = NotificationCenter.default
-    var output: RegisterPageScreenOutput
     
     //  MARK: - init
     
-    init(output: RegisterPageScreenOutput) {
-        self.output = output
+    init(presenter: SignUpPresenterProtocol) {
+        self.presenter = presenter
         super.init(nibName: nil, bundle: nil)
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    deinit {
+        print("deinited")
     }
     
     //  MARK: - life Cycle
@@ -45,15 +51,19 @@ final class SignUpViewController: UIViewController {
         view.backgroundColor = .white
     }
     
+}
+ 
+private extension SignUpViewController {
+    
     //  MARK: - setup UI
     
-    private func setup() {
+    func setup() {
         addViews()
         setupViews()
         setupConstraints()
     }
     
-    private func addViews() {
+    func addViews() {
         view.addSubview(backgroundImage)
         view.addSubview(accountIcon)
         view.addSubview(registrationLabel)
@@ -62,7 +72,7 @@ final class SignUpViewController: UIViewController {
         view.addSubview(saveButton)
     }
     
-    private func setupViews() {
+    func setupViews() {
         backgroundImage.image = UIImage(resource: .background)
         accountIcon.image = UIImage(resource: .accountPageIcon)
         registrationLabel.setupCustomTitleLabel(text: "Registration", textColor: .blue)
@@ -78,7 +88,7 @@ final class SignUpViewController: UIViewController {
         saveButton.addTarget(self, action: #selector(onSaveButtonTapped), for: .touchUpInside)
     }
     
-    private func setupConstraints() {
+    func setupConstraints() {
         backgroundImage.snp.makeConstraints { make in
             make.edges.equalToSuperview()
         }
@@ -111,17 +121,14 @@ final class SignUpViewController: UIViewController {
             make.width.equalTo(saveButton.intrinsicContentSize.width + 80)
         }
     }
-    
-    //  MARK: - private methods
-    
-    private func setupKeyboardNotifications() {
+        
+    func setupKeyboardNotifications() {
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
     }
     
     //  MARK: - objc method
     
-    // Метод показа клавиатуры и подъёма экрана наверх
     @objc func keyboardWillShow(notification: NSNotification) {
         if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
             let buttonFrameInWindow = saveButton.convert(saveButton.bounds, to: nil)
@@ -140,7 +147,14 @@ final class SignUpViewController: UIViewController {
     }
     
     @objc func onSaveButtonTapped() {
-        output.showUserInfoVC()
+        presenter.showUserInfo()
     }
 }
 
+//  MARK: - extension SignUpDisplayLogic
+
+extension SignUpViewController: SignUpDisplayLogic {
+    func sendTextField() -> String? {
+        return passwordTextField.text
+    }
+}

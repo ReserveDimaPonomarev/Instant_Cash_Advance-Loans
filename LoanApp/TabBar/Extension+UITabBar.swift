@@ -13,9 +13,9 @@ extension UITabBarItem {
         
         let inactiveIconImage = UIImage(resource: image).withRenderingMode(.alwaysOriginal)
         let activeIconImage = UIImage(resource: image).withRenderingMode(.alwaysOriginal)
-        
-        let resizedInactiveIcon = inactiveIconImage.preparingThumbnail(of: CGSize.init(width: 28, height: 28))
-        let resizedActiveIcon = activeIconImage.preparingThumbnail(of: CGSize.init(width: 34, height: 34))
+
+        let resizedInactiveIcon = inactiveIconImage.preparingThumbnail(of: CGSize.init(width: 25, height: 25))
+        let resizedActiveIcon = activeIconImage.preparingThumbnail(of: CGSize.init(width: 32, height: 32))
         
         let productsTabBarItem = UITabBarItem(
             title: text,
@@ -23,7 +23,7 @@ extension UITabBarItem {
             selectedImage: resizedActiveIcon
         )
         
-        productsTabBarItem.setTitleTextAttributes([.font: UIFont.systemFont(ofSize: 16)], for: .normal)
+        productsTabBarItem.setTitleTextAttributes([.font: UIFont.systemFont(ofSize: 16, weight: .semibold), .foregroundColor: UIColor.blue], for: .normal)
         productsTabBarItem.image?.withTintColor(.black, renderingMode: .alwaysTemplate)
         return productsTabBarItem
     }

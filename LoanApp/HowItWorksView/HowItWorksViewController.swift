@@ -17,8 +17,6 @@ final class HowItWorksViewController: UIViewController {
     let blueView = BlueViewForHowITWorks()
     let secondBlueView = BlueViewForHowITWorks()
     let thirdBlueView = BlueViewForHowITWorks()
-
-
     
     //  MARK: - life Cycle
 
