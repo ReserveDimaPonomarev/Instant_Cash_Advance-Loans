@@ -30,7 +30,6 @@
 		4A0CC0272B19CF3C0074EEF1 /* HalfViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A0CC0262B19CF3C0074EEF1 /* HalfViewController.swift */; };
 		4A83BDA82B1EB5B200B2DD53 /* LoadingPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A83BDA62B1EB5B200B2DD53 /* LoadingPageViewController.swift */; };
 		4A83BDA92B1EB5B200B2DD53 /* LoadingPagePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A83BDA72B1EB5B200B2DD53 /* LoadingPagePresenter.swift */; };
-		4A83BDAE2B1F151E00B2DD53 /* auth.json in Resources */ = {isa = PBXBuildFile; fileRef = 4A83BDAD2B1F151E00B2DD53 /* auth.json */; };
 		4A83BDB72B1F4AED00B2DD53 /* PrivacyAndTermsTexts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A83BDB62B1F4AED00B2DD53 /* PrivacyAndTermsTexts.swift */; };
 		4A85E3CF2B1A05AA00113B24 /* PrivacyPolicyPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A85E3CE2B1A05AA00113B24 /* PrivacyPolicyPageViewController.swift */; };
 		4A85E3D12B1A0AE200113B24 /* CustomButtonOnHalfView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A85E3D02B1A0AE200113B24 /* CustomButtonOnHalfView.swift */; };
@@ -85,7 +84,6 @@
 		4A0CC0262B19CF3C0074EEF1 /* HalfViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HalfViewController.swift; sourceTree = "<group>"; };
 		4A83BDA62B1EB5B200B2DD53 /* LoadingPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingPageViewController.swift; sourceTree = "<group>"; };
 		4A83BDA72B1EB5B200B2DD53 /* LoadingPagePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingPagePresenter.swift; sourceTree = "<group>"; };
-		4A83BDAD2B1F151E00B2DD53 /* auth.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = auth.json; sourceTree = "<group>"; };
 		4A83BDB62B1F4AED00B2DD53 /* PrivacyAndTermsTexts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyAndTermsTexts.swift; sourceTree = "<group>"; };
 		4A85E3CE2B1A05AA00113B24 /* PrivacyPolicyPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyPolicyPageViewController.swift; sourceTree = "<group>"; };
 		4A85E3D02B1A0AE200113B24 /* CustomButtonOnHalfView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButtonOnHalfView.swift; sourceTree = "<group>"; };
@@ -284,7 +282,6 @@
 				4A9983F02B18859A00F4CCE8 /* HowItWorksView */,
 				4A0CC0222B194E1F0074EEF1 /* Views */,
 				4A9983B72B17A8D000F4CCE8 /* Assets.xcassets */,
-				4A83BDAD2B1F151E00B2DD53 /* auth.json */,
 				4A9983B92B17A8D000F4CCE8 /* LaunchScreen.storyboard */,
 				4A9983BC2B17A8D000F4CCE8 /* Info.plist */,
 			);
@@ -399,7 +396,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				4A9983BB2B17A8D000F4CCE8 /* LaunchScreen.storyboard in Resources */,
-				4A83BDAE2B1F151E00B2DD53 /* auth.json in Resources */,
 				4A9983B82B17A8D000F4CCE8 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
