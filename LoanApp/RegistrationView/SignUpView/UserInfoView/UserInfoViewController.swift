@@ -32,9 +32,7 @@ final class UserInfoViewController: UIViewController {
     private let saveButton = CustomButton()
     private let logoutButton = CustomViewWithBorder()
     
-    private let notification = NotificationCenter.default
 
-    
     //  MARK: - init
 
     init(presenter: UserInfoPresenterProtocol) {
@@ -63,7 +61,6 @@ final class UserInfoViewController: UIViewController {
         addViews()
         setupViews()
         setupConstraints()
-        setupKeyboardNotifications()
     }
         
     private func addViews() {
@@ -87,22 +84,20 @@ final class UserInfoViewController: UIViewController {
         accountIcon.image = UIImage(resource: .accountPageIcon)
         userInfoLabel.setupCustomTitleLabel(text: "User Info", textColor: .blue)
         loginStackView.setupSubViews(labelText: "login", textFieldPlaceholder: "email@mail.ru")
-        loginStackView.inputtedTextField.closure = { [weak self] in
-            self?.view.endEditing(true)
-        }
         changeButton.setupView(title: "Change", color: .blue, titleColor: .white)
         birthDayStackView.setupSubViews(labelText: "Birthday")
-        birthDayStackView.inputtedTextField.closure = { [weak self] in
-            self?.view.endEditing(true)
-        }
         nameStackView.setupSubViews(labelText: "Name")
-        nameStackView.inputtedTextField.closure = { [weak self] in
-            self?.view.endEditing(true)
-        }
         saveButton.setupView(title: "Save", color: .blue, titleColor: .white)
-
+        birthDayStackView.inputtedTextField.createDatePicker()
+        setupGestureOnLoginButton()
+        endEditingFromClosures()
     }
-        
+
+    private func setupGestureOnLoginButton() {
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(onLogOutButtonTap))
+        logoutButton.addGestureRecognizer(tapGesture)
+    }
+    
     private func setupConstraints() {
         scrollView.snp.makeConstraints { make in
             make.left.right.width.bottom.equalToSuperview()
@@ -163,11 +158,6 @@ final class UserInfoViewController: UIViewController {
         
     //  MARK: - private methods
     
-    private func setupKeyboardNotifications() {
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
-    }
-    
     private func findActiveField() -> UIView? {
         if loginStackView.inputtedTextField.isFirstResponder {
             return loginStackView.inputtedTextField
@@ -178,7 +168,31 @@ final class UserInfoViewController: UIViewController {
         }
         return nil
     }
+    
+    private func endEditingFromClosures() {
+        birthDayStackView.inputtedTextField.closure = { [weak self] in
+            guard let self else { return }
+            self.view.endEditing(true)
+        }
+        nameStackView.inputtedTextField.closure = { [weak self] in
+            guard let self else { return }
+            self.view.endEditing(true)
+        }
+        loginStackView.inputtedTextField.closure = { [weak self] in
+            guard let self else { return }
+            self.view.endEditing(true)
+        }
+    }
+    
+    //  MARK: - addActions
 
+    private func addActions() {
+        changeButton.addTarget(self, action: #selector(onChangeButtonTap), for: .touchUpInside)
+        saveButton.addTarget(self, action: #selector(onSaveButtonTap), for: .touchUpInside)
+
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
+    }
     //  MARK: - objc method
     
     // Метод показа клавиатуры и подъёма экрана наверх
@@ -200,10 +214,24 @@ final class UserInfoViewController: UIViewController {
     @objc func keyboardWillHide(notification: NSNotification) {
         self.view.frame.origin.y = 0
     }
+    
+    @objc func onChangeButtonTap() {
+        guard let text = loginStackView.inputtedTextField.text else { return }
+        presenter.changeEmail(testEmail: text)
+        
+    }
+    
+    @objc func onSaveButtonTap() {
+        presenter.saveUsersDataInProfile()
+    }
+    
+    @objc func onLogOutButtonTap() {
+        presenter.logoutCurrentUser()
+    }
 }
 
 //  MARK: - extension UserInfoDisplayLogic
 
 extension UserInfoViewController: UserInfoDisplayLogic {
-    
+
 }

@@ -7,39 +7,43 @@
 
 import UIKit
 
-class CustomViewWithBorder: UIView {
+final class CustomViewWithBorder: UIView {
     
-    let label = UILabel()
-    let imageView = UIImageView()
+    private let label = UILabel()
+    private let imageView = UIImageView()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
         self.setupViewWithBorder()
+        self.setupSubViews()
+        self.setupConstraints()
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+}
+
+
+private extension CustomViewWithBorder {
     
     func setupViewWithBorder() {
         self.backgroundColor = .white
         self.layer.cornerRadius = 28
         self.layer.borderColor = UIColor.blue.cgColor
         self.layer.borderWidth = 4
-        self.addSubview(label)
-        self.addSubview(imageView)
-        setupSubViews()
-        setupConstraints()
     }
     
     func setupSubViews() {
+        self.addSubview(label)
+        self.addSubview(imageView)
+        
         self.label.text = "Logout"
         self.label.textColor = .blue
         self.label.textAlignment = .center
         self.label.font = UIFont.systemFont(ofSize: 36, weight: .black)
         self.imageView.image = UIImage.logout
         self.imageView.contentMode = .scaleAspectFit
-        
     }
     
     func setupConstraints() {

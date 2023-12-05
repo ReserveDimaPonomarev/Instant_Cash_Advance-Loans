@@ -19,6 +19,7 @@ import UIKit
 protocol RegisterPageScreenOutput: AnyObject {
     func showSignUpScreen()
     func showUserInfoVC()
+    func showMainScreen()
 }
 
 final class RegisterPageCoordinator: BaseCoordinator {
@@ -67,9 +68,12 @@ extension RegisterPageCoordinator: RegisterPageScreenOutput {
         userInfoPresenter.controller = userInfoVC
         
         router.push(userInfoVC)
-
     }
     
-    
-    
+    func showMainScreen() {
+        
+        parentCoordinator.showMainPageAfterRegistrationScreen()
+        
+    }
+
 }

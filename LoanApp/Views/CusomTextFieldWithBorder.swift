@@ -10,6 +10,7 @@ import UIKit
 class CusomTextFieldWithBorder: UITextField {
     
     var closure: (()->Void)?
+    let datePicker = UIDatePicker()
     
     func setupTextField(placeholder: String, backgroundColor: UIColor, borderColor: UIColor, placehplderColor: UIColor, textColor: UIColor, borderWidth: CGFloat) {
         self.borderStyle = .roundedRect
@@ -25,13 +26,49 @@ class CusomTextFieldWithBorder: UITextField {
             .font: UIFont.systemFont(ofSize: 25, weight: .medium)
         ]
         self.attributedPlaceholder = NSAttributedString(string: placeholder, attributes: placeholderAttributes)
-
-        
         let leftPaddingView = UIView(frame: CGRect(x: 0, y: 0, width: 30, height: self.bounds.height))
         self.leftView = leftPaddingView
         self.leftViewMode = .always
         self.delegate = self
+    }
+    
+    func createDatePicker() {
+        datePicker.preferredDatePickerStyle = .wheels
+        datePicker.datePickerMode = .date
+        self.inputView = datePicker
+        self.inputAccessoryView = createToolBar()
+    }
+    
+    private func calculateAge(from date: Date) -> Int? {
+        let calendar = Calendar.current
+        let currentDate = Date()
+        let components = calendar.dateComponents([.year], from: date, to: currentDate)
+        return components.year
+    }
+    
+    private func createToolBar() -> UIToolbar{
+        let toolbar = UIToolbar();
+        toolbar.sizeToFit()
+        
+        let doneButton = UIBarButtonItem(title: "Done", style: .plain, target: self, action: #selector(donedatePicker))
+        toolbar.setItems([doneButton], animated: false)
 
+        return toolbar
+    }
+    
+    @objc private func donedatePicker(){
+        let formatter = DateFormatter()
+        formatter.dateFormat = "dd MMMM yyyy"
+        formatter.dateStyle = .medium
+        formatter.timeStyle = .none
+        let selectedDate = datePicker.date
+
+        if let age = calculateAge(from: selectedDate), age < 18 {
+            print("Мало лет")
+        } else {
+            self.text = formatter.string(from: selectedDate)
+        }
+        closure?()
     }
 }
 

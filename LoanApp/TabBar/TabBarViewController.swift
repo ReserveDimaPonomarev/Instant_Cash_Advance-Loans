@@ -9,8 +9,12 @@ import UIKit
 
 
 
-final class TabBarViewController: UITabBarController {
-
+final class TabBarViewController: UITabBarController, UITabBarControllerDelegate {
+    
+    weak var tabBarDelegate: UITabBarDelegate?
+    
+    var myColsure: ((UINavigationController)->Void)?
+    
     //  MARK: - life Cycle
     
     override func viewDidLoad() {
@@ -24,5 +28,21 @@ final class TabBarViewController: UITabBarController {
         tabBar.tintColor = .black
         tabBar.unselectedItemTintColor = .black
         tabBar.backgroundColor = .white
+        self.delegate = self
+        self.tabBarDelegate = self
+    }
+
+    func switchToFirstTab() {
+        let mainPageIndex = 0
+        let registerationPageIndex = 1
+        self.viewControllers?[registerationPageIndex].removeFromParent()
+        
+        if mainPageIndex < viewControllers?.count ?? 0 {
+            selectedIndex = mainPageIndex
+            if let selectedViewController = selectedViewController {
+                selectedViewController.viewWillAppear(true)
+            }
+        }
+        
     }
 }

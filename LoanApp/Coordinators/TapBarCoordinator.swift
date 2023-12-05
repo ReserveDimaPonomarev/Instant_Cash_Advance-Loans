@@ -7,6 +7,10 @@
 
 import UIKit
 
+protocol TabBarInputProtocol {
+    func showMainPageAfterRegistrationScreen()
+}
+
 final class TabBarCoordinator: BaseCoordinator {
     
     var onFinish: (() -> Void)?
@@ -71,9 +75,22 @@ final class TabBarCoordinator: BaseCoordinator {
 }
 
 private extension TabBarCoordinator {
+    
     func getTabBarViewController() -> TabBarViewController {
         let tabBarViewController = TabBarViewController()
         
         return tabBarViewController
+    }
+}
+
+extension TabBarCoordinator: TabBarInputProtocol {
+    
+    func showMainPageAfterRegistrationScreen() {
+        tabBarViewController.switchToFirstTab()
+        let registerPageNavigationController = UINavigationController()
+        let registerPageRouter = Router(navigationController: registerPageNavigationController)
+        let registerPageCoordinator = RegisterPageCoordinator(router: registerPageRouter, parentCoordinator: self)
+        registerPageCoordinator.start()
+        tabBarViewController.viewControllers?.insert(registerPageNavigationController, at: 1)
     }
 }

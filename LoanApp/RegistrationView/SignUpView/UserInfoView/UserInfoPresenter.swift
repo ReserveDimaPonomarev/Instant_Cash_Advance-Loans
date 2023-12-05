@@ -10,9 +10,12 @@ import Foundation
 
 protocol UserInfoPresenterProtocol: AnyObject {
     var controller: UserInfoDisplayLogic? { get set }
+    func changeEmail(testEmail: String)
+    func saveUsersDataInProfile()
+    func logoutCurrentUser()
 }
 
-class UserInfoPresenter: UserInfoPresenterProtocol {
+class UserInfoPresenter {
     
     //  MARK: - External properties
     
@@ -37,7 +40,21 @@ class UserInfoPresenter: UserInfoPresenterProtocol {
     
     //  MARK: - Delegate methodes
     
-    func showUserInfo(testEmail: String) {
+    
+}
+
+//  MARK: - Private Methods
+
+private func isValidEmail(_ email: String) -> Bool {
+    let emailRegex = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}"
+    let emailPredicate = NSPredicate(format: "SELF MATCHES %@", emailRegex)
+    return emailPredicate.evaluate(with: email)
+}
+
+
+extension UserInfoPresenter: UserInfoPresenterProtocol {
+    
+    func changeEmail(testEmail: String) {
         if isValidEmail(testEmail) {
             print("\(testEmail) - корректный адрес электронной почты")
         } else {
@@ -45,12 +62,11 @@ class UserInfoPresenter: UserInfoPresenterProtocol {
         }
     }
     
-    //  MARK: - Private Methods
+    func saveUsersDataInProfile() {
+        coordinator.showMainScreen()
+    }
     
-    private func isValidEmail(_ email: String) -> Bool {
-        let emailRegex = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}"
-        let emailPredicate = NSPredicate(format: "SELF MATCHES %@", emailRegex)
-        return emailPredicate.evaluate(with: email)
+    func logoutCurrentUser() {
+        coordinator.showMainScreen()
     }
 }
-

@@ -8,14 +8,14 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "8E7184A0-1A5B-42FA-BC07-1FA75CE0FF1F"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "LoanApp/RegistrationView/SignUpView/UserInfoView/UserInfoViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "89"
-            endingLineNumber = "89"
+            startingLineNumber = "86"
+            endingLineNumber = "86"
             landmarkName = "setupViews()"
             landmarkType = "7">
             <Locations>
@@ -62,6 +62,21 @@
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "67"
                   endingLineNumber = "67"
+                  offsetFromSymbolStart = "560">
+               </Location>
+               <Location
+                  uuid = "8E7184A0-1A5B-42FA-BC07-1FA75CE0FF1F - c81b06fe8eeec9"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "LoanApp.UserInfoViewController.setupViews() -&gt; ()"
+                  moduleName = "LoanApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/dmitriiponomarev/Desktop/LoanApp/LoanApp/RegistrationView/SignUpView/UserInfoView/UserInfoViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "88"
+                  endingLineNumber = "88"
                   offsetFromSymbolStart = "560">
                </Location>
             </Locations>
@@ -126,6 +141,99 @@
                   startingLineNumber = "152"
                   endingLineNumber = "152"
                   offsetFromSymbolStart = "76">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "32B77A64-E8B3-4809-9599-4FF9159F11BD"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "LoanApp/Coordinators/TapBarCoordinator.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "89"
+            endingLineNumber = "89"
+            landmarkName = "showMainPageAfterRegistrationScreen()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "32B77A64-E8B3-4809-9599-4FF9159F11BD - 2b7a2a122c29fb29"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "LoanApp.TabBarCoordinator.show() -&gt; ()"
+                  moduleName = "LoanApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/dmitriiponomarev/Desktop/LoanApp/LoanApp/Coordinators/TapBarCoordinator.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "89"
+                  endingLineNumber = "89"
+                  offsetFromSymbolStart = "28">
+               </Location>
+               <Location
+                  uuid = "32B77A64-E8B3-4809-9599-4FF9159F11BD - 2b7a2a122c29fb29"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "LoanApp.TabBarCoordinator.show() -&gt; ()"
+                  moduleName = "LoanApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/dmitriiponomarev/Desktop/LoanApp/LoanApp/Coordinators/TapBarCoordinator.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "89"
+                  endingLineNumber = "89"
+                  offsetFromSymbolStart = "48">
+               </Location>
+               <Location
+                  uuid = "32B77A64-E8B3-4809-9599-4FF9159F11BD - 2b7a2a122c29fb48"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "LoanApp.TabBarCoordinator.show() -&gt; ()"
+                  moduleName = "LoanApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/dmitriiponomarev/Desktop/LoanApp/LoanApp/Coordinators/TapBarCoordinator.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "90"
+                  endingLineNumber = "90"
+                  offsetFromSymbolStart = "44">
+               </Location>
+               <Location
+                  uuid = "32B77A64-E8B3-4809-9599-4FF9159F11BD - 2b7a2a122c29fb48"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "LoanApp.TabBarCoordinator.show() -&gt; ()"
+                  moduleName = "LoanApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/dmitriiponomarev/Desktop/LoanApp/LoanApp/Coordinators/TapBarCoordinator.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "90"
+                  endingLineNumber = "90"
+                  offsetFromSymbolStart = "28">
+               </Location>
+               <Location
+                  uuid = "32B77A64-E8B3-4809-9599-4FF9159F11BD - 21d21874bcacfb"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "LoanApp.TabBarCoordinator.showMainPageAfterRegistrationScreen() -&gt; ()"
+                  moduleName = "LoanApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/dmitriiponomarev/Desktop/LoanApp/LoanApp/Coordinators/TapBarCoordinator.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "89"
+                  endingLineNumber = "89"
+                  offsetFromSymbolStart = "44">
                </Location>
             </Locations>
          </BreakpointContent>
