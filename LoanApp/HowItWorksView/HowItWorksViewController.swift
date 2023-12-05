@@ -10,6 +10,7 @@ import UIKit
 final class HowItWorksViewController: UIViewController {
 
     //  MARK: - UI properties
+    
     let questionLabel = UILabel()
     let topTitlelabel = UILabel()
     let topSubtitleLabel = UILabel()
@@ -25,16 +26,21 @@ final class HowItWorksViewController: UIViewController {
         setup()
         view.backgroundColor = .white
     }
+}
+
+//  MARK: - private methods
+
+private extension HowItWorksViewController {
     
     //  MARK: - setup UI
     
-    private func setup() {
+    func setup() {
         addViews()
         setupViews()
         setupConstraints()
     }
         
-    private func addViews() {
+    func addViews() {
         view.addSubview(questionLabel)
         view.addSubview(topTitlelabel)
         view.addSubview(topSubtitleLabel)
@@ -42,10 +48,9 @@ final class HowItWorksViewController: UIViewController {
         stackView.addArrangedSubview(blueView)
         stackView.addArrangedSubview(secondBlueView)
         stackView.addArrangedSubview(thirdBlueView)
-
     }
     
-    private func setupViews() {
+    func setupViews() {
         questionLabel.text = "?"
         questionLabel.textColor = .blue
         questionLabel.font = .systemFont(ofSize: 60, weight: .black)
@@ -66,7 +71,7 @@ final class HowItWorksViewController: UIViewController {
         thirdBlueView.setupTextInsideView(number: 3, title: "Receive Your Money", subtitle: "Once you submit your request, get your offer, and e-sign it, you'll be able to get the funds to your bank account in no time!")
     }
         
-    private func setupConstraints() {
+    func setupConstraints() {
         questionLabel.snp.makeConstraints { make in
             make.top.equalTo(view.safeAreaLayoutGuide)
             make.leading.equalTo(view.safeAreaLayoutGuide).inset(40)
