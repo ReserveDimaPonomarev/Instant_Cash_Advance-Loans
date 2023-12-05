@@ -19,7 +19,7 @@ class CustomTextViewWithBorder: UITextView {
         self.textColor = .white
         self.font = .systemFont(ofSize: 25, weight: .medium)
         self.backgroundColor = .blue
-        self.textContainerInset = UIEdgeInsets(top: 20, left: 30, bottom: 0, right: 0)
+        self.textContainerInset = UIEdgeInsets(top: 20, left: 30, bottom: 0, right: 10)
         
         let placeholderAttributes: [NSAttributedString.Key: Any] = [
             .foregroundColor: UIColor.white,

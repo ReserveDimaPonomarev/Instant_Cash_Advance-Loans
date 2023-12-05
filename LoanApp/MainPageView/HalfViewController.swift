@@ -8,7 +8,7 @@
 import UIKit
 
 
-class CustomHalfView: UIViewController {
+class HalfViewController: UIViewController {
     
     let closeButton = UIButton()
     let privacyPolicyLabel = CustomButtonOnHalfView()
@@ -54,12 +54,12 @@ class CustomHalfView: UIViewController {
         }
         termsOfUseLabel.snp.makeConstraints { make in
             make.top.equalTo(privacyPolicyLabel.snp.bottom).offset(40)
-            make.height.equalTo(privacyPolicyLabel.titleLabel?.intrinsicContentSize.height ?? 0)
+            make.height.equalTo(termsOfUseLabel.titleLabel?.intrinsicContentSize.height ?? 0)
             make.right.equalToSuperview().inset(20)
         }
         loanTermsLabel.snp.makeConstraints { make in
             make.top.equalTo(termsOfUseLabel.snp.bottom).offset(40)
-            make.height.equalTo((privacyPolicyLabel.titleLabel?.intrinsicContentSize.height ?? 0) * 2)
+            make.height.equalTo(loanTermsLabel.titleLabel?.intrinsicContentSize.height ?? 0)
             make.right.equalToSuperview().inset(20)
         }
     }
@@ -73,10 +73,10 @@ class CustomHalfView: UIViewController {
         privacyPolicyLabel.addTarget(self, action: #selector(showPrivacyPolicyPage), for: .touchUpInside)
         
         termsOfUseLabel.setupButton(title: "Terms Of Use")
-        termsOfUseLabel.addTarget(self, action: #selector(showPrivacyPolicyPage), for: .touchUpInside)
+        termsOfUseLabel.addTarget(self, action: #selector(showTermsOfUsePage), for: .touchUpInside)
         
         loanTermsLabel.setupButton(title: "Loan Terms")
-        loanTermsLabel.addTarget(self, action: #selector(showPrivacyPolicyPage), for: .touchUpInside)
+        loanTermsLabel.addTarget(self, action: #selector(showLoanTermsPage), for: .touchUpInside)
         loanTermsLabel.titleLabel?.numberOfLines = 2
     }
     

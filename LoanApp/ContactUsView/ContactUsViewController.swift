@@ -9,25 +9,24 @@
 import UIKit
 import MessageUI
 
-final class ContactUsViewController: UIViewController, MFMailComposeViewControllerDelegate {
+final class ContactUsViewController: UIViewController {
     
     //  MARK: - UI properties
     
     let contactLabel = CustomTitleLabel()
     let subtitleContactLabel = CustomSubTitleLabel()
     let nameTextField = CusomTextFieldWithBorder()
-    let emailTextField = CusomTextFieldWithBorder()
     let messageTextView = CustomTextViewWithBorder()
     let buttonSend = CustomButton()
     
     
     //  MARK: - life Cycle
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setup()
         view.backgroundColor = .blue
-
+        
     }
     
     //  MARK: - setup UI
@@ -38,12 +37,11 @@ final class ContactUsViewController: UIViewController, MFMailComposeViewControll
         setupConstraints()
         setupKeyboardNotifications()
     }
-        
+    
     private func addViews() {
         view.addSubview(contactLabel)
         view.addSubview(subtitleContactLabel)
         view.addSubview(nameTextField)
-        view.addSubview(emailTextField)
         view.addSubview(messageTextView)
         view.addSubview(buttonSend)
     }
@@ -57,10 +55,6 @@ final class ContactUsViewController: UIViewController, MFMailComposeViewControll
         nameTextField.closure = { [weak self] in
             self?.view.endEditing(true)
         }
-        emailTextField.setupTextField(placeholder: "Email", backgroundColor: .blue, borderColor: .white, placehplderColor: .white, textColor: .white, borderWidth: 8)
-        emailTextField.closure = { [weak self] in
-            self?.view.endEditing(true)
-        }
         messageTextView.setupTextView(placeholder: "Message")
         messageTextView.closure = { [weak self] in
             self?.view.endEditing(true)
@@ -69,7 +63,7 @@ final class ContactUsViewController: UIViewController, MFMailComposeViewControll
         buttonSend.setupView(title: "Send", color: .white, titleColor: .blue)
         buttonSend.addTarget(self, action: #selector(onSendButtonTapped), for: .touchUpInside)
     }
-        
+    
     private func setupConstraints() {
         contactLabel.snp.makeConstraints { make in
             make.top.equalTo(view.safeAreaLayoutGuide).offset(8)
@@ -87,14 +81,8 @@ final class ContactUsViewController: UIViewController, MFMailComposeViewControll
             make.height.equalTo(60)
             make.leading.trailing.equalToSuperview().inset(16)
         }
-        emailTextField.snp.makeConstraints { make in
-            make.top.equalTo(nameTextField.snp.bottom).offset(20)
-            make.centerX.equalToSuperview()
-            make.height.equalTo(60)
-            make.leading.trailing.equalToSuperview().inset(16)
-        }
         messageTextView.snp.makeConstraints { make in
-            make.top.equalTo(emailTextField.snp.bottom).offset(20)
+            make.top.equalTo(nameTextField.snp.bottom).offset(20)
             make.centerX.equalToSuperview()
             make.leading.trailing.equalToSuperview().inset(16)
             make.bottom.equalTo(buttonSend.snp.top).inset(-20)
@@ -106,7 +94,7 @@ final class ContactUsViewController: UIViewController, MFMailComposeViewControll
             make.bottom.equalTo(view.safeAreaLayoutGuide).inset(20)
         }
     }
-        
+    
     //  MARK: - private methods
     
     private func setupKeyboardNotifications() {
@@ -117,14 +105,23 @@ final class ContactUsViewController: UIViewController, MFMailComposeViewControll
     private func findActiveField() -> UIView? {
         if nameTextField.isFirstResponder {
             return nameTextField
-        } else if emailTextField.isFirstResponder {
-            return emailTextField
         } else if messageTextView.isFirstResponder {
             return messageTextView
         }
         return nil
     }
-
+    
+    private func configureMailComposer() -> MFMailComposeViewController{
+        let mailComposeVC = MFMailComposeViewController()
+        if let name = nameTextField.text, let message = messageTextView.text {
+            mailComposeVC.mailComposeDelegate = self
+            mailComposeVC.setToRecipients(["test@mail.ru"])
+            mailComposeVC.setMessageBody("\(name)\n\n\(message)", isHTML: false)
+            return mailComposeVC
+        }
+        return mailComposeVC
+    }
+    
     //  MARK: - objc method
     
     // Метод показа клавиатуры и подъёма экрана наверх
@@ -133,8 +130,6 @@ final class ContactUsViewController: UIViewController, MFMailComposeViewControll
             if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
                 let buttonFrameInWindow = activeField.convert(activeField.bounds, to: nil)
                 let bottomOfButton = buttonFrameInWindow.maxY
-                
-                // Рассчитываем, насколько нужно поднять экран
                 let offset = bottomOfButton + 50 - (self.view.frame.size.height - keyboardSize.height)
                 if offset > 0 {
                     self.view.frame.origin.y -= offset
@@ -147,28 +142,17 @@ final class ContactUsViewController: UIViewController, MFMailComposeViewControll
         self.view.frame.origin.y = 0
     }
     
-//    MARK: - TODO настройка отправки по почте необходимо проверить!
     @objc func onSendButtonTapped() {
-        let composer = MFMailComposeViewController()
+        let composer = configureMailComposer()
         if MFMailComposeViewController.canSendMail() {
-             composer.mailComposeDelegate = self
-             composer.setToRecipients(["Email1", "Email2"])
-             composer.setSubject("Test Mail")
-             composer.setMessageBody("Text Body", isHTML: false)
-             present(composer, animated: true, completion: nil)
+            self.present(composer, animated: true, completion: nil)
         }
     }
-    
-//    func configureMailComposer() -> MFMailComposeViewController{
-//        let mailComposeVC = MFMailComposeViewController()
-//        mailComposeVC.mailComposeDelegate = self
-//        mailComposeVC.setToRecipients([self.nameTextField.text!])
-//        mailComposeVC.setSubject(self.nameTextField.text!)
-//        mailComposeVC.setMessageBody(self.nameTextField.text!, isHTML: false)
-//        return mailComposeVC
-//    }
-    
-//    func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
-//        controller.dismiss(animated: true, completion: nil)
-//    }
 }
+extension ContactUsViewController: MFMailComposeViewControllerDelegate {
+    
+    func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
+        self.dismiss(animated: true)
+    }
+}
+

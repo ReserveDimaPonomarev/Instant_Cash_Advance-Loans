@@ -142,7 +142,7 @@ final class MainPageViewController: UIViewController {
     
     @objc func onShowMenuTapped() {
         
-        let halfScreenViewController = CustomHalfView()
+        let halfScreenViewController = HalfViewController()
         let screenBounds = UIScreen.main.bounds
         halfScreenViewController.view.frame = CGRect(x: screenBounds.width, y: 0, width: screenBounds.width / 3 * 2, height: screenBounds.height)
 

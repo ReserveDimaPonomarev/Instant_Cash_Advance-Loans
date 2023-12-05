@@ -41,7 +41,7 @@ final class TermsOfUsePageViewController: UIViewController {
     private func setupViews() {
         view.backgroundColor = .blue
         titleLabel.setupCustomTitleLabel(text: "Terms Of Use", textColor: .white)
-        descriptionTextField.setupTextView(placeholder: "Lorem ipsum dolor sit amet, consec-tetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspen-disse ultrices gravida. Risus com-modo viverra maecenas accumsan lacus vel facilisis. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida./nRisus commodo viverra maecenas accumsan lacus vel facilisis. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspen-disse ultrices gravida. Risus com-modo viverra maecenas accumsan lacus vel facilisis. Lorem ipsum dolor")
+        descriptionTextField.setupTextView(placeholder: .termsOfUserText)
         buttonBack.setupView(title: "Back", color: .white, titleColor: .blue)
         buttonBack.addTarget(self, action: #selector(showRegistrationScreen), for: .touchUpInside)
 

@@ -20,7 +20,6 @@
 		4A0CC0072B18ED510074EEF1 /* LoadingCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A0CC0062B18ED510074EEF1 /* LoadingCoordinator.swift */; };
 		4A0CC00C2B18F1930074EEF1 /* MainPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A0CC00A2B18F1930074EEF1 /* MainPageViewController.swift */; };
 		4A0CC00D2B18F1930074EEF1 /* MainPageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A0CC00B2B18F1930074EEF1 /* MainPageViewModel.swift */; };
-		4A0CC0122B19218C0074EEF1 /* PrivacyPolicyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A0CC0112B19218C0074EEF1 /* PrivacyPolicyViewController.swift */; };
 		4A0CC0152B1922BE0074EEF1 /* RegisterPageCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A0CC0142B1922BE0074EEF1 /* RegisterPageCoordinator.swift */; };
 		4A0CC0172B1928E10074EEF1 /* Extension+UITabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A0CC0162B1928E10074EEF1 /* Extension+UITabBar.swift */; };
 		4A0CC01A2B1930990074EEF1 /* UserInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A0CC0182B1930990074EEF1 /* UserInfoViewController.swift */; };
@@ -28,10 +27,11 @@
 		4A0CC01E2B193B030074EEF1 /* CustomStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A0CC01D2B193B030074EEF1 /* CustomStackView.swift */; };
 		4A0CC0202B19468B0074EEF1 /* CustomViewWithBorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A0CC01F2B19468B0074EEF1 /* CustomViewWithBorder.swift */; };
 		4A0CC0252B19601A0074EEF1 /* CustomViewForMainPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A0CC0242B19601A0074EEF1 /* CustomViewForMainPage.swift */; };
-		4A0CC0272B19CF3C0074EEF1 /* CustomHalfView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A0CC0262B19CF3C0074EEF1 /* CustomHalfView.swift */; };
+		4A0CC0272B19CF3C0074EEF1 /* HalfViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A0CC0262B19CF3C0074EEF1 /* HalfViewController.swift */; };
 		4A83BDA82B1EB5B200B2DD53 /* LoadingPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A83BDA62B1EB5B200B2DD53 /* LoadingPageViewController.swift */; };
 		4A83BDA92B1EB5B200B2DD53 /* LoadingPagePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A83BDA72B1EB5B200B2DD53 /* LoadingPagePresenter.swift */; };
 		4A83BDAE2B1F151E00B2DD53 /* auth.json in Resources */ = {isa = PBXBuildFile; fileRef = 4A83BDAD2B1F151E00B2DD53 /* auth.json */; };
+		4A83BDB72B1F4AED00B2DD53 /* PrivayAndTerms.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A83BDB62B1F4AED00B2DD53 /* PrivayAndTerms.swift */; };
 		4A85E3CF2B1A05AA00113B24 /* PrivacyPolicyPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A85E3CE2B1A05AA00113B24 /* PrivacyPolicyPageViewController.swift */; };
 		4A85E3D12B1A0AE200113B24 /* CustomButtonOnHalfView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A85E3D02B1A0AE200113B24 /* CustomButtonOnHalfView.swift */; };
 		4A85E3D32B1A0CD700113B24 /* TermsOfUsePageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A85E3D22B1A0CD700113B24 /* TermsOfUsePageViewController.swift */; };
@@ -75,7 +75,6 @@
 		4A0CC0062B18ED510074EEF1 /* LoadingCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingCoordinator.swift; sourceTree = "<group>"; };
 		4A0CC00A2B18F1930074EEF1 /* MainPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPageViewController.swift; sourceTree = "<group>"; };
 		4A0CC00B2B18F1930074EEF1 /* MainPageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPageViewModel.swift; sourceTree = "<group>"; };
-		4A0CC0112B19218C0074EEF1 /* PrivacyPolicyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyPolicyViewController.swift; sourceTree = "<group>"; };
 		4A0CC0142B1922BE0074EEF1 /* RegisterPageCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterPageCoordinator.swift; sourceTree = "<group>"; };
 		4A0CC0162B1928E10074EEF1 /* Extension+UITabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+UITabBar.swift"; sourceTree = "<group>"; };
 		4A0CC0182B1930990074EEF1 /* UserInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoViewController.swift; sourceTree = "<group>"; };
@@ -83,10 +82,11 @@
 		4A0CC01D2B193B030074EEF1 /* CustomStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomStackView.swift; sourceTree = "<group>"; };
 		4A0CC01F2B19468B0074EEF1 /* CustomViewWithBorder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomViewWithBorder.swift; sourceTree = "<group>"; };
 		4A0CC0242B19601A0074EEF1 /* CustomViewForMainPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomViewForMainPage.swift; sourceTree = "<group>"; };
-		4A0CC0262B19CF3C0074EEF1 /* CustomHalfView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomHalfView.swift; sourceTree = "<group>"; };
+		4A0CC0262B19CF3C0074EEF1 /* HalfViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HalfViewController.swift; sourceTree = "<group>"; };
 		4A83BDA62B1EB5B200B2DD53 /* LoadingPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingPageViewController.swift; sourceTree = "<group>"; };
 		4A83BDA72B1EB5B200B2DD53 /* LoadingPagePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingPagePresenter.swift; sourceTree = "<group>"; };
 		4A83BDAD2B1F151E00B2DD53 /* auth.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = auth.json; sourceTree = "<group>"; };
+		4A83BDB62B1F4AED00B2DD53 /* PrivayAndTerms.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivayAndTerms.swift; sourceTree = "<group>"; };
 		4A85E3CE2B1A05AA00113B24 /* PrivacyPolicyPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyPolicyPageViewController.swift; sourceTree = "<group>"; };
 		4A85E3D02B1A0AE200113B24 /* CustomButtonOnHalfView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButtonOnHalfView.swift; sourceTree = "<group>"; };
 		4A85E3D22B1A0CD700113B24 /* TermsOfUsePageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermsOfUsePageViewController.swift; sourceTree = "<group>"; };
@@ -176,6 +176,7 @@
 			children = (
 				4A0CC00A2B18F1930074EEF1 /* MainPageViewController.swift */,
 				4A0CC00B2B18F1930074EEF1 /* MainPageViewModel.swift */,
+				4A0CC0262B19CF3C0074EEF1 /* HalfViewController.swift */,
 				4A83BD9B2B1E38B900B2DD53 /* TermsInHalfView */,
 			);
 			path = MainPageView;
@@ -191,14 +192,6 @@
 			path = AppCoordinator;
 			sourceTree = "<group>";
 		};
-		4A0CC0132B1921D30074EEF1 /* PrivacyPolicyView */ = {
-			isa = PBXGroup;
-			children = (
-				4A0CC0112B19218C0074EEF1 /* PrivacyPolicyViewController.swift */,
-			);
-			path = PrivacyPolicyView;
-			sourceTree = "<group>";
-		};
 		4A0CC01C2B1930A60074EEF1 /* UserInfoView */ = {
 			isa = PBXGroup;
 			children = (
@@ -212,7 +205,6 @@
 			isa = PBXGroup;
 			children = (
 				4A9983EE2B180A8300F4CCE8 /* BlueViewForHowITWorks.swift */,
-				4A0CC0262B19CF3C0074EEF1 /* CustomHalfView.swift */,
 				4A0CBFFA2B18BD0D0074EEF1 /* CustomButton.swift */,
 				4A85E3D02B1A0AE200113B24 /* CustomButtonOnHalfView.swift */,
 				4A9983C42B17B82100F4CCE8 /* CustomBottomView.swift */,
@@ -237,6 +229,7 @@
 				4A85E3CE2B1A05AA00113B24 /* PrivacyPolicyPageViewController.swift */,
 				4A85E3D22B1A0CD700113B24 /* TermsOfUsePageViewController.swift */,
 				4A85E3D42B1A0CFC00113B24 /* LoanTermsPageViewController.swift */,
+				4A83BDB62B1F4AED00B2DD53 /* PrivayAndTerms.swift */,
 			);
 			path = TermsInHalfView;
 			sourceTree = "<group>";
@@ -286,7 +279,6 @@
 				4A0CC0082B18EEDA0074EEF1 /* Coordinators */,
 				4A9983D52B17F75700F4CCE8 /* TabBar */,
 				4A0CC0002B18DAF60074EEF1 /* RegistrationView */,
-				4A0CC0132B1921D30074EEF1 /* PrivacyPolicyView */,
 				4A0CC0092B18F1760074EEF1 /* MainPageView */,
 				4A0CBFF12B18B3DF0074EEF1 /* ContactUsView */,
 				4A9983F02B18859A00F4CCE8 /* HowItWorksView */,
@@ -473,6 +465,7 @@
 				4A9983EF2B180A8300F4CCE8 /* BlueViewForHowITWorks.swift in Sources */,
 				4A0CC01A2B1930990074EEF1 /* UserInfoViewController.swift in Sources */,
 				4A9983E42B17F87B00F4CCE8 /* HowItWorksViewController.swift in Sources */,
+				4A83BDB72B1F4AED00B2DD53 /* PrivayAndTerms.swift in Sources */,
 				4A9983D12B17F3AA00F4CCE8 /* CustomBackgroundImageView.swift in Sources */,
 				4A0CC0252B19601A0074EEF1 /* CustomViewForMainPage.swift in Sources */,
 				4A9983C92B17E49800F4CCE8 /* SecondViewController.swift in Sources */,
@@ -492,11 +485,10 @@
 				4A83BDA92B1EB5B200B2DD53 /* LoadingPagePresenter.swift in Sources */,
 				4A9983CB2B17E89700F4CCE8 /* ThirdViewController.swift in Sources */,
 				4A85E3D52B1A0CFC00113B24 /* LoanTermsPageViewController.swift in Sources */,
-				4A0CC0122B19218C0074EEF1 /* PrivacyPolicyViewController.swift in Sources */,
 				4A9983AF2B17A8CE00F4CCE8 /* AppDelegate.swift in Sources */,
 				4A9983E82B17F93500F4CCE8 /* ContactUsViewController.swift in Sources */,
 				4A9983E12B17F83C00F4CCE8 /* MainPageCoordinator.swift in Sources */,
-				4A0CC0272B19CF3C0074EEF1 /* CustomHalfView.swift in Sources */,
+				4A0CC0272B19CF3C0074EEF1 /* HalfViewController.swift in Sources */,
 				4A9983E92B17F93500F4CCE8 /* ContactUsViewModel.swift in Sources */,
 				4A83BDA82B1EB5B200B2DD53 /* LoadingPageViewController.swift in Sources */,
 				4A9983B12B17A8CE00F4CCE8 /* SceneDelegate.swift in Sources */,
