@@ -10,6 +10,10 @@ import SnapKit
 
 class ThirdViewController: UIViewController {
             
+    //  MARK: External dependencies
+
+    var loginOutput: LoginOutput?
+    
     //MARK: - UI properties
 
     let backgroundImageView = CustomBackgroundImageView()
@@ -22,9 +26,6 @@ class ThirdViewController: UIViewController {
     let manImageView = UIImageView()
     let bottomView = CustomBottomView()
     
-    var loginOutput: LoginOutput?
-
-  
     //  MARK: - init
 
     deinit {

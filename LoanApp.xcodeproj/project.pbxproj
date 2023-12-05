@@ -31,7 +31,7 @@
 		4A83BDA82B1EB5B200B2DD53 /* LoadingPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A83BDA62B1EB5B200B2DD53 /* LoadingPageViewController.swift */; };
 		4A83BDA92B1EB5B200B2DD53 /* LoadingPagePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A83BDA72B1EB5B200B2DD53 /* LoadingPagePresenter.swift */; };
 		4A83BDAE2B1F151E00B2DD53 /* auth.json in Resources */ = {isa = PBXBuildFile; fileRef = 4A83BDAD2B1F151E00B2DD53 /* auth.json */; };
-		4A83BDB72B1F4AED00B2DD53 /* PrivayAndTerms.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A83BDB62B1F4AED00B2DD53 /* PrivayAndTerms.swift */; };
+		4A83BDB72B1F4AED00B2DD53 /* PrivacyAndTermsTexts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A83BDB62B1F4AED00B2DD53 /* PrivacyAndTermsTexts.swift */; };
 		4A85E3CF2B1A05AA00113B24 /* PrivacyPolicyPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A85E3CE2B1A05AA00113B24 /* PrivacyPolicyPageViewController.swift */; };
 		4A85E3D12B1A0AE200113B24 /* CustomButtonOnHalfView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A85E3D02B1A0AE200113B24 /* CustomButtonOnHalfView.swift */; };
 		4A85E3D32B1A0CD700113B24 /* TermsOfUsePageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A85E3D22B1A0CD700113B24 /* TermsOfUsePageViewController.swift */; };
@@ -86,7 +86,7 @@
 		4A83BDA62B1EB5B200B2DD53 /* LoadingPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingPageViewController.swift; sourceTree = "<group>"; };
 		4A83BDA72B1EB5B200B2DD53 /* LoadingPagePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingPagePresenter.swift; sourceTree = "<group>"; };
 		4A83BDAD2B1F151E00B2DD53 /* auth.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = auth.json; sourceTree = "<group>"; };
-		4A83BDB62B1F4AED00B2DD53 /* PrivayAndTerms.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivayAndTerms.swift; sourceTree = "<group>"; };
+		4A83BDB62B1F4AED00B2DD53 /* PrivacyAndTermsTexts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyAndTermsTexts.swift; sourceTree = "<group>"; };
 		4A85E3CE2B1A05AA00113B24 /* PrivacyPolicyPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyPolicyPageViewController.swift; sourceTree = "<group>"; };
 		4A85E3D02B1A0AE200113B24 /* CustomButtonOnHalfView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButtonOnHalfView.swift; sourceTree = "<group>"; };
 		4A85E3D22B1A0CD700113B24 /* TermsOfUsePageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermsOfUsePageViewController.swift; sourceTree = "<group>"; };
@@ -229,7 +229,7 @@
 				4A85E3CE2B1A05AA00113B24 /* PrivacyPolicyPageViewController.swift */,
 				4A85E3D22B1A0CD700113B24 /* TermsOfUsePageViewController.swift */,
 				4A85E3D42B1A0CFC00113B24 /* LoanTermsPageViewController.swift */,
-				4A83BDB62B1F4AED00B2DD53 /* PrivayAndTerms.swift */,
+				4A83BDB62B1F4AED00B2DD53 /* PrivacyAndTermsTexts.swift */,
 			);
 			path = TermsInHalfView;
 			sourceTree = "<group>";
@@ -237,18 +237,18 @@
 		4A83BDAA2B1EB5B600B2DD53 /* LoadingPage */ = {
 			isa = PBXGroup;
 			children = (
-				4A83BDB12B1F1BA900B2DD53 /* Test */,
+				4A83BDB12B1F1BA900B2DD53 /* LoadingView */,
 				4A83BDA62B1EB5B200B2DD53 /* LoadingPageViewController.swift */,
 				4A83BDA72B1EB5B200B2DD53 /* LoadingPagePresenter.swift */,
 			);
 			path = LoadingPage;
 			sourceTree = "<group>";
 		};
-		4A83BDB12B1F1BA900B2DD53 /* Test */ = {
+		4A83BDB12B1F1BA900B2DD53 /* LoadingView */ = {
 			isa = PBXGroup;
 			children = (
 			);
-			path = Test;
+			path = LoadingView;
 			sourceTree = "<group>";
 		};
 		4A9983A22B17A8CE00F4CCE8 = {
@@ -465,7 +465,7 @@
 				4A9983EF2B180A8300F4CCE8 /* BlueViewForHowITWorks.swift in Sources */,
 				4A0CC01A2B1930990074EEF1 /* UserInfoViewController.swift in Sources */,
 				4A9983E42B17F87B00F4CCE8 /* HowItWorksViewController.swift in Sources */,
-				4A83BDB72B1F4AED00B2DD53 /* PrivayAndTerms.swift in Sources */,
+				4A83BDB72B1F4AED00B2DD53 /* PrivacyAndTermsTexts.swift in Sources */,
 				4A9983D12B17F3AA00F4CCE8 /* CustomBackgroundImageView.swift in Sources */,
 				4A0CC0252B19601A0074EEF1 /* CustomViewForMainPage.swift in Sources */,
 				4A9983C92B17E49800F4CCE8 /* SecondViewController.swift in Sources */,

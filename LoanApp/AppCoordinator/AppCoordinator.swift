@@ -7,30 +7,27 @@
 
 import UIKit
 
-protocol WelcomeScreenOutput: AnyObject {
-    
-}
 
 final class AppCoordinator: BaseCoordinator {
     
     func start() {
-        showLogin()
+        showLoadingCoordinator()
     }
 }
 
-extension AppCoordinator: WelcomeScreenOutput {
+extension AppCoordinator {
     
-    func showLogin() {
+    func showLoadingCoordinator() {
         let loadingCoordinator = LoadingCoordinator(router: router)
         loadingCoordinator.start()
         loadingCoordinator.onFinish = { [weak self] in
             self?.removeDependency(loadingCoordinator)
-            self?.showDemo()
+            self?.showTabBarCoordinator()
         }
         addDependency(loadingCoordinator)
     }
 
-    func showDemo() {
+    func showTabBarCoordinator() {
         let tabBarCoordinator = TabBarCoordinator(router: router)
         tabBarCoordinator.start()
         tabBarCoordinator.onFinish = { [weak self] in

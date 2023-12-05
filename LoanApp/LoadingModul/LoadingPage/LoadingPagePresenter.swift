@@ -42,8 +42,10 @@ class LoadingPagePresenter {
     
     //  MARK: - Private Methods
     
-    
 }
+
+//  MARK: - extension LoadingPagePresenterProtocol
+
 extension LoadingPagePresenter: LoadingPagePresenterProtocol {
     func progressHasBeenCompleted() {
         coordinator?.showFirstScreen()

@@ -11,6 +11,10 @@ import SnapKit
 
 class SecondViewController: UIViewController {
             
+    //  MARK: External dependencies
+
+    var loginOutput: LoginOutput?
+    
     //MARK: - UI properties
 
     let backgroundImageView = CustomBackgroundImageView()
@@ -19,9 +23,7 @@ class SecondViewController: UIViewController {
     let thousandsLabel = UILabel()
     let manImageView = UIImageView()
     let bottomView = CustomBottomView()
-    
-    var loginOutput: LoginOutput?
-  
+
     //  MARK: - init
 
     deinit {

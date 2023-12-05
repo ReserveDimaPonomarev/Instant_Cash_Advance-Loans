@@ -7,13 +7,6 @@
 
 import Foundation
 
-//
-//  LoginCoordinator.swift
-//  BettaBank
-//
-//  Created by Margarita Slesareva on 14.11.2023.
-//
-
 protocol LoginOutput: AnyObject {
     func showFirstScreen()
     func showSecondScreen()

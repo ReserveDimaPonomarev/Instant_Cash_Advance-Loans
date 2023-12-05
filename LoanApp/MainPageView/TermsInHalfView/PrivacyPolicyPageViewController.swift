@@ -5,18 +5,15 @@
 //  Created by Дмитрий Пономарев on 01.12.2023.
 //
 
-
 import UIKit
-
 
 final class PrivacyPolicyPageViewController: UIViewController {
     
-
     //  MARK: - UI properties
     
-    let titleLabel = CustomTitleLabel()
-    let descriptionTextField = CustomTextViewWithBorder()
-    let buttonBack = CustomButton()
+    private let titleLabel = CustomTitleLabel()
+    private let descriptionTextField = CustomTextViewWithBorder()
+    private let buttonBack = CustomButton()
     
     //  MARK: - life Cycle
 
@@ -24,32 +21,36 @@ final class PrivacyPolicyPageViewController: UIViewController {
         super.viewDidLoad()
         setup()
     }
+}
+
+//  MARK: - private methods
+
+private extension PrivacyPolicyPageViewController {
     
     //  MARK: - setup UI
     
-    private func setup() {
+    func setup() {
         addViews()
         setupViews()
         setupConstraints()
     }
         
-    private func addViews() {
+    func addViews() {
         view.addSubview(titleLabel)
         view.addSubview(descriptionTextField)
         view.addSubview(buttonBack)
     }
     
-    private func setupViews() {
+    func setupViews() {
         view.backgroundColor = .blue
         titleLabel.setupCustomTitleLabel(text: "Privacy Policy", textColor: .white)
         descriptionTextField.setupTextView(placeholder: .privacyPolicyText1)
         buttonBack.setupView(title: "Back", color: .white, titleColor: .blue)
         buttonBack.addTarget(self, action: #selector(showRegistrationScreen), for: .touchUpInside)
         self.descriptionTextField.isEditable = false
-
     }
         
-    private func setupConstraints() {
+    func setupConstraints() {
         titleLabel.snp.makeConstraints { make in
             make.top.equalTo(view.safeAreaLayoutGuide).offset(30)
             make.centerX.equalToSuperview()

@@ -7,13 +7,11 @@
 
 import UIKit
 
-
-
 final class TabBarViewController: UITabBarController, UITabBarControllerDelegate {
     
-    weak var tabBarDelegate: UITabBarDelegate?
+    //  MARK: External dependencies
     
-    var myColsure: ((UINavigationController)->Void)?
+    weak var tabBarDelegate: UITabBarDelegate?
     
     //  MARK: - life Cycle
     
@@ -21,6 +19,16 @@ final class TabBarViewController: UITabBarController, UITabBarControllerDelegate
         super.viewDidLoad()
         setupUI()
     }
+    
+    func switchToFirstTab() {
+        let registerationPageIndex = 1
+        self.viewControllers?[registerationPageIndex].removeFromParent()
+    }
+}
+
+//  MARK: - private methods
+
+private extension TabBarViewController {
     
     //  MARK: - setup UI
     
@@ -30,19 +38,5 @@ final class TabBarViewController: UITabBarController, UITabBarControllerDelegate
         tabBar.backgroundColor = .white
         self.delegate = self
         self.tabBarDelegate = self
-    }
-
-    func switchToFirstTab() {
-        let mainPageIndex = 0
-        let registerationPageIndex = 1
-        self.viewControllers?[registerationPageIndex].removeFromParent()
-        
-        if mainPageIndex < viewControllers?.count ?? 0 {
-            selectedIndex = mainPageIndex
-            if let selectedViewController = selectedViewController {
-                selectedViewController.viewWillAppear(true)
-            }
-        }
-        
     }
 }

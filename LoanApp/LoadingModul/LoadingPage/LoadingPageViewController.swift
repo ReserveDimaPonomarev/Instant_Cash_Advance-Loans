@@ -44,28 +44,33 @@ final class LoadingPageViewController: UIViewController, LoadingPageDisplayLogic
         super.viewDidLoad()
         setup()
     }
-    
+}
+
+//  MARK: - private methods
+
+private extension LoadingPageViewController {
+
     //  MARK: - setup UI
     
-    private func setup() {
+    func setup() {
         addViews()
         setupViews()
         setupConstraints()
     }
     
-    private func addViews() {
+    func addViews() {
         view.addSubview(imageView)
         view.addSubview(progressView)
     }
     
-    private func setupViews() {
+    func setupViews() {
         view.backgroundColor = .white
         imageView.image = .loading
         imageView.contentMode = .scaleAspectFit
         setupProgressView()
     }
     
-    private func setupConstraints() {
+    func setupConstraints() {
         imageView.snp.makeConstraints { make in
             make.center.equalToSuperview()
             make.left.right.equalToSuperview().inset(50)
@@ -77,7 +82,7 @@ final class LoadingPageViewController: UIViewController, LoadingPageDisplayLogic
         }
     }
     
-    private func setupProgressView() {
+    func setupProgressView() {
         timerToDownloadProgressView = Timer.scheduledTimer(withTimeInterval: 0.01, repeats: true) { [weak self] timer in
             guard let self else { return }
             self.progressView.progress += 0.01 / 3.0
@@ -87,13 +92,12 @@ final class LoadingPageViewController: UIViewController, LoadingPageDisplayLogic
         }
     }
     
-    private func progressCompleted() {
+    //  MARK: - private methods
+    
+    func progressCompleted() {
         self.timerToDownloadProgressView?.invalidate()
         presenter.progressHasBeenCompleted()
     }
-    
-    //  MARK: - private methods
-    
     
     //  MARK: - objc method
     

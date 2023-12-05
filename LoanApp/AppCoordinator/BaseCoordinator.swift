@@ -21,7 +21,6 @@ class BaseCoordinator {
         for element in childCoordinators where element === coordinator {
             return
         }
-        
         childCoordinators.append(coordinator)
     }
     

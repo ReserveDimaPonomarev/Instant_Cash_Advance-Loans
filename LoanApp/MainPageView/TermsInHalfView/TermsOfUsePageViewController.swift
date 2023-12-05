@@ -7,15 +7,13 @@
 
 import UIKit
 
-
 final class TermsOfUsePageViewController: UIViewController {
-    
 
     //  MARK: - UI properties
     
-    let titleLabel = CustomTitleLabel()
-    let descriptionTextField = CustomTextViewWithBorder()
-    let buttonBack = CustomButton()
+    private let titleLabel = CustomTitleLabel()
+    private let descriptionTextField = CustomTextViewWithBorder()
+    private let buttonBack = CustomButton()
     
     //  MARK: - life Cycle
 
@@ -23,31 +21,35 @@ final class TermsOfUsePageViewController: UIViewController {
         super.viewDidLoad()
         setup()
     }
+}
+
+//  MARK: - private methods
+
+private extension TermsOfUsePageViewController {
     
     //  MARK: - setup UI
     
-    private func setup() {
+    func setup() {
         addViews()
         setupViews()
         setupConstraints()
     }
         
-    private func addViews() {
+    func addViews() {
         view.addSubview(titleLabel)
         view.addSubview(descriptionTextField)
         view.addSubview(buttonBack)
     }
     
-    private func setupViews() {
+    func setupViews() {
         view.backgroundColor = .blue
         titleLabel.setupCustomTitleLabel(text: "Terms Of Use", textColor: .white)
         descriptionTextField.setupTextView(placeholder: .termsOfUserText)
         buttonBack.setupView(title: "Back", color: .white, titleColor: .blue)
         buttonBack.addTarget(self, action: #selector(showRegistrationScreen), for: .touchUpInside)
-
     }
         
-    private func setupConstraints() {
+    func setupConstraints() {
         titleLabel.snp.makeConstraints { make in
             make.top.equalTo(view.safeAreaLayoutGuide).offset(30)
             make.centerX.equalToSuperview()

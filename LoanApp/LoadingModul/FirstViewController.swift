@@ -9,7 +9,11 @@ import UIKit
 import SnapKit
 
 class FirstViewController: UIViewController {
-            
+           
+    //  MARK: External dependencies
+
+    var loginOutput: LoginOutput?
+    
     //MARK: - UI properties
 
     private let backgroundImageView = CustomBackgroundImageView()
@@ -19,8 +23,6 @@ class FirstViewController: UIViewController {
     private let approvalLabel = UILabel()
     private let manImageView = UIImageView()
     private let bottomView = CustomBottomView()
-    
-    var loginOutput: LoginOutput?
     
     //  MARK: - init
 

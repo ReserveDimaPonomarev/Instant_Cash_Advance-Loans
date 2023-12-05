@@ -5,7 +5,6 @@
 //  Created by Дмитрий Пономарев on 30.11.2023.
 //
 
-
 import UIKit
 import MessageUI
 
@@ -19,26 +18,29 @@ final class ContactUsViewController: UIViewController {
     let messageTextView = CustomTextViewWithBorder()
     let buttonSend = CustomButton()
     
-    
     //  MARK: - life Cycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setup()
         view.backgroundColor = .blue
-        
     }
+}
+
+//  MARK: - private methods
+
+private extension ContactUsViewController {
     
     //  MARK: - setup UI
     
-    private func setup() {
+    func setup() {
         addViews()
         setupViews()
         setupConstraints()
-        setupKeyboardNotifications()
+        addActions()
     }
     
-    private func addViews() {
+    func addViews() {
         view.addSubview(contactLabel)
         view.addSubview(subtitleContactLabel)
         view.addSubview(nameTextField)
@@ -46,25 +48,20 @@ final class ContactUsViewController: UIViewController {
         view.addSubview(buttonSend)
     }
     
-    private func setupViews() {
+    func setupViews() {
         contactLabel.setupCustomTitleLabel(text: "Contact", textColor: .white)
         subtitleContactLabel.setupCustomSubTitleLabel(text: "Please feel free to contact us with any queries or ideas you have!\nWe are always happy to be of assistance.", textColor: .white, alignment: .center)
         
         nameTextField.setupTextField(placeholder: "Name", backgroundColor: .blue, borderColor: .white, placehplderColor: .white, textColor: .white, borderWidth: 8)
         
-        nameTextField.closure = { [weak self] in
-            self?.view.endEditing(true)
-        }
         messageTextView.setupTextView(placeholder: "Message")
-        messageTextView.closure = { [weak self] in
-            self?.view.endEditing(true)
-        }
         
         buttonSend.setupView(title: "Send", color: .white, titleColor: .blue)
         buttonSend.addTarget(self, action: #selector(onSendButtonTapped), for: .touchUpInside)
+        endEditingFromClosures()
     }
     
-    private func setupConstraints() {
+    func setupConstraints() {
         contactLabel.snp.makeConstraints { make in
             make.top.equalTo(view.safeAreaLayoutGuide).offset(8)
             make.leading.trailing.equalToSuperview().inset(16)
@@ -95,14 +92,27 @@ final class ContactUsViewController: UIViewController {
         }
     }
     
-    //  MARK: - private methods
+    //  MARK: - addActions
     
-    private func setupKeyboardNotifications() {
+    func addActions() {
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
     }
     
-    private func findActiveField() -> UIView? {
+    func endEditingFromClosures() {
+        nameTextField.closure = { [weak self] in
+            guard let self else { return }
+            self.view.endEditing(true)
+        }
+        messageTextView.closure = { [weak self] in
+            guard let self else { return }
+            self.view.endEditing(true)
+        }
+    }
+    
+    //  MARK: - private methods
+    
+    func findActiveField() -> UIView? {
         if nameTextField.isFirstResponder {
             return nameTextField
         } else if messageTextView.isFirstResponder {
@@ -111,7 +121,7 @@ final class ContactUsViewController: UIViewController {
         return nil
     }
     
-    private func configureMailComposer() -> MFMailComposeViewController{
+    func configureMailComposer() -> MFMailComposeViewController{
         let mailComposeVC = MFMailComposeViewController()
         if let name = nameTextField.text, let message = messageTextView.text {
             mailComposeVC.mailComposeDelegate = self
@@ -124,16 +134,14 @@ final class ContactUsViewController: UIViewController {
     
     //  MARK: - objc method
     
-    // Метод показа клавиатуры и подъёма экрана наверх
     @objc func keyboardWillShow(notification: NSNotification) {
-        if let activeField = findActiveField() {
-            if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
-                let buttonFrameInWindow = activeField.convert(activeField.bounds, to: nil)
-                let bottomOfButton = buttonFrameInWindow.maxY
-                let offset = bottomOfButton + 50 - (self.view.frame.size.height - keyboardSize.height)
-                if offset > 0 {
-                    self.view.frame.origin.y -= offset
-                }
+        if let activeField = findActiveField(),
+           let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
+            let buttonFrameInWindow = activeField.convert(activeField.bounds, to: nil)
+            let bottomOfButton = buttonFrameInWindow.maxY
+            let offset = bottomOfButton + 50 - (self.view.frame.size.height - keyboardSize.height)
+            if offset > 0 {
+                self.view.frame.origin.y -= offset
             }
         }
     }
@@ -149,6 +157,9 @@ final class ContactUsViewController: UIViewController {
         }
     }
 }
+
+//  MARK: - extension MFMailComposeViewControllerDelegate
+
 extension ContactUsViewController: MFMailComposeViewControllerDelegate {
     
     func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {

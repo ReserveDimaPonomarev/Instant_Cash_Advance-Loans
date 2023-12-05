@@ -11,6 +11,7 @@ import UIKit
 final class MainPageViewController: UIViewController {
     
     //  MARK: - UI properties
+    
     private let backgroundImage = UIImageView()
     private let fiveLabel = CustomTitleLabel()
     private let minLabel = CustomTitleLabel()
@@ -28,18 +29,22 @@ final class MainPageViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setup()
-        view.backgroundColor = .white
     }
+}
+
+//  MARK: - private methods
+
+private extension MainPageViewController {
     
     //  MARK: - setup UI
     
-    private func setup() {
+    func setup() {
         addViews()
         setupViews()
         setupConstraints()
     }
     
-    private func addViews() {
+    func addViews() {
         view.addSubview(backgroundImage)
         view.addSubview(fiveLabel)
         view.addSubview(minLabel)
@@ -55,12 +60,11 @@ final class MainPageViewController: UIViewController {
         
     }
     
-    private func setupViews() {
+    func setupViews() {
+        view.backgroundColor = .white
         backgroundImage.image = UIImage(resource: .background)
         
         fiveLabel.setupCustomLabelOnMainScreen(text: "5", fontSize: 80, allignment: .natural)
-        
-        
         minLabel.setupCustomLabelOnMainScreen(text: "min", fontSize: 45, allignment: .natural)
         minLabel.minimumScaleFactor = 0.5
         minLabel.adjustsFontForContentSizeCategory = true
@@ -86,7 +90,7 @@ final class MainPageViewController: UIViewController {
         openMenuButton.addTarget(self, action: #selector(onShowMenuTapped), for: .touchUpInside)
     }
     
-    private func setupConstraints() {
+    func setupConstraints() {
         backgroundImage.snp.makeConstraints { make in
             make.edges.equalToSuperview()
         }
