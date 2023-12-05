@@ -141,26 +141,15 @@ final class MainPageViewController: UIViewController {
     //  MARK: - objc method
     
     @objc func onShowMenuTapped() {
-//        let menuView = CustomHalfView()
-//        navigationController?.pushViewController(menuView, animated: true)
-//        UIView.animate(withDuration: 0.5, delay: 0, options: .curveEaseOut) { [weak self] in
-//            guard let self else { return }
-//            menuView.view.frame.origin.x = UIScreen.main.bounds.width / 3
-//        }
         
-        
-        let halfScreenViewController = CustomHalfView() // Замените на имя вашего второго контроллера
-        
-        // Установите начальные координаты за пределами экрана справа
-        let screenWidth = UIScreen.main.bounds.width
-        halfScreenViewController.view.frame = CGRect(x: UIScreen.main.bounds.width, y: 0, width: UIScreen.main.bounds.width / 3 * 2, height: UIScreen.main.bounds.height)
+        let halfScreenViewController = CustomHalfView()
+        let screenBounds = UIScreen.main.bounds
+        halfScreenViewController.view.frame = CGRect(x: screenBounds.width, y: 0, width: screenBounds.width / 3 * 2, height: screenBounds.height)
 
-        // Добавьте второй контроллер к иерархии контроллеров
         addChild(halfScreenViewController)
         view.addSubview(halfScreenViewController.view)
         halfScreenViewController.didMove(toParent: self)
         
-        // Анимация выдвижения вью справа налево
         UIView.animate(withDuration: 0.3) {
             halfScreenViewController.view.frame.origin.x = UIScreen.main.bounds.width / 3
         }

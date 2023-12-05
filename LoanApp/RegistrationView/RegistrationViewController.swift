@@ -40,7 +40,7 @@ final class RegistrationViewController: UIViewController {
     }
     
     deinit {
-        print("deinited")
+        print("RegistrationViewController deinited")
     }
     
     //  MARK: - life Cycle

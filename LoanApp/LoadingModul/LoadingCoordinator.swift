@@ -14,7 +14,7 @@ import Foundation
 //  Created by Margarita Slesareva on 14.11.2023.
 //
 
-protocol LoginOutput {
+protocol LoginOutput: AnyObject {
     func showFirstScreen()
     func showSecondScreen()
     func showThirdScreen()
@@ -25,7 +25,7 @@ final class LoadingCoordinator: BaseCoordinator {
     var onFinish: (() -> Void)?
     
     func start() {
-        showFirstScreen()
+        showLoadingScreen()
     }
     
     func finish() {
@@ -34,6 +34,14 @@ final class LoadingCoordinator: BaseCoordinator {
 }
 
 extension LoadingCoordinator: LoginOutput {
+    
+    func showLoadingScreen() {
+        let loadingPresenter = LoadingPagePresenter(coordinator: self)
+        let loadingVC = LoadingPageViewController(presenter: loadingPresenter)
+        loadingPresenter.controller = loadingVC
+        
+        router.push(loadingVC)
+    }
     
     func showFirstScreen() {
         let firstVC = FirstViewController()

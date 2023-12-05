@@ -45,7 +45,7 @@ final class UserInfoViewController: UIViewController {
     }
     
     deinit {
-        print("deinited")
+        print("UserInfoViewController deinited")
     }
     
     //  MARK: - life Cycle

@@ -35,7 +35,7 @@ class UserInfoPresenter {
     }
     
     deinit {
-        print("deinited")
+        print("UserInfoPresenter deinited")
     }
     
     //  MARK: - Delegate methodes

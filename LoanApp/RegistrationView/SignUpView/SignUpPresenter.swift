@@ -33,7 +33,7 @@ class SignUpPresenter: SignUpPresenterProtocol {
     }
     
     deinit {
-        print("deinited")
+        print("SignUpPresenter deinited")
     }
     
     //  MARK: - Delegate methodes

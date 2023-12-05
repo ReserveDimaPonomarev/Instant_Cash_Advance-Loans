@@ -7,9 +7,9 @@
 
 
 import UIKit
+import MessageUI
 
-
-final class ContactUsViewController: UIViewController {
+final class ContactUsViewController: UIViewController, MFMailComposeViewControllerDelegate {
     
     //  MARK: - UI properties
     
@@ -20,8 +20,6 @@ final class ContactUsViewController: UIViewController {
     let messageTextView = CustomTextViewWithBorder()
     let buttonSend = CustomButton()
     
-    private let notification = NotificationCenter.default
-
     
     //  MARK: - life Cycle
 
@@ -69,6 +67,7 @@ final class ContactUsViewController: UIViewController {
         }
         
         buttonSend.setupView(title: "Send", color: .white, titleColor: .blue)
+        buttonSend.addTarget(self, action: #selector(onSendButtonTapped), for: .touchUpInside)
     }
         
     private func setupConstraints() {
@@ -114,8 +113,18 @@ final class ContactUsViewController: UIViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
     }
-
     
+    private func findActiveField() -> UIView? {
+        if nameTextField.isFirstResponder {
+            return nameTextField
+        } else if emailTextField.isFirstResponder {
+            return emailTextField
+        } else if messageTextView.isFirstResponder {
+            return messageTextView
+        }
+        return nil
+    }
+
     //  MARK: - objc method
     
     // Метод показа клавиатуры и подъёма экрана наверх
@@ -134,18 +143,32 @@ final class ContactUsViewController: UIViewController {
         }
     }
     
-    private func findActiveField() -> UIView? {
-        if nameTextField.isFirstResponder {
-            return nameTextField
-        } else if emailTextField.isFirstResponder {
-            return emailTextField
-        } else if messageTextView.isFirstResponder {
-            return messageTextView
-        }
-        return nil
-    }
-    
     @objc func keyboardWillHide(notification: NSNotification) {
         self.view.frame.origin.y = 0
     }
+    
+//    MARK: - TODO настройка отправки по почте необходимо проверить!
+    @objc func onSendButtonTapped() {
+        let composer = MFMailComposeViewController()
+        if MFMailComposeViewController.canSendMail() {
+             composer.mailComposeDelegate = self
+             composer.setToRecipients(["Email1", "Email2"])
+             composer.setSubject("Test Mail")
+             composer.setMessageBody("Text Body", isHTML: false)
+             present(composer, animated: true, completion: nil)
+        }
+    }
+    
+//    func configureMailComposer() -> MFMailComposeViewController{
+//        let mailComposeVC = MFMailComposeViewController()
+//        mailComposeVC.mailComposeDelegate = self
+//        mailComposeVC.setToRecipients([self.nameTextField.text!])
+//        mailComposeVC.setSubject(self.nameTextField.text!)
+//        mailComposeVC.setMessageBody(self.nameTextField.text!, isHTML: false)
+//        return mailComposeVC
+//    }
+    
+//    func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
+//        controller.dismiss(animated: true, completion: nil)
+//    }
 }

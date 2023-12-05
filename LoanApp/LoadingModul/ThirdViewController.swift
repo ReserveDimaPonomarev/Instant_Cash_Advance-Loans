@@ -25,6 +25,12 @@ class ThirdViewController: UIViewController {
     var loginOutput: LoginOutput?
 
   
+    //  MARK: - init
+
+    deinit {
+        print("ThirdViewController deinited")
+    }
+    
     //MARK: - View lifecycle
     
     override func viewDidLoad(){

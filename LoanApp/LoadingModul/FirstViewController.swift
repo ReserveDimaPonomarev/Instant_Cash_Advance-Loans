@@ -22,6 +22,11 @@ class FirstViewController: UIViewController {
     
     var loginOutput: LoginOutput?
     
+    //  MARK: - init
+
+    deinit {
+        print("FirstViewController deinited")
+    }
   
     //MARK: - View lifecycle
     

@@ -38,7 +38,7 @@ final class SignUpViewController: UIViewController {
     }
     
     deinit {
-        print("deinited")
+        print("SignUpViewController deinited")
     }
     
     //  MARK: - life Cycle
