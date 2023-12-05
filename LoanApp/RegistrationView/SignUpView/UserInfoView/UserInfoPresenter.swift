@@ -19,7 +19,7 @@ class UserInfoPresenter {
     
     //  MARK: - External properties
     
-    private let coordinator: RegisterPageScreenOutput
+    private let coordinator: RegistrationPageScreenOutput
     weak var controller: UserInfoDisplayLogic?
     
     //  MARK: Data Variables
@@ -30,7 +30,7 @@ class UserInfoPresenter {
     
     //  MARK: - Init
     
-    init(coordinator: RegisterPageScreenOutput) {
+    init(coordinator: RegistrationPageScreenOutput) {
         self.coordinator = coordinator
     }
     

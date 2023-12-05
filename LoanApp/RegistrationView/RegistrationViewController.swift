@@ -8,9 +8,15 @@
 
 import UIKit
 
+protocol RegistrationDisplayLogic: AnyObject {
+    
+}
 
 final class RegistrationViewController: UIViewController {
-
+    
+    //  MARK: External dependencies
+    
+    var presenter: RegistrationPresenterProtocol
     
     //  MARK: - UI properties
     
@@ -22,13 +28,10 @@ final class RegistrationViewController: UIViewController {
     private let signUpButton = CustomButton()
     private let signInButton = CustomButton()
     
-    private let notification = NotificationCenter.default
-    var output: RegisterPageScreenOutput
-    
     //  MARK: - init
-
-    init(output: RegisterPageScreenOutput) {
-        self.output = output
+    
+    init(presenter: RegistrationPresenterProtocol) {
+        self.presenter = presenter
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -36,23 +39,32 @@ final class RegistrationViewController: UIViewController {
         fatalError("init(coder:) has not been implemented")
     }
     
+    deinit {
+        print("deinited")
+    }
+    
     //  MARK: - life Cycle
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setup()
         view.backgroundColor = .white
     }
-    
+}
+
+//  MARK: - private methods
+
+private extension RegistrationViewController {
+
     //  MARK: - setup UI
     
-    private func setup() {
+    func setup() {
         addViews()
         setupViews()
         setupConstraints()
     }
         
-    private func addViews() {
+    func addViews() {
         view.addSubview(backgroundImage)
         view.addSubview(accountIcon)
         view.addSubview(registrationLabel)
@@ -62,24 +74,21 @@ final class RegistrationViewController: UIViewController {
         view.addSubview(signInButton)
     }
     
-    private func setupViews() {
+    func setupViews() {
         backgroundImage.image = UIImage(resource: .background)
         accountIcon.image = UIImage(resource: .accountPageIcon)
         registrationLabel.setupCustomTitleLabel(text: "Registration", textColor: .blue)
         userNameTextField.setupTextField(placeholder: "username", backgroundColor: .white, borderColor: .blue, placehplderColor: .gray, textColor: .blue, borderWidth: 4)
-        userNameTextField.closure = { [weak self] in
-            self?.view.endEditing(true)
-        }
+
         passwordTextField.setupTextField(placeholder: "password", backgroundColor: .white, borderColor: .blue, placehplderColor: .gray, textColor: .blue, borderWidth: 4)
-        passwordTextField.closure = { [weak self] in
-            self?.view.endEditing(true)
-        }
+
         signInButton.setupView(title: "Sign In", color: .blue, titleColor: .white)
         signUpButton.setupView(title: "Sign Up", color: .blue, titleColor: .white)
         signUpButton.addTarget(self, action: #selector(showRegistrationScreen), for: .touchUpInside)
+        endEditingFromClosures()
     }
         
-    private func setupConstraints() {
+    func setupConstraints() {
         backgroundImage.snp.makeConstraints { make in
             make.edges.equalToSuperview()
         }
@@ -118,36 +127,49 @@ final class RegistrationViewController: UIViewController {
             make.width.equalTo(200)
         }
     }
-        
-    //  MARK: - private methods
     
-    private func setupKeyboardNotifications() {
+    //  MARK: - addActions
+
+    func addActions() {
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
     }
-
+    
+    func endEditingFromClosures() {
+        userNameTextField.closure = { [weak self] in
+            guard let self else { return }
+            self.view.endEditing(true)
+        }
+        passwordTextField.closure = { [weak self] in
+            guard let self else { return }
+            self.view.endEditing(true)
+        }
+    }
     
     //  MARK: - objc method
     
     @objc func showRegistrationScreen() {
-        output.showSignUpScreen()
+        presenter.showSignUpScreen()
     }
     
-    // Метод показа клавиатуры и подъёма экрана наверх
     @objc func keyboardWillShow(notification: NSNotification) {
-            if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
-                let buttonFrameInWindow = signUpButton.convert(signUpButton.bounds, to: nil)
-                let bottomOfButton = buttonFrameInWindow.maxY
-                
-                // Рассчитываем, насколько нужно поднять экран
-                let offset = bottomOfButton + 50  - (self.view.frame.size.height - keyboardSize.height)
-                if offset > 0 {
-                    self.view.frame.origin.y -= offset
-                }
+        if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
+            let buttonFrameInWindow = signUpButton.convert(signUpButton.bounds, to: nil)
+            let bottomOfButton = buttonFrameInWindow.maxY
+            let offset = bottomOfButton + 50  - (self.view.frame.size.height - keyboardSize.height)
+            if offset > 0 {
+                self.view.frame.origin.y -= offset
             }
         }
+    }
+    
     @objc func keyboardWillHide(notification: NSNotification) {
         self.view.frame.origin.y = 0
     }
 }
 
+//  MARK: - extension SignUpDisplayLogic
+
+extension RegistrationViewController: RegistrationDisplayLogic {
+
+}

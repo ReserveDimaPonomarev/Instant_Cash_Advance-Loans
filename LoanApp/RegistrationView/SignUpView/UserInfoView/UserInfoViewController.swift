@@ -54,6 +54,11 @@ final class UserInfoViewController: UIViewController {
         super.viewDidLoad()
         setup()
     }
+}
+
+//  MARK: - private methods
+
+private extension UserInfoViewController {
     
     //  MARK: - setup UI
     
@@ -61,6 +66,7 @@ final class UserInfoViewController: UIViewController {
         addViews()
         setupViews()
         setupConstraints()
+        addActions()
     }
         
     private func addViews() {
@@ -102,7 +108,6 @@ final class UserInfoViewController: UIViewController {
         scrollView.snp.makeConstraints { make in
             make.left.right.width.bottom.equalToSuperview()
             make.top.equalTo(view.safeAreaLayoutGuide)
-            
         }
         contentView.snp.makeConstraints { make in
             make.top.leading.trailing.size.equalTo(scrollView)
@@ -169,6 +174,16 @@ final class UserInfoViewController: UIViewController {
         return nil
     }
     
+    //  MARK: - addActions
+
+    private func addActions() {
+        changeButton.addTarget(self, action: #selector(onChangeButtonTap), for: .touchUpInside)
+        saveButton.addTarget(self, action: #selector(onSaveButtonTap), for: .touchUpInside)
+
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
+    }
+    
     private func endEditingFromClosures() {
         birthDayStackView.inputtedTextField.closure = { [weak self] in
             guard let self else { return }
@@ -184,25 +199,14 @@ final class UserInfoViewController: UIViewController {
         }
     }
     
-    //  MARK: - addActions
-
-    private func addActions() {
-        changeButton.addTarget(self, action: #selector(onChangeButtonTap), for: .touchUpInside)
-        saveButton.addTarget(self, action: #selector(onSaveButtonTap), for: .touchUpInside)
-
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
-    }
     //  MARK: - objc method
     
-    // Метод показа клавиатуры и подъёма экрана наверх
     @objc func keyboardWillShow(notification: NSNotification) {
         if let activeField = findActiveField() {
             if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
                 let buttonFrameInWindow = activeField.convert(activeField.bounds, to: nil)
                 let bottomOfButton = buttonFrameInWindow.maxY
                 
-                // Рассчитываем, насколько нужно поднять экран
                 let offset = bottomOfButton + 50 - (self.view.frame.size.height - keyboardSize.height)
                 if offset > 0 {
                     self.view.frame.origin.y -= offset

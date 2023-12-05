@@ -25,9 +25,7 @@ final class SignUpViewController: UIViewController {
     private let userNameTextField = CusomTextFieldWithBorder()
     private let passwordTextField = CusomTextFieldWithBorder()
     private let saveButton = CustomButton()
-    
-    private let notification = NotificationCenter.default
-    
+        
     //  MARK: - init
     
     init(presenter: SignUpPresenterProtocol) {
@@ -50,9 +48,10 @@ final class SignUpViewController: UIViewController {
         setup()
         view.backgroundColor = .white
     }
-    
 }
- 
+
+//  MARK: - private methods
+
 private extension SignUpViewController {
     
     //  MARK: - setup UI
@@ -61,6 +60,7 @@ private extension SignUpViewController {
         addViews()
         setupViews()
         setupConstraints()
+        addActions()
     }
     
     func addViews() {
@@ -77,15 +77,12 @@ private extension SignUpViewController {
         accountIcon.image = UIImage(resource: .accountPageIcon)
         registrationLabel.setupCustomTitleLabel(text: "Registration", textColor: .blue)
         userNameTextField.setupTextField(placeholder: "new username", backgroundColor: .white, borderColor: .blue, placehplderColor: .gray, textColor: .blue, borderWidth: 4)
-        userNameTextField.closure = { [weak self] in
-            self?.view.endEditing(true)
-        }
+
         passwordTextField.setupTextField(placeholder: "new password", backgroundColor: .white, borderColor: .blue, placehplderColor: .gray, textColor: .blue, borderWidth: 4)
-        passwordTextField.closure = { [weak self] in
-            self?.view.endEditing(true)
-        }
+
         saveButton.setupView(title: "Save", color: .blue, titleColor: .white)
         saveButton.addTarget(self, action: #selector(onSaveButtonTapped), for: .touchUpInside)
+        endEditingFromClosures()
     }
     
     func setupConstraints() {
@@ -121,10 +118,23 @@ private extension SignUpViewController {
             make.width.equalTo(saveButton.intrinsicContentSize.width + 80)
         }
     }
-        
-    func setupKeyboardNotifications() {
+    
+    //  MARK: - addActions
+
+    func addActions() {
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
+    }
+    
+    func endEditingFromClosures() {
+        userNameTextField.closure = { [weak self] in
+            guard let self else { return }
+            self.view.endEditing(true)
+        }
+        passwordTextField.closure = { [weak self] in
+            guard let self else { return }
+            self.view.endEditing(true)
+        }
     }
     
     //  MARK: - objc method
@@ -133,8 +143,6 @@ private extension SignUpViewController {
         if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
             let buttonFrameInWindow = saveButton.convert(saveButton.bounds, to: nil)
             let bottomOfButton = buttonFrameInWindow.maxY
-            
-            // Рассчитываем, насколько нужно поднять экран
             let offset = bottomOfButton + 50  - (self.view.frame.size.height - keyboardSize.height)
             if offset > 0 {
                 self.view.frame.origin.y -= offset

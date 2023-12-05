@@ -16,7 +16,7 @@ import Foundation
 
 import UIKit
 
-protocol RegisterPageScreenOutput: AnyObject {
+protocol RegistrationPageScreenOutput: AnyObject {
     func showSignUpScreen()
     func showUserInfoVC()
     func showMainScreen()
@@ -47,12 +47,15 @@ final class RegisterPageCoordinator: BaseCoordinator {
     }
     
     private func getRegisterPageViewController() -> UIViewController {
-        let registerPageViewController = RegistrationViewController(output: self)
+        let registrationPresenter = RegistrationPresenter(coordinator: self)
+        let registerPageViewController = RegistrationViewController(presenter: registrationPresenter)
+        registrationPresenter.controller = registerPageViewController
+        
         return registerPageViewController
     }
 }
 
-extension RegisterPageCoordinator: RegisterPageScreenOutput {
+extension RegisterPageCoordinator: RegistrationPageScreenOutput {
     
     func showSignUpScreen() {
         let signUpPresenter = SignUpPresenter(coordinator: self)

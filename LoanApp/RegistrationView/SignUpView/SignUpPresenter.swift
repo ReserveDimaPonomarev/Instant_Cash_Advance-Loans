@@ -24,11 +24,11 @@ class SignUpPresenter: SignUpPresenterProtocol {
     
     // MARK: Private Variables
     
-    private let coordinator: RegisterPageScreenOutput
+    private let coordinator: RegistrationPageScreenOutput
     
     //  MARK: - Init
     
-    init(coordinator: RegisterPageScreenOutput) {
+    init(coordinator: RegistrationPageScreenOutput) {
         self.coordinator = coordinator
     }
     

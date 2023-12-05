@@ -11,7 +11,7 @@
 		4A0CBFF32B18B3FE0074EEF1 /* CusomTextFieldWithBorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A0CBFF22B18B3FE0074EEF1 /* CusomTextFieldWithBorder.swift */; };
 		4A0CBFF52B18B4190074EEF1 /* CustomTextViewWithBorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A0CBFF42B18B4190074EEF1 /* CustomTextViewWithBorder.swift */; };
 		4A0CBFF82B18BBEF0074EEF1 /* RegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A0CBFF62B18BBEF0074EEF1 /* RegistrationViewController.swift */; };
-		4A0CBFF92B18BBEF0074EEF1 /* RegistrationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A0CBFF72B18BBEF0074EEF1 /* RegistrationViewModel.swift */; };
+		4A0CBFF92B18BBEF0074EEF1 /* RegistrationPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A0CBFF72B18BBEF0074EEF1 /* RegistrationPresenter.swift */; };
 		4A0CBFFB2B18BD0D0074EEF1 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A0CBFFA2B18BD0D0074EEF1 /* CustomButton.swift */; };
 		4A0CBFFD2B18BE600074EEF1 /* CustomTitleLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A0CBFFC2B18BE600074EEF1 /* CustomTitleLabel.swift */; };
 		4A0CBFFF2B18C00B0074EEF1 /* CustomSubTitleLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A0CBFFE2B18C00B0074EEF1 /* CustomSubTitleLabel.swift */; };
@@ -63,7 +63,7 @@
 		4A0CBFF22B18B3FE0074EEF1 /* CusomTextFieldWithBorder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CusomTextFieldWithBorder.swift; sourceTree = "<group>"; };
 		4A0CBFF42B18B4190074EEF1 /* CustomTextViewWithBorder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextViewWithBorder.swift; sourceTree = "<group>"; };
 		4A0CBFF62B18BBEF0074EEF1 /* RegistrationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationViewController.swift; sourceTree = "<group>"; };
-		4A0CBFF72B18BBEF0074EEF1 /* RegistrationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationViewModel.swift; sourceTree = "<group>"; };
+		4A0CBFF72B18BBEF0074EEF1 /* RegistrationPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationPresenter.swift; sourceTree = "<group>"; };
 		4A0CBFFA2B18BD0D0074EEF1 /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
 		4A0CBFFC2B18BE600074EEF1 /* CustomTitleLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTitleLabel.swift; sourceTree = "<group>"; };
 		4A0CBFFE2B18C00B0074EEF1 /* CustomSubTitleLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSubTitleLabel.swift; sourceTree = "<group>"; };
@@ -139,7 +139,7 @@
 			isa = PBXGroup;
 			children = (
 				4A0CBFF62B18BBEF0074EEF1 /* RegistrationViewController.swift */,
-				4A0CBFF72B18BBEF0074EEF1 /* RegistrationViewModel.swift */,
+				4A0CBFF72B18BBEF0074EEF1 /* RegistrationPresenter.swift */,
 				4A0CC0052B18E9AB0074EEF1 /* SignUpView */,
 			);
 			path = RegistrationView;
@@ -450,7 +450,7 @@
 				4A9983D12B17F3AA00F4CCE8 /* CustomBackgroundImageView.swift in Sources */,
 				4A0CC0252B19601A0074EEF1 /* CustomViewForMainPage.swift in Sources */,
 				4A9983C92B17E49800F4CCE8 /* SecondViewController.swift in Sources */,
-				4A0CBFF92B18BBEF0074EEF1 /* RegistrationViewModel.swift in Sources */,
+				4A0CBFF92B18BBEF0074EEF1 /* RegistrationPresenter.swift in Sources */,
 				4A9983EB2B17FAC700F4CCE8 /* AppCoordinator.swift in Sources */,
 				4A9983C72B17E28900F4CCE8 /* CustomNumberOfPageImageView.swift in Sources */,
 				4A9983D92B17F78C00F4CCE8 /* TabBarViewController.swift in Sources */,
