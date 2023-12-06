@@ -14,10 +14,10 @@
             filePath = "LoanApp/MainPageView/MainPageViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "147"
-            endingLineNumber = "147"
-            landmarkName = "onShowMenuTapped()"
-            landmarkType = "7">
+            startingLineNumber = "149"
+            endingLineNumber = "149"
+            landmarkName = "MainPageViewController"
+            landmarkType = "21">
             <Locations>
                <Location
                   uuid = "B10D3BFD-CA64-4C9E-8E3B-2BBC825BB1FB - ad8dcd330e8f4501"

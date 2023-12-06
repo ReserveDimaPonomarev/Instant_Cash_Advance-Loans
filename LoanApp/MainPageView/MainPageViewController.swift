@@ -7,6 +7,7 @@
 
 
 import UIKit
+import FBSDKCoreKit
 
 final class MainPageViewController: UIViewController {
     
@@ -29,6 +30,7 @@ final class MainPageViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setup()
+        AppEvents.logEvent(.achievedLevel)
     }
 }
 

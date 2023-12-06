@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import FBSDKCoreKit
 
 protocol LoadingPageDisplayLogic: AnyObject {
     
@@ -43,6 +44,7 @@ final class LoadingPageViewController: UIViewController, LoadingPageDisplayLogic
     override func viewDidLoad() {
         super.viewDidLoad()
         setup()
+        AppEvents.logEvent(.viewedContent)
     }
 }
 

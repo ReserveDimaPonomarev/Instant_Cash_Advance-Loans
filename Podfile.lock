@@ -1,16 +1,25 @@
 PODS:
+  - FBSDKCoreKit (8.0.0):
+    - FBSDKCoreKit/Basics (= 8.0.0)
+    - FBSDKCoreKit/Core (= 8.0.0)
+  - FBSDKCoreKit/Basics (8.0.0)
+  - FBSDKCoreKit/Core (8.0.0):
+    - FBSDKCoreKit/Basics
   - SnapKit (5.6.0)
 
 DEPENDENCIES:
+  - FBSDKCoreKit (~> 8.0.0)
   - SnapKit
 
 SPEC REPOS:
   trunk:
+    - FBSDKCoreKit
     - SnapKit
 
 SPEC CHECKSUMS:
+  FBSDKCoreKit: 9d27fe97a2fa2abe5eeefea8240e837623ab88e0
   SnapKit: e01d52ebb8ddbc333eefe2132acf85c8227d9c25
 
-PODFILE CHECKSUM: 46f731e7ff7d7f65af6732f368b59c24ddb62497
+PODFILE CHECKSUM: d3276165f8b57ea2968dfcbd6438ecce2ded33aa
 
 COCOAPODS: 1.14.2

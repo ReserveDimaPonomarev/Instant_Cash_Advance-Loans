@@ -7,4 +7,6 @@ target 'LoanApp' do
 
   # Pods for LoanApp
 pod 'SnapKit'
+pod 'FBSDKCoreKit', '~> 8.0.0'
+
 end
