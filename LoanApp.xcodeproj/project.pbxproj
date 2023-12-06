@@ -35,6 +35,8 @@
 		4A85E3D12B1A0AE200113B24 /* CustomButtonOnHalfView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A85E3D02B1A0AE200113B24 /* CustomButtonOnHalfView.swift */; };
 		4A85E3D32B1A0CD700113B24 /* TermsOfUsePageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A85E3D22B1A0CD700113B24 /* TermsOfUsePageViewController.swift */; };
 		4A85E3D52B1A0CFC00113B24 /* LoanTermsPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A85E3D42B1A0CFC00113B24 /* LoanTermsPageViewController.swift */; };
+		4A891BEC2B207E8300EF6FD9 /* NotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A891BEB2B207E8300EF6FD9 /* NotificationService.swift */; };
+		4A891BF02B207E8300EF6FD9 /* OneSignalNotificationServiceExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 4A891BE92B207E8300EF6FD9 /* OneSignalNotificationServiceExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		4A9983AF2B17A8CE00F4CCE8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A9983AE2B17A8CE00F4CCE8 /* AppDelegate.swift */; };
 		4A9983B12B17A8CE00F4CCE8 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A9983B02B17A8CE00F4CCE8 /* SceneDelegate.swift */; };
 		4A9983B82B17A8D000F4CCE8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4A9983B72B17A8D000F4CCE8 /* Assets.xcassets */; };
@@ -59,6 +61,30 @@
 		4A9983EB2B17FAC700F4CCE8 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A9983EA2B17FAC700F4CCE8 /* AppCoordinator.swift */; };
 		4A9983EF2B180A8300F4CCE8 /* BlueViewForHowITWorks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A9983EE2B180A8300F4CCE8 /* BlueViewForHowITWorks.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		4A891BEE2B207E8300EF6FD9 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4A9983A32B17A8CE00F4CCE8 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 4A891BE82B207E8300EF6FD9;
+			remoteInfo = OneSignalNotificationServiceExtension;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		4A891BF42B207E8300EF6FD9 /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				4A891BF02B207E8300EF6FD9 /* OneSignalNotificationServiceExtension.appex in Embed Foundation Extensions */,
+			);
+			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		396FC5C37CAFCAAA39834465 /* Pods_LoanApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LoanApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -89,6 +115,11 @@
 		4A85E3D02B1A0AE200113B24 /* CustomButtonOnHalfView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButtonOnHalfView.swift; sourceTree = "<group>"; };
 		4A85E3D22B1A0CD700113B24 /* TermsOfUsePageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermsOfUsePageViewController.swift; sourceTree = "<group>"; };
 		4A85E3D42B1A0CFC00113B24 /* LoanTermsPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoanTermsPageViewController.swift; sourceTree = "<group>"; };
+		4A891BE42B207D3100EF6FD9 /* LoanApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = LoanApp.entitlements; sourceTree = "<group>"; };
+		4A891BE92B207E8300EF6FD9 /* OneSignalNotificationServiceExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = OneSignalNotificationServiceExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		4A891BEB2B207E8300EF6FD9 /* NotificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationService.swift; sourceTree = "<group>"; };
+		4A891BED2B207E8300EF6FD9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4A891BF52B207F3600EF6FD9 /* OneSignalNotificationServiceExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = OneSignalNotificationServiceExtension.entitlements; sourceTree = "<group>"; };
 		4A9983AB2B17A8CE00F4CCE8 /* LoanApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LoanApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4A9983AE2B17A8CE00F4CCE8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4A9983B02B17A8CE00F4CCE8 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -119,6 +150,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		4A891BE62B207E8300EF6FD9 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		4A9983A82B17A8CE00F4CCE8 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -249,6 +287,16 @@
 			path = LoadingView;
 			sourceTree = "<group>";
 		};
+		4A891BEA2B207E8300EF6FD9 /* OneSignalNotificationServiceExtension */ = {
+			isa = PBXGroup;
+			children = (
+				4A891BF52B207F3600EF6FD9 /* OneSignalNotificationServiceExtension.entitlements */,
+				4A891BEB2B207E8300EF6FD9 /* NotificationService.swift */,
+				4A891BED2B207E8300EF6FD9 /* Info.plist */,
+			);
+			path = OneSignalNotificationServiceExtension;
+			sourceTree = "<group>";
+		};
 		4A9983A22B17A8CE00F4CCE8 = {
 			isa = PBXGroup;
 			children = (
@@ -263,6 +311,7 @@
 			isa = PBXGroup;
 			children = (
 				4A9983AB2B17A8CE00F4CCE8 /* LoanApp.app */,
+				4A891BE92B207E8300EF6FD9 /* OneSignalNotificationServiceExtension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -270,6 +319,7 @@
 		4A9983AD2B17A8CE00F4CCE8 /* LoanApp */ = {
 			isa = PBXGroup;
 			children = (
+				4A891BE42B207D3100EF6FD9 /* LoanApp.entitlements */,
 				4A9983AE2B17A8CE00F4CCE8 /* AppDelegate.swift */,
 				4A9983B02B17A8CE00F4CCE8 /* SceneDelegate.swift */,
 				4A0CC0102B1904970074EEF1 /* AppCoordinator */,
@@ -330,6 +380,7 @@
 		9F6D874A0828160A44B4B315 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				4A891BEA2B207E8300EF6FD9 /* OneSignalNotificationServiceExtension */,
 				396FC5C37CAFCAAA39834465 /* Pods_LoanApp.framework */,
 			);
 			name = Frameworks;
@@ -338,6 +389,23 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		4A891BE82B207E8300EF6FD9 /* OneSignalNotificationServiceExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4A891BF12B207E8300EF6FD9 /* Build configuration list for PBXNativeTarget "OneSignalNotificationServiceExtension" */;
+			buildPhases = (
+				4A891BE52B207E8300EF6FD9 /* Sources */,
+				4A891BE62B207E8300EF6FD9 /* Frameworks */,
+				4A891BE72B207E8300EF6FD9 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = OneSignalNotificationServiceExtension;
+			productName = OneSignalNotificationServiceExtension;
+			productReference = 4A891BE92B207E8300EF6FD9 /* OneSignalNotificationServiceExtension.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 		4A9983AA2B17A8CE00F4CCE8 /* LoanApp */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 4A9983BF2B17A8D000F4CCE8 /* Build configuration list for PBXNativeTarget "LoanApp" */;
@@ -347,10 +415,12 @@
 				4A9983A82B17A8CE00F4CCE8 /* Frameworks */,
 				4A9983A92B17A8CE00F4CCE8 /* Resources */,
 				E7512E68EDFE052A86349B45 /* [CP] Embed Pods Frameworks */,
+				4A891BF42B207E8300EF6FD9 /* Embed Foundation Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				4A891BEF2B207E8300EF6FD9 /* PBXTargetDependency */,
 			);
 			name = LoanApp;
 			productName = LoanApp;
@@ -367,6 +437,9 @@
 				LastSwiftUpdateCheck = 1500;
 				LastUpgradeCheck = 1500;
 				TargetAttributes = {
+					4A891BE82B207E8300EF6FD9 = {
+						CreatedOnToolsVersion = 15.0.1;
+					};
 					4A9983AA2B17A8CE00F4CCE8 = {
 						CreatedOnToolsVersion = 15.0.1;
 					};
@@ -386,11 +459,19 @@
 			projectRoot = "";
 			targets = (
 				4A9983AA2B17A8CE00F4CCE8 /* LoanApp */,
+				4A891BE82B207E8300EF6FD9 /* OneSignalNotificationServiceExtension */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		4A891BE72B207E8300EF6FD9 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		4A9983A92B17A8CE00F4CCE8 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -445,6 +526,14 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		4A891BE52B207E8300EF6FD9 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4A891BEC2B207E8300EF6FD9 /* NotificationService.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		4A9983A72B17A8CE00F4CCE8 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -502,6 +591,14 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		4A891BEF2B207E8300EF6FD9 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 4A891BE82B207E8300EF6FD9 /* OneSignalNotificationServiceExtension */;
+			targetProxy = 4A891BEE2B207E8300EF6FD9 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin PBXVariantGroup section */
 		4A9983B92B17A8D000F4CCE8 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
@@ -514,6 +611,58 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		4A891BF22B207E8300EF6FD9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = OneSignalNotificationServiceExtension/OneSignalNotificationServiceExtension.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = N783LMM8P2;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = OneSignalNotificationServiceExtension/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = OneSignalNotificationServiceExtension;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.onesignal.LoanApp.OneSignalNotificationServiceExtension;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		4A891BF32B207E8300EF6FD9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = OneSignalNotificationServiceExtension/OneSignalNotificationServiceExtension.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = N783LMM8P2;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = OneSignalNotificationServiceExtension/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = OneSignalNotificationServiceExtension;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.onesignal.LoanApp.OneSignalNotificationServiceExtension;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 		4A9983BD2B17A8D000F4CCE8 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -637,8 +786,10 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = A18A3FF9B3405FB4D56B4FFE /* Pods-LoanApp.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = LoanApp/LoanApp.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = N783LMM8P2;
@@ -655,7 +806,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = LoanApp;
+				PRODUCT_BUNDLE_IDENTIFIER = com.onesignal.LoanApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
@@ -670,8 +821,10 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = F852C9EE73668FA5AFE3AEF0 /* Pods-LoanApp.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = LoanApp/LoanApp.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = N783LMM8P2;
@@ -688,7 +841,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = LoanApp;
+				PRODUCT_BUNDLE_IDENTIFIER = com.onesignal.LoanApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
@@ -702,6 +855,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		4A891BF12B207E8300EF6FD9 /* Build configuration list for PBXNativeTarget "OneSignalNotificationServiceExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4A891BF22B207E8300EF6FD9 /* Debug */,
+				4A891BF32B207E8300EF6FD9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		4A9983A62B17A8CE00F4CCE8 /* Build configuration list for PBXProject "LoanApp" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

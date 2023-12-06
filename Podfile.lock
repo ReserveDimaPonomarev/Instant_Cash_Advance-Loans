@@ -5,21 +5,55 @@ PODS:
   - FBSDKCoreKit/Basics (8.0.0)
   - FBSDKCoreKit/Core (8.0.0):
     - FBSDKCoreKit/Basics
+  - OneSignal/OneSignal (5.0.5):
+    - OneSignal/OneSignalCore
+    - OneSignal/OneSignalExtension
+    - OneSignal/OneSignalNotifications
+    - OneSignal/OneSignalOSCore
+    - OneSignal/OneSignalOutcomes
+    - OneSignal/OneSignalUser
+  - OneSignal/OneSignalCore (5.0.5)
+  - OneSignal/OneSignalExtension (5.0.5):
+    - OneSignal/OneSignalCore
+    - OneSignal/OneSignalOutcomes
+  - OneSignal/OneSignalInAppMessages (5.0.5):
+    - OneSignal/OneSignalCore
+    - OneSignal/OneSignalNotifications
+    - OneSignal/OneSignalOSCore
+    - OneSignal/OneSignalOutcomes
+    - OneSignal/OneSignalUser
+  - OneSignal/OneSignalNotifications (5.0.5):
+    - OneSignal/OneSignalCore
+    - OneSignal/OneSignalExtension
+    - OneSignal/OneSignalOutcomes
+  - OneSignal/OneSignalOSCore (5.0.5):
+    - OneSignal/OneSignalCore
+  - OneSignal/OneSignalOutcomes (5.0.5):
+    - OneSignal/OneSignalCore
+  - OneSignal/OneSignalUser (5.0.5):
+    - OneSignal/OneSignalCore
+    - OneSignal/OneSignalNotifications
+    - OneSignal/OneSignalOSCore
+    - OneSignal/OneSignalOutcomes
   - SnapKit (5.6.0)
 
 DEPENDENCIES:
   - FBSDKCoreKit (~> 8.0.0)
+  - OneSignal/OneSignal (< 6.0, >= 5.0.0)
+  - OneSignal/OneSignalInAppMessages (< 6.0, >= 5.0.0)
   - SnapKit
 
 SPEC REPOS:
   trunk:
     - FBSDKCoreKit
+    - OneSignal
     - SnapKit
 
 SPEC CHECKSUMS:
   FBSDKCoreKit: 9d27fe97a2fa2abe5eeefea8240e837623ab88e0
+  OneSignal: bec3d3df7c23130e70214c305579445f5912fc6e
   SnapKit: e01d52ebb8ddbc333eefe2132acf85c8227d9c25
 
-PODFILE CHECKSUM: d3276165f8b57ea2968dfcbd6438ecce2ded33aa
+PODFILE CHECKSUM: 540074a283953698922fd31016976a3789e0b34b
 
 COCOAPODS: 1.14.2
