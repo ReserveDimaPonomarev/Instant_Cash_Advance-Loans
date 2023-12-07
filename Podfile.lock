@@ -1,4 +1,7 @@
 PODS:
+  - AppsFlyerFramework (6.12.2):
+    - AppsFlyerFramework/Main (= 6.12.2)
+  - AppsFlyerFramework/Main (6.12.2)
   - FBSDKCoreKit (8.0.0):
     - FBSDKCoreKit/Basics (= 8.0.0)
     - FBSDKCoreKit/Core (= 8.0.0)
@@ -38,6 +41,7 @@ PODS:
   - SnapKit (5.6.0)
 
 DEPENDENCIES:
+  - AppsFlyerFramework
   - FBSDKCoreKit (~> 8.0.0)
   - OneSignal/OneSignal (< 6.0, >= 5.0.0)
   - OneSignal/OneSignalInAppMessages (< 6.0, >= 5.0.0)
@@ -45,15 +49,17 @@ DEPENDENCIES:
 
 SPEC REPOS:
   trunk:
+    - AppsFlyerFramework
     - FBSDKCoreKit
     - OneSignal
     - SnapKit
 
 SPEC CHECKSUMS:
+  AppsFlyerFramework: 6eb4d89d2eb9a6632317f1055b359d9fd85fd5ff
   FBSDKCoreKit: 9d27fe97a2fa2abe5eeefea8240e837623ab88e0
   OneSignal: bec3d3df7c23130e70214c305579445f5912fc6e
   SnapKit: e01d52ebb8ddbc333eefe2132acf85c8227d9c25
 
-PODFILE CHECKSUM: 540074a283953698922fd31016976a3789e0b34b
+PODFILE CHECKSUM: 98d06e459387e340a3f753012a948f33ebe322a3
 
 COCOAPODS: 1.14.2
