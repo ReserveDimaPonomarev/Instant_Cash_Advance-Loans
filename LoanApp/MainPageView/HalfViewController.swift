@@ -85,7 +85,6 @@ class HalfViewController: UIViewController {
             guard let self else { return }
             view.frame = CGRect(x: UIScreen.main.bounds.width, y: 0, width: 0, height: UIScreen.main.bounds.height)
         }
-        
     }
     
     @objc func onPrivacyPolicyButtonTapped() {

@@ -9,7 +9,15 @@
 import UIKit
 import FBSDKCoreKit
 
-final class MainPageViewController: UIViewController {
+protocol MainPageDisplayLogic: AnyObject {
+    
+}
+
+final class MainPageViewController: UIViewController, MainPageDisplayLogic {
+    
+    //  MARK: External dependencies
+    
+    var presenter: MainPagePresenterProtocol
     
     //  MARK: - UI properties
     
@@ -24,6 +32,21 @@ final class MainPageViewController: UIViewController {
     private let inputtedLabel = CustomTitleLabel()
     private let inputtedImageView = UIImageView()
     private let openMenuButton = UIButton()
+    
+    //  MARK: - init
+    
+    init(presenter: MainPagePresenterProtocol) {
+        self.presenter = presenter
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    deinit {
+        print("SignUpViewController deinited")
+    }
     
     //  MARK: - life Cycle
     
@@ -58,8 +81,6 @@ private extension MainPageViewController {
         view.addSubview(inputtedLabel)
         view.addSubview(inputtedImageView)
         view.addSubview(openMenuButton)
-        
-        
     }
     
     func setupViews() {
@@ -79,6 +100,7 @@ private extension MainPageViewController {
         toLabel.textAlignment = .center
         
         getALoanButton.setupButtonForMainView(title: "Get A Loan", color: .blue, titleColor: .white)
+        getALoanButton.addTarget(self, action: #selector(onGetALoanButtonTap), for: .touchUpInside)
         
         inputtedImageView.image = .protection
         inputtedImageView.contentMode = .scaleAspectFit
@@ -159,5 +181,9 @@ private extension MainPageViewController {
         UIView.animate(withDuration: 0.3) {
             halfScreenViewController.view.frame.origin.x = UIScreen.main.bounds.width / 3
         }
+    }
+    
+    @objc func onGetALoanButtonTap() {
+        presenter.showWebViewOnMainPage()
     }
 }

@@ -19,7 +19,7 @@
 		4A0CC0042B18DB180074EEF1 /* SignUpPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A0CC0022B18DB180074EEF1 /* SignUpPresenter.swift */; };
 		4A0CC0072B18ED510074EEF1 /* LoadingCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A0CC0062B18ED510074EEF1 /* LoadingCoordinator.swift */; };
 		4A0CC00C2B18F1930074EEF1 /* MainPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A0CC00A2B18F1930074EEF1 /* MainPageViewController.swift */; };
-		4A0CC00D2B18F1930074EEF1 /* MainPageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A0CC00B2B18F1930074EEF1 /* MainPageViewModel.swift */; };
+		4A0CC00D2B18F1930074EEF1 /* MainPagePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A0CC00B2B18F1930074EEF1 /* MainPagePresenter.swift */; };
 		4A0CC0152B1922BE0074EEF1 /* RegisterPageCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A0CC0142B1922BE0074EEF1 /* RegisterPageCoordinator.swift */; };
 		4A0CC0172B1928E10074EEF1 /* Extension+UITabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A0CC0162B1928E10074EEF1 /* Extension+UITabBar.swift */; };
 		4A0CC01A2B1930990074EEF1 /* UserInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A0CC0182B1930990074EEF1 /* UserInfoViewController.swift */; };
@@ -37,6 +37,7 @@
 		4A85E3D52B1A0CFC00113B24 /* LoanTermsPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A85E3D42B1A0CFC00113B24 /* LoanTermsPageViewController.swift */; };
 		4A891BEC2B207E8300EF6FD9 /* NotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A891BEB2B207E8300EF6FD9 /* NotificationService.swift */; };
 		4A891BF02B207E8300EF6FD9 /* OneSignalNotificationServiceExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 4A891BE92B207E8300EF6FD9 /* OneSignalNotificationServiceExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		4A891BF72B21AA3800EF6FD9 /* WebViewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A891BF62B21AA3800EF6FD9 /* WebViewViewController.swift */; };
 		4A9983AF2B17A8CE00F4CCE8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A9983AE2B17A8CE00F4CCE8 /* AppDelegate.swift */; };
 		4A9983B12B17A8CE00F4CCE8 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A9983B02B17A8CE00F4CCE8 /* SceneDelegate.swift */; };
 		4A9983B82B17A8D000F4CCE8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4A9983B72B17A8D000F4CCE8 /* Assets.xcassets */; };
@@ -99,7 +100,7 @@
 		4A0CC0022B18DB180074EEF1 /* SignUpPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpPresenter.swift; sourceTree = "<group>"; };
 		4A0CC0062B18ED510074EEF1 /* LoadingCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingCoordinator.swift; sourceTree = "<group>"; };
 		4A0CC00A2B18F1930074EEF1 /* MainPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPageViewController.swift; sourceTree = "<group>"; };
-		4A0CC00B2B18F1930074EEF1 /* MainPageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPageViewModel.swift; sourceTree = "<group>"; };
+		4A0CC00B2B18F1930074EEF1 /* MainPagePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPagePresenter.swift; sourceTree = "<group>"; };
 		4A0CC0142B1922BE0074EEF1 /* RegisterPageCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterPageCoordinator.swift; sourceTree = "<group>"; };
 		4A0CC0162B1928E10074EEF1 /* Extension+UITabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+UITabBar.swift"; sourceTree = "<group>"; };
 		4A0CC0182B1930990074EEF1 /* UserInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoViewController.swift; sourceTree = "<group>"; };
@@ -120,6 +121,7 @@
 		4A891BEB2B207E8300EF6FD9 /* NotificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationService.swift; sourceTree = "<group>"; };
 		4A891BED2B207E8300EF6FD9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4A891BF52B207F3600EF6FD9 /* OneSignalNotificationServiceExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = OneSignalNotificationServiceExtension.entitlements; sourceTree = "<group>"; };
+		4A891BF62B21AA3800EF6FD9 /* WebViewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewViewController.swift; sourceTree = "<group>"; };
 		4A9983AB2B17A8CE00F4CCE8 /* LoanApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LoanApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4A9983AE2B17A8CE00F4CCE8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4A9983B02B17A8CE00F4CCE8 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -210,10 +212,11 @@
 		4A0CC0092B18F1760074EEF1 /* MainPageView */ = {
 			isa = PBXGroup;
 			children = (
-				4A0CC00A2B18F1930074EEF1 /* MainPageViewController.swift */,
-				4A0CC00B2B18F1930074EEF1 /* MainPageViewModel.swift */,
-				4A0CC0262B19CF3C0074EEF1 /* HalfViewController.swift */,
+				4AD51DE12B21B36400A081BD /* WebView */,
 				4A83BD9B2B1E38B900B2DD53 /* TermsInHalfView */,
+				4A0CC00A2B18F1930074EEF1 /* MainPageViewController.swift */,
+				4A0CC00B2B18F1930074EEF1 /* MainPagePresenter.swift */,
+				4A0CC0262B19CF3C0074EEF1 /* HalfViewController.swift */,
 			);
 			path = MainPageView;
 			sourceTree = "<group>";
@@ -366,6 +369,14 @@
 				4A9983E32B17F87B00F4CCE8 /* FourthScreenViewModel.swift */,
 			);
 			path = HowItWorksView;
+			sourceTree = "<group>";
+		};
+		4AD51DE12B21B36400A081BD /* WebView */ = {
+			isa = PBXGroup;
+			children = (
+				4A891BF62B21AA3800EF6FD9 /* WebViewViewController.swift */,
+			);
+			path = WebView;
 			sourceTree = "<group>";
 		};
 		702903A84EB8C7ECB44EA043 /* Pods */ = {
@@ -559,7 +570,7 @@
 				4A9983C72B17E28900F4CCE8 /* CustomNumberOfPageImageView.swift in Sources */,
 				4A9983D92B17F78C00F4CCE8 /* TabBarViewController.swift in Sources */,
 				4A0CC0032B18DB180074EEF1 /* SignUpViewController.swift in Sources */,
-				4A0CC00D2B18F1930074EEF1 /* MainPageViewModel.swift in Sources */,
+				4A0CC00D2B18F1930074EEF1 /* MainPagePresenter.swift in Sources */,
 				4A0CBFFB2B18BD0D0074EEF1 /* CustomButton.swift in Sources */,
 				4A0CC0042B18DB180074EEF1 /* SignUpPresenter.swift in Sources */,
 				4A0CC0072B18ED510074EEF1 /* LoadingCoordinator.swift in Sources */,
@@ -584,6 +595,7 @@
 				4A9983DD2B17F7CD00F4CCE8 /* BaseCoordinator.swift in Sources */,
 				4A9983D32B17F67400F4CCE8 /* Extension+UIStackView.swift in Sources */,
 				4A0CC01E2B193B030074EEF1 /* CustomStackView.swift in Sources */,
+				4A891BF72B21AA3800EF6FD9 /* WebViewViewController.swift in Sources */,
 				4A0CC00C2B18F1930074EEF1 /* MainPageViewController.swift in Sources */,
 				4A9983D72B17F76F00F4CCE8 /* TapBarCoordinator.swift in Sources */,
 			);

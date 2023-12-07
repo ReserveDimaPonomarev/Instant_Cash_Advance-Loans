@@ -8,10 +8,7 @@
 import UIKit
 
 protocol MainPageScreenOutput: AnyObject {
-    func showProfileViewController()
-    func showChooseNewCard()
-    func closeDemo()
-    func showIssueCardViewController()
+    func showWebView()
 }
 
 final class MainPageCoordinator: BaseCoordinator {
@@ -38,26 +35,16 @@ final class MainPageCoordinator: BaseCoordinator {
     }
     
     private func getMainPageViewController() -> UIViewController {
-        let mainPageViewController = MainPageViewController()
+        let mainPagePresenter = MainPagePresenter(coordinator: self)
+        let mainPageViewController = MainPageViewController(presenter: mainPagePresenter)
         return mainPageViewController
     }
 }
 
 extension MainPageCoordinator: MainPageScreenOutput {
-    func showProfileViewController() {
-
-    }
     
-    func showChooseNewCard() {
-
+    func showWebView() {
+        let webViewController = WebViewViewController()
+        router.push(webViewController)
     }
-    
-    func closeDemo() {
-        finish()
-    }
-    
-    func showIssueCardViewController() {
-
-    }
-    
 }
