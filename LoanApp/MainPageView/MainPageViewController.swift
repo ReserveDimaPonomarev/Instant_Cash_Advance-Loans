@@ -32,6 +32,8 @@ final class MainPageViewController: UIViewController, MainPageDisplayLogic {
     private let inputtedLabel = CustomTitleLabel()
     private let inputtedImageView = UIImageView()
     private let openMenuButton = UIButton()
+    private let signInButton = CustomSignInView()
+
     
     //  MARK: - init
     
@@ -53,7 +55,6 @@ final class MainPageViewController: UIViewController, MainPageDisplayLogic {
     override func viewDidLoad() {
         super.viewDidLoad()
         setup()
-        AppEvents.logEvent(.achievedLevel)
     }
 }
 
@@ -67,10 +68,12 @@ private extension MainPageViewController {
         addViews()
         setupViews()
         setupConstraints()
+        addActions()
     }
     
     func addViews() {
         view.addSubview(backgroundImage)
+        view.addSubview(signInButton)
         view.addSubview(fiveLabel)
         view.addSubview(minLabel)
         view.addSubview(formLabel)
@@ -100,7 +103,6 @@ private extension MainPageViewController {
         toLabel.textAlignment = .center
         
         getALoanButton.setupButtonForMainView(title: "Get A Loan", color: .blue, titleColor: .white)
-        getALoanButton.addTarget(self, action: #selector(onGetALoanButtonTap), for: .touchUpInside)
         
         inputtedImageView.image = .protection
         inputtedImageView.contentMode = .scaleAspectFit
@@ -111,7 +113,6 @@ private extension MainPageViewController {
         manImageView.contentMode = .scaleAspectFit
         
         openMenuButton.setImage(.openMenu, for: .normal)
-        openMenuButton.addTarget(self, action: #selector(onShowMenuTapped), for: .touchUpInside)
     }
     
     func setupConstraints() {
@@ -123,8 +124,12 @@ private extension MainPageViewController {
             make.right.equalToSuperview().inset(20)
             make.size.equalTo(50)
         }
+        signInButton.snp.makeConstraints { make in
+            make.top.equalTo(view.safeAreaLayoutGuide)
+            make.left.equalToSuperview().offset(20)
+        }
         fiveLabel.snp.makeConstraints { make in
-            make.top.equalTo(view.safeAreaLayoutGuide).offset(20)
+            make.top.equalTo(signInButton.snp.bottom).offset(20)
             make.left.equalToSuperview().offset(20)
         }
         minLabel.snp.makeConstraints { make in
@@ -162,8 +167,17 @@ private extension MainPageViewController {
         manImageView.snp.makeConstraints { make in
             make.top.equalTo(recieveMoneyLabel.snp.bottom)
             make.centerX.equalToSuperview()
-            make.bottom.equalTo(getALoanButton.snp.top)
+            make.bottom.equalTo(getALoanButton.snp.top).offset(40)
         }
+    }
+    
+    //  MARK: - addActions
+
+    func addActions() {
+        let gestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(onSignInButtonTap))
+        signInButton.addGestureRecognizer(gestureRecognizer)
+        getALoanButton.addTarget(self, action: #selector(onGetALoanButtonTap), for: .touchUpInside)
+        openMenuButton.addTarget(self, action: #selector(onShowMenuTapped), for: .touchUpInside)
     }
     
     //  MARK: - objc method
@@ -185,5 +199,8 @@ private extension MainPageViewController {
     
     @objc func onGetALoanButtonTap() {
         presenter.showWebViewOnMainPage()
+    }
+    @objc func onSignInButtonTap() {
+        presenter.showSignInScreen()
     }
 }

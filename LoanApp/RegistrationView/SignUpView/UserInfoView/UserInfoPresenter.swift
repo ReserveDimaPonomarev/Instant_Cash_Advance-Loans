@@ -12,14 +12,14 @@ protocol UserInfoPresenterProtocol: AnyObject {
     var controller: UserInfoDisplayLogic? { get set }
     func changeEmail(testEmail: String)
     func saveUsersDataInProfile()
-    func logoutCurrentUser()
+    func sendingChanges(_ nameText: String)
 }
 
 class UserInfoPresenter {
     
     //  MARK: - External properties
     
-    private let coordinator: RegistrationPageScreenOutput
+    private let coordinator: MainPageScreenOutput
     weak var controller: UserInfoDisplayLogic?
     
     //  MARK: Data Variables
@@ -30,7 +30,7 @@ class UserInfoPresenter {
     
     //  MARK: - Init
     
-    init(coordinator: RegistrationPageScreenOutput) {
+    init(coordinator: MainPageScreenOutput) {
         self.coordinator = coordinator
     }
     
@@ -40,7 +40,13 @@ class UserInfoPresenter {
     
     //  MARK: - Delegate methodes
     
-    
+    func sendingChanges(_ nameText: String) {
+        if nameText.count < 6 {
+            controller?.setButtonColorWhen(isAvailable: false)
+        } else {
+            controller?.setButtonColorWhen(isAvailable: true)
+        }
+    }
 }
 
 //  MARK: - Private Methods
@@ -63,10 +69,6 @@ extension UserInfoPresenter: UserInfoPresenterProtocol {
     }
     
     func saveUsersDataInProfile() {
-        coordinator.showMainScreen()
-    }
-    
-    func logoutCurrentUser() {
         coordinator.showMainScreen()
     }
 }

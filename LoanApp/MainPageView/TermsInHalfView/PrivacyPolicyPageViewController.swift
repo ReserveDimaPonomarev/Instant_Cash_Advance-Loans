@@ -44,7 +44,7 @@ private extension PrivacyPolicyPageViewController {
     func setupViews() {
         view.backgroundColor = .blue
         titleLabel.setupCustomTitleLabel(text: "Privacy Policy", textColor: .white)
-        descriptionTextField.setupTextView(placeholder: .privacyPolicyText1)
+        descriptionTextField.setupTextView(placeholder: .privacyPolicyText)
         buttonBack.setupView(title: "Back", color: .white, titleColor: .blue)
         buttonBack.addTarget(self, action: #selector(showRegistrationScreen), for: .touchUpInside)
         self.descriptionTextField.isEditable = false

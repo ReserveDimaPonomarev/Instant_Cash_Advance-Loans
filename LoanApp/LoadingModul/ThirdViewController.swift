@@ -13,18 +13,21 @@ class ThirdViewController: UIViewController {
     //  MARK: External dependencies
 
     var loginOutput: LoginOutput?
+    var complitionHandler: ((UserData) -> Void)?
     
     //MARK: - UI properties
 
-    let backgroundImageView = CustomBackgroundImageView()
-    let contentView = UIView()
-    let topLabelStackView = UIStackView()
-    let getMoneylabel = UILabel()
-    let forYourLabel = UILabel()
-    let needsLabel = UILabel()
-    let nowLable = UILabel()
-    let manImageView = UIImageView()
-    let bottomView = CustomBottomView()
+    private let backgroundImageView = CustomBackgroundImageView()
+    private let contentView = UIView()
+    private let topLabelStackView = UIStackView()
+    private let getMoneylabel = UILabel()
+    private let forYourLabel = UILabel()
+    private let needsLabel = UILabel()
+    private let nowLable = UILabel()
+    private let manImageView = UIImageView()
+    private let bottomView = CustomBottomView()
+    
+    private let userModel = UserData(email: "123456", password: "123456")
     
     //  MARK: - init
 
@@ -108,5 +111,13 @@ private extension ThirdViewController {
 
     @objc func onNextPageButtonTapped() {
         loginOutput?.showMainScreen()
+        complitionHandler?(userModel)
     }
+}
+
+extension ThirdViewController: FlowController {
+    
+    
+    
+    
 }

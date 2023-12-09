@@ -15,7 +15,12 @@ protocol LoginOutput: AnyObject {
 }
 
 final class LoadingCoordinator: BaseCoordinator {
+    
     var onFinish: (() -> Void)?
+    
+    private var userData = UserData()
+    private let factoryLoading = FactoryLoading()
+
     
     func start() {
         showLoadingScreen()
@@ -29,31 +34,29 @@ final class LoadingCoordinator: BaseCoordinator {
 extension LoadingCoordinator: LoginOutput {
     
     func showLoadingScreen() {
-        let loadingPresenter = LoadingPagePresenter(coordinator: self)
-        let loadingVC = LoadingPageViewController(presenter: loadingPresenter)
-        loadingPresenter.controller = loadingVC
+        let loadingVC = factoryLoading.createLoadingScreen(coordinator: self)
         
         router.push(loadingVC)
     }
     
     func showFirstScreen() {
-        let firstVC = FirstViewController()
-        firstVC.loginOutput = self
+        let firstVC = factoryLoading.createFirstScreen(coordinator: self)
         
         router.push(firstVC)
     }
     
     func showSecondScreen() {
-        let secondVC = SecondViewController()
-        secondVC.loginOutput = self
+        let secondVC = factoryLoading.createSecondScreen(coordinator: self)
 
         router.push(secondVC)
     }
     
     func showThirdScreen() {
-        let thirdVC = ThirdViewController()
-        thirdVC.loginOutput = self
-
+        let thirdVC = factoryLoading.createThirdScreen(coordinator: self)
+        
+        thirdVC.complitionHandler = { userData in
+            self.userData = userData
+        }
         router.push(thirdVC)
     }
     

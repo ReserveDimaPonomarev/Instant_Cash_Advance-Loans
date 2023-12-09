@@ -14,6 +14,11 @@ final class Router {
         self.navigationController = navigationController
     }
     
+    func popToRootViewController() {
+        let rootViewController = self.navigationController.viewControllers[0]
+        self.navigationController.popToViewController(rootViewController, animated: true)
+    }
+    
     func setTabBarItem(_ tabBarItem: UITabBarItem) {
         navigationController.tabBarItem = tabBarItem
     }

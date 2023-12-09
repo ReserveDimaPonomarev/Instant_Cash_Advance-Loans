@@ -9,7 +9,8 @@
 import UIKit
 
 protocol UserInfoDisplayLogic: AnyObject {
-    
+    func setButtonColorWhen(isAvailable: Bool)
+
 }
 
 final class UserInfoViewController: UIViewController {
@@ -30,7 +31,7 @@ final class UserInfoViewController: UIViewController {
     private let birthDayStackView = CustomStackView()
     private let nameStackView = CustomStackView()
     private let saveButton = CustomButton()
-    private let logoutButton = CustomViewWithBorder()
+//    private let logoutButton = CustomViewWithBorder()
     
 
     //  MARK: - init
@@ -82,26 +83,32 @@ private extension UserInfoViewController {
         contentView.addSubview(birthDayStackView)
         contentView.addSubview(nameStackView)
         contentView.addSubview(saveButton)
-        contentView.addSubview(logoutButton)
     }
     
     private func setupViews() {
         backgroundImage.image = UIImage(resource: .background)
         accountIcon.image = UIImage(resource: .accountPageIcon)
         userInfoLabel.setupCustomTitleLabel(text: "User Info", textColor: .blue)
-        loginStackView.setupSubViews(labelText: "login", textFieldPlaceholder: "email@mail.ru")
+        loginStackView.setupSubViews(labelText: "Email", textFieldPlaceholder: "email@mail.ru")
+        loginStackView.inputtedTextField.isEnabled = false
         changeButton.setupView(title: "Change", color: .blue, titleColor: .white)
+        
         birthDayStackView.setupSubViews(labelText: "Birthday")
+        birthDayStackView.inputtedTextField.delegate = self
+        
         nameStackView.setupSubViews(labelText: "Name")
+        nameStackView.inputtedTextField.delegate = self
+        
+        saveButton.isEnabled = false
         saveButton.setupView(title: "Save", color: .blue, titleColor: .white)
+
         birthDayStackView.inputtedTextField.createDatePicker()
         setupGestureOnLoginButton()
         endEditingFromClosures()
     }
 
     private func setupGestureOnLoginButton() {
-        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(onLogOutButtonTap))
-        logoutButton.addGestureRecognizer(tapGesture)
+
     }
     
     private func setupConstraints() {
@@ -152,12 +159,6 @@ private extension UserInfoViewController {
             make.centerX.equalToSuperview()
             make.height.equalTo(60)
             make.width.equalTo(200)
-        }
-        logoutButton.snp.makeConstraints { make in
-            make.top.equalTo(saveButton.snp.bottom).offset(36)
-            make.centerX.equalToSuperview()
-            make.height.equalTo(60)
-            make.width.equalTo(250)
         }
     }
         
@@ -228,14 +229,20 @@ private extension UserInfoViewController {
     @objc func onSaveButtonTap() {
         presenter.saveUsersDataInProfile()
     }
-    
-    @objc func onLogOutButtonTap() {
-        presenter.logoutCurrentUser()
+}
+
+extension UserInfoViewController: UITextFieldDelegate {
+    func textFieldDidChangeSelection(_ textField: UITextField) {
+        guard let nameText = nameStackView.inputtedTextField.text else { return }
+        presenter.sendingChanges(nameText)
     }
 }
 
 //  MARK: - extension UserInfoDisplayLogic
 
 extension UserInfoViewController: UserInfoDisplayLogic {
-
+    func setButtonColorWhen(isAvailable: Bool) {
+        saveButton.backgroundColor = isAvailable ? .blue : .gray
+        saveButton.isEnabled = isAvailable ? true : false
+    }
 }

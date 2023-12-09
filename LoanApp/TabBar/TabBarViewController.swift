@@ -19,6 +19,9 @@ final class TabBarViewController: UITabBarController, UITabBarControllerDelegate
         super.viewDidLoad()
         setupUI()
     }
+    override func viewWillAppear(_ animated: Bool) {
+        self.selectedIndex = 1
+    }
     
     func switchToFirstTab() {
         let registerationPageIndex = 1

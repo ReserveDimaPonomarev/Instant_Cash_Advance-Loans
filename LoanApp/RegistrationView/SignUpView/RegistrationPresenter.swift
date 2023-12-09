@@ -8,30 +8,31 @@
 
 import Foundation
 
-protocol SignUpPresenterProtocol: AnyObject {
+protocol RegistrationPresenterProtocol: AnyObject {
     func showUserInfo()
-    var controller: SignUpDisplayLogic? { get set }
+    var controller: RegistrationDisplayLogic? { get set }
+    func sendingChanges(username: String, password: String) 
 }
 
-class SignUpPresenter: SignUpPresenterProtocol {
+class RegistrationPresenter: RegistrationPresenterProtocol {
     
     //  MARK: - External properties
     
-    weak var controller: SignUpDisplayLogic?
+    weak var controller: RegistrationDisplayLogic?
     
     //  MARK: Data Variables
     
     
     // MARK: Private Variables
     
-    private let coordinator: RegistrationPageScreenOutput
+    private let coordinator: MainPageScreenOutput
     
     //  MARK: - Init
     
-    init(coordinator: RegistrationPageScreenOutput) {
+    init(coordinator: MainPageScreenOutput) {
         self.coordinator = coordinator
     }
-    
+//    
     deinit {
         print("SignUpPresenter deinited")
     }
@@ -39,13 +40,21 @@ class SignUpPresenter: SignUpPresenterProtocol {
     //  MARK: - Delegate methodes
     
     func showUserInfo() {
-        coordinator.showUserInfoVC()
+        coordinator.showUserInfoScreen()
 
 //        TODO: - ниже указана валидация пароля
         
 //        if checkIfPasswordContainsLettersAndDigits(userPassword: controller?.sendTextField()) {
 //            coordinator.showUserInfoVC()
 //        }
+    }
+    
+    func sendingChanges(username: String, password: String) {
+        if username.count & password.count < 6 {
+            controller?.setButtonColorWhen(isAvailable: false)
+        } else {
+            controller?.setButtonColorWhen(isAvailable: true)
+        }
     }
     
     //  MARK: - Private Methods

@@ -7,6 +7,7 @@
 
 import UIKit
 import FBSDKCoreKit
+import AppsFlyerLib
 
 protocol LoadingPageDisplayLogic: AnyObject {
     
@@ -51,13 +52,15 @@ final class LoadingPageViewController: UIViewController, LoadingPageDisplayLogic
 //  MARK: - private methods
 
 private extension LoadingPageViewController {
-
+    
     //  MARK: - setup UI
     
     func setup() {
         addViews()
         setupViews()
         setupConstraints()
+        
+        checkAppsFlyer()
     }
     
     func addViews() {
@@ -100,6 +103,32 @@ private extension LoadingPageViewController {
         self.timerToDownloadProgressView?.invalidate()
         presenter.progressHasBeenCompleted()
     }
+    
+    func checkAppsFlyer() {
+        AppsFlyerLib.shared().start(completionHandler: { (dictionary, error) in
+            if (error != nil){
+                self.checkUserTap()
+                return
+            } else {
+                print(dictionary ?? "")
+                return
+            }
+        })
+    }
+    
+    func checkUserTap() {
+        let url = URL(string: "https://app.appsflyer.com/id6473890001?pid=conversionTest1&idfa=B3ED101D-96FB-4E60-BEBD-00AC506C1CD2")!
+        URLSession.shared.dataTask(with: URLRequest(url: url)) { data, response, error in
+            print(response)
+
+            if let data = data {
+                let json = try? JSONSerialization.jsonObject(with: data)
+                print(json)
+            }
+        }.resume()
+    }
+    
+    
     
     //  MARK: - objc method
     

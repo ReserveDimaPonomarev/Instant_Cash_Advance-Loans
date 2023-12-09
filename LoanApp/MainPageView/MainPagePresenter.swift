@@ -7,10 +7,12 @@
 
 
 import Foundation
+import FBSDKCoreKit
 
 protocol MainPagePresenterProtocol: AnyObject {
     var controller: MainPageDisplayLogic? { get set }
     func showWebViewOnMainPage()
+    func showSignInScreen()
 }
 
 class MainPagePresenter: MainPagePresenterProtocol {
@@ -39,10 +41,13 @@ class MainPagePresenter: MainPagePresenterProtocol {
     //  MARK: - Delegate methodes
     
     func showWebViewOnMainPage() {
+        let fromOpen = AppEvents.Name("AdsFormOpen")
+        AppEvents.logEvent(fromOpen)
         coordinator.showWebView()
     }
-
+    func showSignInScreen() {
+        coordinator.showSignInScreen()
+    }
     //  MARK: - Private Methods
-    
     
 }

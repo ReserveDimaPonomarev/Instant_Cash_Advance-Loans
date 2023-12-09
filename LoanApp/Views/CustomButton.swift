@@ -11,10 +11,18 @@ class CustomButton: UIButton {
     
     func setupView(title: String, color: UIColor, titleColor: UIColor) {
         self.setTitle(title, for: .normal)
-        self.backgroundColor = color
         self.layer.cornerRadius = 28
         self.setTitleColor(titleColor, for: .normal)
         self.titleLabel?.font = UIFont.systemFont(ofSize: 30, weight: .heavy)
+        makeButtonAvaible(color: color)
+    }
+    
+    private func makeButtonAvaible(color: UIColor) {
+        if !self.isEnabled {
+            backgroundColor = .gray
+        } else {
+            backgroundColor = color
+        }
     }
     
     func setupButtonWithBorder(title: String, color: UIColor, titleColor: UIColor, image: UIImage) {

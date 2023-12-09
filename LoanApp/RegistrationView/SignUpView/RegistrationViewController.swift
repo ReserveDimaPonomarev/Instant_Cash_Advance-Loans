@@ -1,15 +1,15 @@
 //
-//  RegistrationViewController.swift
+//  SignUpViewController.swift
 //  LoanApp
 //
 //  Created by Дмитрий Пономарев on 30.11.2023.
 //
 
-
 import UIKit
 
 protocol RegistrationDisplayLogic: AnyObject {
-    
+    func sendTextField() -> String?
+    func setButtonColorWhen(isAvailable: Bool)
 }
 
 final class RegistrationViewController: UIViewController {
@@ -25,9 +25,8 @@ final class RegistrationViewController: UIViewController {
     private let registrationLabel = CustomTitleLabel()
     private let userNameTextField = CusomTextFieldWithBorder()
     private let passwordTextField = CusomTextFieldWithBorder()
-    private let signUpButton = CustomButton()
-    private let signInButton = CustomButton()
-    
+    private let saveButton = CustomButton()
+        
     //  MARK: - init
     
     init(presenter: RegistrationPresenterProtocol) {
@@ -40,7 +39,7 @@ final class RegistrationViewController: UIViewController {
     }
     
     deinit {
-        print("RegistrationViewController deinited")
+        print("SignUpViewController deinited")
     }
     
     //  MARK: - life Cycle
@@ -55,39 +54,42 @@ final class RegistrationViewController: UIViewController {
 //  MARK: - private methods
 
 private extension RegistrationViewController {
-
+    
     //  MARK: - setup UI
     
     func setup() {
         addViews()
         setupViews()
         setupConstraints()
+        addActions()
     }
-        
+    
     func addViews() {
         view.addSubview(backgroundImage)
         view.addSubview(accountIcon)
         view.addSubview(registrationLabel)
         view.addSubview(userNameTextField)
         view.addSubview(passwordTextField)
-        view.addSubview(signUpButton)
-        view.addSubview(signInButton)
+        view.addSubview(saveButton)
     }
     
     func setupViews() {
         backgroundImage.image = UIImage(resource: .background)
         accountIcon.image = UIImage(resource: .accountPageIcon)
         registrationLabel.setupCustomTitleLabel(text: "Registration", textColor: .blue)
-        userNameTextField.setupTextField(placeholder: "username", backgroundColor: .white, borderColor: .blue, placehplderColor: .gray, textColor: .blue, borderWidth: 4)
+        userNameTextField.setupTextField(placeholder: "new email", backgroundColor: .white, borderColor: .blue, placehplderColor: .gray, textColor: .blue, borderWidth: 4)
+        userNameTextField.delegate = self
+        
+        passwordTextField.setupTextField(placeholder: "new password", backgroundColor: .white, borderColor: .blue, placehplderColor: .gray, textColor: .blue, borderWidth: 4)
+        passwordTextField.delegate = self
+        
+        saveButton.isEnabled = false
+        saveButton.setupView(title: "Save", color: .blue, titleColor: .white)
+        saveButton.addTarget(self, action: #selector(onSaveButtonTapped), for: .touchUpInside)
 
-        passwordTextField.setupTextField(placeholder: "password", backgroundColor: .white, borderColor: .blue, placehplderColor: .gray, textColor: .blue, borderWidth: 4)
-
-        signInButton.setupView(title: "Sign In", color: .blue, titleColor: .white)
-        signUpButton.setupView(title: "Sign Up", color: .blue, titleColor: .white)
-        signUpButton.addTarget(self, action: #selector(showRegistrationScreen), for: .touchUpInside)
         endEditingFromClosures()
     }
-        
+    
     func setupConstraints() {
         backgroundImage.snp.makeConstraints { make in
             make.edges.equalToSuperview()
@@ -114,17 +116,11 @@ private extension RegistrationViewController {
             make.height.equalTo(60)
             make.leading.trailing.equalToSuperview().inset(16)
         }
-        signUpButton.snp.makeConstraints { make in
+        saveButton.snp.makeConstraints { make in
             make.top.equalTo(passwordTextField.snp.bottom).offset(20)
             make.centerX.equalToSuperview()
             make.height.equalTo(60)
-            make.width.equalTo(200)
-        }
-        signInButton.snp.makeConstraints { make in
-            make.top.equalTo(signUpButton.snp.bottom).offset(20)
-            make.centerX.equalToSuperview()
-            make.height.equalTo(60)
-            make.width.equalTo(200)
+            make.width.equalTo(saveButton.intrinsicContentSize.width + 80)
         }
     }
     
@@ -148,13 +144,9 @@ private extension RegistrationViewController {
     
     //  MARK: - objc method
     
-    @objc func showRegistrationScreen() {
-        presenter.showSignUpScreen()
-    }
-    
     @objc func keyboardWillShow(notification: NSNotification) {
         if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
-            let buttonFrameInWindow = signUpButton.convert(signUpButton.bounds, to: nil)
+            let buttonFrameInWindow = saveButton.convert(saveButton.bounds, to: nil)
             let bottomOfButton = buttonFrameInWindow.maxY
             let offset = bottomOfButton + 50  - (self.view.frame.size.height - keyboardSize.height)
             if offset > 0 {
@@ -166,10 +158,29 @@ private extension RegistrationViewController {
     @objc func keyboardWillHide(notification: NSNotification) {
         self.view.frame.origin.y = 0
     }
+    
+    @objc func onSaveButtonTapped() {
+        presenter.showUserInfo()
+    }
+}
+
+extension RegistrationViewController: UITextFieldDelegate {
+    func textFieldDidChangeSelection(_ textField: UITextField) {
+        guard let usernameText = userNameTextField.text,
+              let passwordText = passwordTextField.text else { return }
+        presenter.sendingChanges(username: usernameText, password: passwordText)
+    }
 }
 
 //  MARK: - extension SignUpDisplayLogic
 
 extension RegistrationViewController: RegistrationDisplayLogic {
-
+    func setButtonColorWhen(isAvailable: Bool) {
+        saveButton.backgroundColor = isAvailable ? .blue : .gray
+        saveButton.isEnabled = isAvailable ? true : false
+    }
+    
+    func sendTextField() -> String? {
+        return passwordTextField.text
+    }
 }

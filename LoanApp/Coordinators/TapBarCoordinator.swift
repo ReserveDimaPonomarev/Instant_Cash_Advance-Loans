@@ -8,7 +8,7 @@
 import UIKit
 
 protocol TabBarInputProtocol {
-    func showMainPageAfterRegistrationScreen()
+    
 }
 
 final class TabBarCoordinator: BaseCoordinator {
@@ -23,9 +23,8 @@ final class TabBarCoordinator: BaseCoordinator {
     
     func start() {
         setTabBar()
-        showMainScreen()
-        showRegistrationScreen()
         howItWorksScreen()
+        showMainScreen()
         contactUsScreen()
     }
     
@@ -45,25 +44,25 @@ final class TabBarCoordinator: BaseCoordinator {
         
         addDependency(mainPageCoordinator)
         
-        tabBarViewController.viewControllers = [mainPageNavigationController]
+        tabBarViewController.viewControllers?.append(mainPageNavigationController)
     }
     
-    private func showRegistrationScreen() {
-        let registerPageNavigationController = UINavigationController()
-        let registerPageRouter = Router(navigationController: registerPageNavigationController)
-        let registerPageCoordinator = RegisterPageCoordinator(router: registerPageRouter, parentCoordinator: self)
-        registerPageCoordinator.start()
-        
-        addDependency(registerPageCoordinator)
-        
-        tabBarViewController.viewControllers?.append(registerPageNavigationController)
-    }
+//    private func showRegistrationScreen() {
+//        let registerPageNavigationController = UINavigationController()
+//        let registerPageRouter = Router(navigationController: registerPageNavigationController)
+//        let registerPageCoordinator = RegisterPageCoordinator(router: registerPageRouter, parentCoordinator: self)
+//        registerPageCoordinator.start()
+//        
+//        addDependency(registerPageCoordinator)
+//        
+//        tabBarViewController.viewControllers?.append(registerPageNavigationController)
+//    }
     
     private func howItWorksScreen() {
         let howItWorksVC = HowItWorksViewController()
         howItWorksVC.tabBarItem = UITabBarItem().setupTabBarItem(image: .howItWorksPageIcon, text: "How It works")
         
-        tabBarViewController.viewControllers?.append(howItWorksVC)
+        tabBarViewController.viewControllers = [howItWorksVC]
     }
     
     private func contactUsScreen() {
@@ -85,12 +84,4 @@ private extension TabBarCoordinator {
 
 extension TabBarCoordinator: TabBarInputProtocol {
     
-    func showMainPageAfterRegistrationScreen() {
-        tabBarViewController.switchToFirstTab()
-        let registerPageNavigationController = UINavigationController()
-        let registerPageRouter = Router(navigationController: registerPageNavigationController)
-        let registerPageCoordinator = RegisterPageCoordinator(router: registerPageRouter, parentCoordinator: self)
-        registerPageCoordinator.start()
-        tabBarViewController.viewControllers?.insert(registerPageNavigationController, at: 1)
-    }
 }
