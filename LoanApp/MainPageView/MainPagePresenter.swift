@@ -38,11 +38,7 @@ class MainPagePresenter {
         self.coordinator = coordinator
         self.userData = userData
     }
-    
-    deinit {
-        print("RegistrationPresenter deinited")
-    }
-    
+
     //  MARK: - Private Methods
 
 }

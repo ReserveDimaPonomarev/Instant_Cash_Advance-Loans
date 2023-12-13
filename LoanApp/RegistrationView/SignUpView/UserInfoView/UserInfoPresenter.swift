@@ -36,10 +36,6 @@ class UserInfoPresenter {
         self.coordinator = coordinator
     }
     
-    deinit {
-        print("UserInfoPresenter deinited")
-    }
-    
     //  MARK: - Private methods
     
 }

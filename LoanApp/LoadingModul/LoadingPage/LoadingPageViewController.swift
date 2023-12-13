@@ -36,10 +36,6 @@ final class LoadingPageViewController: UIViewController, LoadingPageDisplayLogic
         fatalError("init(coder:) has not been implemented")
     }
     
-    deinit {
-        print("LoadingPageViewController deinited")
-    }
-    
     //  MARK: - life Cycle
     
     override func viewDidLoad() {

@@ -11,26 +11,7 @@ import AppsFlyerLib
 import AppTrackingTransparency
 
 @main
-class AppDelegate: UIResponder, UIApplicationDelegate, AppsFlyerLibDelegate {
-    func onConversionDataSuccess(_ conversionInfo: [AnyHashable : Any]) {
-        guard let status = conversionInfo["af_status"] as? String else {
-            return
-        }
-
-        if(status == "Non-organic") {
-            if let media_source = conversionInfo["media_source"] , let campaign = conversionInfo["campaign"] {
-                
-
-                    print("This is a Non-Organic install. Media source: \(media_source) Campaign: \(campaign) ")
-            }
-        } else {
-            print("This is an organic install.")
-        }
-    }
-    
-    func onConversionDataFail(_ error: Error) {
-        print(error)
-    }
+class AppDelegate: UIResponder, UIApplicationDelegate {
     
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions:
@@ -66,9 +47,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, AppsFlyerLibDelegate {
         AppsFlyerLib.shared().appsFlyerDevKey = "JdRpjKW5ZGx2GH6cekoTtb"
         AppsFlyerLib.shared().appleAppID = "6473890001"
         AppsFlyerLib.shared().waitForATTUserAuthorization(timeoutInterval: 60)
-        AppsFlyerLib.shared().delegate = self
 
-        AppsFlyerLib.shared().isDebug = true
+        AppsFlyerLib.shared().isDebug = false
     }
     
     // MARK: SceneDelegate support - start AppsFlyer SDK

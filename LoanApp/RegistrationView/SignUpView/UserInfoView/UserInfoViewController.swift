@@ -28,7 +28,6 @@ final class UserInfoViewController: UIViewController {
     private let accountIcon = UIImageView()
     private let userInfoLabel = CustomTitleLabel()
     private let emailStackView = CustomStackView()
-//    private let changeButton = CustomButton()
     private let birthDayStackView = CustomStackView()
     private let nameStackView = CustomStackView()
     private let saveButton = CustomButton()
@@ -43,10 +42,6 @@ final class UserInfoViewController: UIViewController {
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
-    }
-    
-    deinit {
-        print("UserInfoViewController deinited")
     }
     
     //  MARK: - life Cycle
@@ -80,7 +75,6 @@ private extension UserInfoViewController {
         contentView.addSubview(accountIcon)
         contentView.addSubview(userInfoLabel)
         contentView.addSubview(emailStackView)
-//        contentView.addSubview(changeButton)
         contentView.addSubview(birthDayStackView)
         contentView.addSubview(nameStackView)
         contentView.addSubview(saveButton)
@@ -92,7 +86,6 @@ private extension UserInfoViewController {
         userInfoLabel.setupCustomTitleLabel(text: "User Info", textColor: .blue)
         emailStackView.setupSubViews(labelText: "Email", textFieldPlaceholder: presenter.showUserEmail())
         emailStackView.inputtedTextField.isEnabled = false
-//        changeButton.setupView(title: "Change password", color: .blue, titleColor: .white)
         
         birthDayStackView.setupSubViews(labelText: "Birthday")
         birthDayStackView.inputtedTextField.delegate = self
@@ -132,12 +125,6 @@ private extension UserInfoViewController {
             make.centerX.equalToSuperview()
             make.width.equalToSuperview().inset(50)
         }
-//        changeButton.snp.makeConstraints { make in
-//            make.top.equalTo(emailStackView.snp.bottom).offset(20)
-//            make.centerX.equalToSuperview()
-//            make.height.equalTo(60)
-//            make.width.equalTo(emailStackView)
-//        }
         birthDayStackView.snp.makeConstraints { make in
             make.top.equalTo(emailStackView.snp.bottom).offset(18)
             make.centerX.equalToSuperview()
@@ -172,7 +159,6 @@ private extension UserInfoViewController {
     //  MARK: - addActions
 
     private func addActions() {
-//        changeButton.addTarget(self, action: #selector(onChangeButtonTap), for: .touchUpInside)
         saveButton.addTarget(self, action: #selector(onSaveButtonTap), for: .touchUpInside)
 
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)

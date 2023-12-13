@@ -13,7 +13,7 @@ class ThirdViewController: UIViewController {
     //  MARK: External dependencies
 
     var loginOutput: LoginOutput?
-    var complitionHandler: ((UserData) -> Void)?
+    var complitionHandler: ((UserData?) -> Void)?
     
     //MARK: - UI properties
 
@@ -27,14 +27,7 @@ class ThirdViewController: UIViewController {
     private let manImageView = UIImageView()
     private let bottomView = CustomBottomView()
     
-    private let userModel = UserData(email: "nudelman1995@mail.ru", password: "123456")
-    
-    //  MARK: - init
 
-    deinit {
-        print("ThirdViewController deinited")
-    }
-    
     //MARK: - View lifecycle
     
     override func viewDidLoad(){
@@ -112,7 +105,7 @@ private extension ThirdViewController {
     // MARK: - objc method
 
     @objc func onNextPageButtonTapped() {
-        complitionHandler?(userModel)
+        complitionHandler?(nil)
         loginOutput?.showMainScreen()
     }
 }

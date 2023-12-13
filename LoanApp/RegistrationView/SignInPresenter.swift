@@ -33,10 +33,6 @@ class SignInPresenter {
         self.userData = userData
     }
     
-    deinit {
-        print("RegistrationPresenter deinited")
-    }
-    
     //  MARK: - Private Methods
 
 }

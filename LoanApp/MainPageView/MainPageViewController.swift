@@ -46,10 +46,6 @@ final class MainPageViewController: UIViewController, MainPageDisplayLogic {
         fatalError("init(coder:) has not been implemented")
     }
     
-    deinit {
-        print("SignUpViewController deinited")
-    }
-    
     //  MARK: - life Cycle
     
     override func viewDidLoad() {
@@ -57,8 +53,11 @@ final class MainPageViewController: UIViewController, MainPageDisplayLogic {
         setup()
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-//        print(presenter.userData)
+
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        signOutButton.isHidden = !presenter.isUserAuthorized()
+        signInButton.isHidden = presenter.isUserAuthorized()
     }
 }
 
@@ -186,7 +185,8 @@ private extension MainPageViewController {
     
     func showAlertToSignOut() {
         let alertController = UIAlertController(title: "Are you sure to sign out?", message: nil, preferredStyle: .alert)
-        let actionYes = UIAlertAction(title: "Yes", style: .destructive) { _ in
+        let actionYes = UIAlertAction(title: "Yes", style: .destructive) { [weak self] _ in
+            guard let self else { return }
             self.presenter.userSignOut()
             self.signOutButton.isHidden = !self.presenter.isUserAuthorized()
             self.signInButton.isHidden = self.presenter.isUserAuthorized()

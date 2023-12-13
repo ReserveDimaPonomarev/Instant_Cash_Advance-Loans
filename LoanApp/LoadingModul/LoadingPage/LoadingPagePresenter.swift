@@ -32,10 +32,6 @@ class LoadingPagePresenter {
         self.coordinator = coordinator
     }
     
-    deinit {
-        print("LoadingPagePresenter deinited")
-    }
-    
     //  MARK: - Delegate methodes
     
     

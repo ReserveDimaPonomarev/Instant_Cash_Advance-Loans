@@ -53,7 +53,7 @@ private extension CustomSignInView {
         signInImageView.image = UIImage(resource: .accountPageIcon)
         signInImageView.contentMode = .scaleAspectFit
         signInLabel.textColor = .blue
-        signInLabel.font = .systemFont(ofSize: 30, weight: .heavy)
+        signInLabel.font = .systemFont(ofSize: 26, weight: .heavy)
     }
     
     func setupConstraints() {

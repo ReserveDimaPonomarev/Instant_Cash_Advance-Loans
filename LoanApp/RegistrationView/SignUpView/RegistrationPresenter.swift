@@ -33,11 +33,6 @@ class RegistrationPresenter {
     init(coordinator: MainPageScreenOutput) {
         self.coordinator = coordinator
     }
-    
-    deinit {
-        print("SignUpPresenter deinited")
-    }
-    
 }
 
 //  MARK: - Private methods

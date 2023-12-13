@@ -18,7 +18,7 @@ final class LoadingCoordinator: BaseCoordinator {
     
     var onFinish: (() -> Void)?
     
-    var userData = UserData()
+    var userData: UserData?
     var factoryLoading: LoadingFactoryProtocol!
 
     func start() {
@@ -61,7 +61,6 @@ extension LoadingCoordinator: LoginOutput {
     }
     
     func showMainScreen() {
-        print(userData)
         finish()
     }
 }

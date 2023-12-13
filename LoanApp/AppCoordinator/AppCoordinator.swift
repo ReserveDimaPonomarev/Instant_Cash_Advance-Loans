@@ -30,7 +30,7 @@ extension AppCoordinator {
         addDependency(loadingCoordinator)
     }
 
-    func showTabBarCoordinator(userData: UserData) {
+    func showTabBarCoordinator(userData: UserData?) {
         let tabBarCoordinator = TabBarCoordinator(router: router)
         tabBarCoordinator.userData = userData
         tabBarCoordinator.start()

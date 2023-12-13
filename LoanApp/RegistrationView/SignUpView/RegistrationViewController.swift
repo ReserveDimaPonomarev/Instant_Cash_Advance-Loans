@@ -38,10 +38,6 @@ final class RegistrationViewController: UIViewController {
         fatalError("init(coder:) has not been implemented")
     }
     
-    deinit {
-        print("SignUpViewController deinited")
-    }
-    
     //  MARK: - life Cycle
     
     override func viewDidLoad() {

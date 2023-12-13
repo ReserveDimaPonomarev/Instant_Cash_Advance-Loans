@@ -17,10 +17,6 @@ final class TabBarCoordinator: BaseCoordinator {
     var userData: UserData?
     private lazy var tabBarViewController = getTabBarViewController()
     
-    deinit {
-        print(String(describing: Self.self) + " was deinited")
-    }
-    
     func start() {
         
         setTabBar()

@@ -23,12 +23,6 @@ class FirstViewController: UIViewController {
     private let approvalLabel = UILabel()
     private let manImageView = UIImageView()
     private let bottomView = CustomBottomView()
-    
-    //  MARK: - init
-
-    deinit {
-        print("FirstViewController deinited")
-    }
   
     //MARK: - View lifecycle
     
