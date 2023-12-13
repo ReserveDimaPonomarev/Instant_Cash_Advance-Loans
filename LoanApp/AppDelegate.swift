@@ -11,7 +11,27 @@ import AppsFlyerLib
 import AppTrackingTransparency
 
 @main
-class AppDelegate: UIResponder, UIApplicationDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate, AppsFlyerLibDelegate {
+    func onConversionDataSuccess(_ conversionInfo: [AnyHashable : Any]) {
+        guard let status = conversionInfo["af_status"] as? String else {
+            return
+        }
+
+        if(status == "Non-organic") {
+            if let media_source = conversionInfo["media_source"] , let campaign = conversionInfo["campaign"] {
+                
+
+                    print("This is a Non-Organic install. Media source: \(media_source) Campaign: \(campaign) ")
+            }
+        } else {
+            print("This is an organic install.")
+        }
+    }
+    
+    func onConversionDataFail(_ error: Error) {
+        print(error)
+    }
+    
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions:
                      [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
@@ -43,18 +63,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func setupAppsFlyerLib() {
         // MARK: keys for AppsFlyerLib
         
-        AppsFlyerLib.shared().appsFlyerDevKey = "JdRpjKW5ZG×2GH6cekoTtb"
+        AppsFlyerLib.shared().appsFlyerDevKey = "JdRpjKW5ZGx2GH6cekoTtb"
         AppsFlyerLib.shared().appleAppID = "6473890001"
-        
-        NotificationCenter.default.addObserver(self, selector: #selector(sendLaunch), name: UIApplication.didBecomeActiveNotification, object: nil)
+        AppsFlyerLib.shared().waitForATTUserAuthorization(timeoutInterval: 60)
+        AppsFlyerLib.shared().delegate = self
+
         AppsFlyerLib.shared().isDebug = true
     }
     
     // MARK: SceneDelegate support - start AppsFlyer SDK
     
-    @objc func sendLaunch() {
-        AppsFlyerLib.shared().start()
+    @objc func didBecomeActiveNotification() {
         if #available(iOS 14, *) {
+            AppsFlyerLib.shared().start()
             ATTrackingManager.requestTrackingAuthorization { (status) in
                 switch status {
                 case .denied:
@@ -75,7 +96,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     // MARK: UISceneSession Lifecycle
     
     func applicationDidBecomeActive(_ application: UIApplication) {
-        AppsFlyerLib.shared().waitForATTUserAuthorization(timeoutInterval: 60)
         AppsFlyerLib.shared().start()
     }
     
@@ -88,4 +108,3 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
     }
 }
-

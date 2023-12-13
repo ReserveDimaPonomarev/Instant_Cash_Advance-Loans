@@ -24,9 +24,7 @@ class WebViewViewController: UIViewController {
         guard let url = URL(string: "https://loan-instant-cash-advance.online/") else { return }
         webView.load(URLRequest(url: url))
     }
-    
-    //  MARK: - viewDidLayoutSubviews
-    
+        
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         webView.frame = view.bounds

@@ -50,13 +50,13 @@ class CusomTextFieldWithBorder: UITextField {
         let toolbar = UIToolbar();
         toolbar.sizeToFit()
         
-        let doneButton = UIBarButtonItem(title: "Done", style: .plain, target: self, action: #selector(donedatePicker))
+        let doneButton = UIBarButtonItem(title: "Done", style: .plain, target: self, action: #selector(doneВatePicker))
         toolbar.setItems([doneButton], animated: false)
 
         return toolbar
     }
     
-    @objc private func donedatePicker(){
+    @objc private func doneВatePicker(){
         let formatter = DateFormatter()
         formatter.dateFormat = "dd MMMM yyyy"
         formatter.dateStyle = .medium
@@ -64,7 +64,7 @@ class CusomTextFieldWithBorder: UITextField {
         let selectedDate = datePicker.date
 
         if let age = calculateAge(from: selectedDate), age < 18 {
-            print("Мало лет")
+            closure?()
         } else {
             self.text = formatter.string(from: selectedDate)
         }

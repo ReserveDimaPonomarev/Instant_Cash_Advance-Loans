@@ -9,9 +9,13 @@ import UIKit
 
 class CustomSignInView: UIView {
     
+    //  MARK: - UI properties
+
     private let signInImageView = UIImageView()
     private let signInLabel = UILabel()
     
+    //  MARK: - init
+
     override init(frame: CGRect) {
         super.init(frame: frame)
         addViews()
@@ -22,6 +26,18 @@ class CustomSignInView: UIView {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
+    //  MARK: - public methods
+
+    func setTitle(_ isSignIn: String) {
+        signInLabel.text = isSignIn
+        signInLabel.text = isSignIn
+    }
+}
+
+// MARK: - Private methods
+
+private extension CustomSignInView {
     
     func addViews() {
         self.addSubview(signInImageView)
@@ -36,7 +52,6 @@ class CustomSignInView: UIView {
         
         signInImageView.image = UIImage(resource: .accountPageIcon)
         signInImageView.contentMode = .scaleAspectFit
-        signInLabel.text = "Sign In"
         signInLabel.textColor = .blue
         signInLabel.font = .systemFont(ofSize: 30, weight: .heavy)
     }

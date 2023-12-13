@@ -9,7 +9,7 @@
 import UIKit
 
 protocol SignInDisplayLogic: AnyObject {
-    func setButtonColorWhen(isAvailable: Bool)
+    func showNonExistentUserAlert()
 }
 
 final class SignInViewController: UIViewController {
@@ -22,11 +22,11 @@ final class SignInViewController: UIViewController {
     
     private let backgroundImage = UIImageView()
     private let accountIcon = UIImageView()
-    private let registrationLabel = CustomTitleLabel()
-    private let userNameTextField = CusomTextFieldWithBorder()
+    private let signInLabel = CustomTitleLabel()
+    private let emailTextField = CusomTextFieldWithBorder()
     private let passwordTextField = CusomTextFieldWithBorder()
-    private let createAccountButton = CustomButton()
     private let signInButton = CustomButton()
+    private let createAccountButton = CustomButton()
         
     //  MARK: - init
     
@@ -61,6 +61,7 @@ private extension SignInViewController {
     func setup() {
         addViews()
         setupViews()
+        endEditingFromClosures()
         setupConstraints()
         addActions()
     }
@@ -68,52 +69,50 @@ private extension SignInViewController {
     func addViews() {
         view.addSubview(backgroundImage)
         view.addSubview(accountIcon)
-        view.addSubview(registrationLabel)
-        view.addSubview(userNameTextField)
+        view.addSubview(signInLabel)
+        view.addSubview(emailTextField)
         view.addSubview(passwordTextField)
-        view.addSubview(createAccountButton)
         view.addSubview(signInButton)
+        view.addSubview(createAccountButton)
     }
     
     func setupViews() {
         backgroundImage.image = UIImage(resource: .background)
         accountIcon.image = UIImage(resource: .accountPageIcon)
-        registrationLabel.setupCustomTitleLabel(text: "Sign In", textColor: .blue)
-        userNameTextField.setupTextField(placeholder: "email", backgroundColor: .white, borderColor: .blue, placehplderColor: .gray, textColor: .blue, borderWidth: 4)
-        userNameTextField.delegate = self
+        signInLabel.setupCustomTitleLabel(text: "Sign In", textColor: .blue)
+        emailTextField.setupTextField(placeholder: "email", backgroundColor: .white, borderColor: .blue, placehplderColor: .gray, textColor: .blue, borderWidth: 4)
+        emailTextField.delegate = self
 
         passwordTextField.setupTextField(placeholder: "password", backgroundColor: .white, borderColor: .blue, placehplderColor: .gray, textColor: .blue, borderWidth: 4)
         passwordTextField.delegate = self
         
-        signInButton.isEnabled = false
-        signInButton.setupView(title: "Sign In", color: .blue, titleColor: .white)
+        signInButton.setupView(title: "Sign In", color: .gray, titleColor: .white)
         
         createAccountButton.setupView(title: "Create account", color: .blue, titleColor: .white)
-        endEditingFromClosures()
     }
         
     func setupConstraints() {
         backgroundImage.snp.makeConstraints { make in
             make.edges.equalToSuperview()
         }
-        registrationLabel.snp.makeConstraints { make in
+        signInLabel.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
             make.top.equalTo(view.safeAreaLayoutGuide).offset(24)
         }
         accountIcon.snp.makeConstraints { make in
-            make.bottom.equalTo(registrationLabel).inset(8)
-            make.trailing.equalTo(registrationLabel.snp.leading).inset(-10)
-            make.height.equalTo(registrationLabel.intrinsicContentSize.height + 10)
+            make.bottom.equalTo(signInLabel).inset(8)
+            make.trailing.equalTo(signInLabel.snp.leading).inset(-10)
+            make.height.equalTo(signInLabel.intrinsicContentSize.height + 10)
             make.width.equalTo(accountIcon.snp.height)
         }
-        userNameTextField.snp.makeConstraints { make in
-            make.top.equalTo(registrationLabel.snp.bottom).offset(50)
+        emailTextField.snp.makeConstraints { make in
+            make.top.equalTo(signInLabel.snp.bottom).offset(50)
             make.centerX.equalToSuperview()
             make.height.equalTo(60)
             make.leading.trailing.equalToSuperview().inset(16)
         }
         passwordTextField.snp.makeConstraints { make in
-            make.top.equalTo(userNameTextField.snp.bottom).offset(20)
+            make.top.equalTo(emailTextField.snp.bottom).offset(20)
             make.centerX.equalToSuperview()
             make.height.equalTo(60)
             make.leading.trailing.equalToSuperview().inset(16)
@@ -133,6 +132,15 @@ private extension SignInViewController {
         }
     }
     
+    func showInvalidPasswordAlert() {
+        let alertController = UIAlertController(title: "Invalid password. Password must contatins at least 6 symbols", message: nil, preferredStyle: .alert)
+        
+        let actionTryAgain = UIAlertAction(title: "Try again", style: .destructive)
+        alertController.addAction(actionTryAgain)
+        
+        present(alertController, animated: true)
+    }
+    
     //  MARK: - addActions
 
     func addActions() {
@@ -143,7 +151,7 @@ private extension SignInViewController {
     }
     
     func endEditingFromClosures() {
-        userNameTextField.closure = { [weak self] in
+        emailTextField.closure = { [weak self] in
             guard let self else { return }
             self.view.endEditing(true)
         }
@@ -156,7 +164,11 @@ private extension SignInViewController {
     //  MARK: - objc method
     
     @objc func onSignInButtonTap() {
-        presenter.showMainScreen()
+        if self.signInButton.backgroundColor == .blue {
+            presenter.showMainScreen(email: emailTextField.text, password: passwordTextField.text)
+        } else {
+            showInvalidPasswordAlert()
+        }
     }
     
     @objc func showRegistrationScreen() {
@@ -183,17 +195,24 @@ private extension SignInViewController {
 
 extension SignInViewController: UITextFieldDelegate {
     func textFieldDidChangeSelection(_ textField: UITextField) {
-        guard let usernameText = userNameTextField.text,
-              let passwordText = passwordTextField.text else { return }
-        presenter.sendingChanges(username: usernameText, password: passwordText)
+        guard let passwordText = passwordTextField.text else { return }
+        if passwordText.count >= 6 && emailTextField.text != "" {
+            signInButton.backgroundColor = .blue
+        } else {
+            signInButton.backgroundColor = .gray
+        }
     }
 }
 
 //  MARK: - extension SignUpDisplayLogic
 
 extension SignInViewController: SignInDisplayLogic {
-    func setButtonColorWhen(isAvailable: Bool) {
-        signInButton.backgroundColor = isAvailable ? .blue : .gray
-        signInButton.isEnabled = isAvailable ? true : false
+    func showNonExistentUserAlert() {
+        let alertController = UIAlertController(title: "Non-existent user, check email and password", message: nil, preferredStyle: .alert)
+        
+        let actionTryAgain = UIAlertAction(title: "Try again", style: .destructive)
+        alertController.addAction(actionTryAgain)
+        
+        present(alertController, animated: true)
     }
 }

@@ -10,13 +10,15 @@ import UIKit
 
 class HalfViewController: UIViewController {
     
-    let closeButton = UIButton()
-    let privacyPolicyLabel = CustomButtonOnHalfView()
-    let termsOfUseLabel = CustomButtonOnHalfView()
-    let loanTermsLabel = CustomButtonOnHalfView()
+    //  MARK: - UI properties
     
-    var onCloseButtonClosure: (() -> Void)?
-
+    private let closeButton = UIButton()
+    private let privacyPolicyLabel = CustomButtonOnHalfView()
+    private let termsOfUseLabel = CustomButtonOnHalfView()
+    private let loanTermsLabel = CustomButtonOnHalfView()
+    
+    //  MARK: - life Cycle
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupView()
@@ -24,6 +26,11 @@ class HalfViewController: UIViewController {
         setupSubViews()
         makeConstraints()
     }
+}
+
+//  MARK: - private methods
+
+private extension HalfViewController {
     
     func addViews() {
         view.addSubview(closeButton)
@@ -80,6 +87,8 @@ class HalfViewController: UIViewController {
         loanTermsLabel.titleLabel?.numberOfLines = 2
     }
     
+    //  MARK: - @objc func
+
     @objc func onCloseMenuTapped() {
         UIView.animate(withDuration: 0.5, delay: 0, options: .curveEaseIn) { [weak self] in
             guard let self else { return }
@@ -87,18 +96,16 @@ class HalfViewController: UIViewController {
         }
     }
     
-    @objc func onPrivacyPolicyButtonTapped() {
-        print("hi")
-    }
-    
     @objc func showPrivacyPolicyPage() {
         let vc = PrivacyPolicyPageViewController()
         navigationController?.present(vc, animated: true)
    }
+    
     @objc func showLoanTermsPage() {
         let vc = LoanTermsPageViewController()
         navigationController?.present(vc, animated: true)
    }
+    
     @objc func showTermsOfUsePage() {
         let vc = TermsOfUsePageViewController()
         navigationController?.present(vc, animated: true)

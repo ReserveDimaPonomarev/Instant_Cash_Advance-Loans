@@ -10,15 +10,16 @@ import Foundation
 
 protocol UserInfoPresenterProtocol: AnyObject {
     var controller: UserInfoDisplayLogic? { get set }
-    func changeEmail(testEmail: String)
-    func saveUsersDataInProfile()
-    func sendingChanges(_ nameText: String)
+    func saveUsersDataInProfile(birhday: String, name: String)
+    func sendingChanges(_ nameText: String, _ birthdayText: String)
+    func showUserEmail() -> String
 }
 
 class UserInfoPresenter {
     
     //  MARK: - External properties
     
+    var userData: UserData
     private let coordinator: MainPageScreenOutput
     weak var controller: UserInfoDisplayLogic?
     
@@ -30,7 +31,8 @@ class UserInfoPresenter {
     
     //  MARK: - Init
     
-    init(coordinator: MainPageScreenOutput) {
+    init(userData: UserData, coordinator: MainPageScreenOutput) {
+        self.userData = userData
         self.coordinator = coordinator
     }
     
@@ -38,37 +40,30 @@ class UserInfoPresenter {
         print("UserInfoPresenter deinited")
     }
     
-    //  MARK: - Delegate methodes
+    //  MARK: - Private methods
     
-    func sendingChanges(_ nameText: String) {
-        if nameText.count < 6 {
-            controller?.setButtonColorWhen(isAvailable: false)
-        } else {
-            controller?.setButtonColorWhen(isAvailable: true)
-        }
-    }
 }
 
-//  MARK: - Private Methods
-
-private func isValidEmail(_ email: String) -> Bool {
-    let emailRegex = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}"
-    let emailPredicate = NSPredicate(format: "SELF MATCHES %@", emailRegex)
-    return emailPredicate.evaluate(with: email)
-}
-
+//  MARK: - extension UserInfoPresenterProtocol
 
 extension UserInfoPresenter: UserInfoPresenterProtocol {
     
-    func changeEmail(testEmail: String) {
-        if isValidEmail(testEmail) {
-            print("\(testEmail) - корректный адрес электронной почты")
-        } else {
-            print("\(testEmail) - некорректный адрес электронной почты")
-        }
+    func showUserEmail() -> String {
+        guard let password = userData.email else { return ""}
+        return password
     }
     
-    func saveUsersDataInProfile() {
-        coordinator.showMainScreen()
+    func saveUsersDataInProfile(birhday: String, name: String) {
+        self.userData.birthday = birhday
+        self.userData.name = name
+        coordinator.showMainScreen(userData)
+    }
+    
+    func sendingChanges(_ nameText: String, _ birthdayText: String) {
+        if nameText != "", birthdayText != "" {
+            controller?.setButtonColorWhen(isEnabled: true)
+        } else {
+            controller?.setButtonColorWhen(isEnabled: false)
+        }
     }
 }

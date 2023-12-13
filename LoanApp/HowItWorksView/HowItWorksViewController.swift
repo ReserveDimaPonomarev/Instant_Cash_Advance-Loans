@@ -15,7 +15,7 @@ final class HowItWorksViewController: UIViewController {
     let topTitlelabel = UILabel()
     let topSubtitleLabel = UILabel()
     let stackView = UIStackView()
-    let blueView = BlueViewForHowITWorks()
+    let firstBlueView = BlueViewForHowITWorks()
     let secondBlueView = BlueViewForHowITWorks()
     let thirdBlueView = BlueViewForHowITWorks()
     
@@ -45,7 +45,7 @@ private extension HowItWorksViewController {
         view.addSubview(topTitlelabel)
         view.addSubview(topSubtitleLabel)
         view.addSubview(stackView)
-        stackView.addArrangedSubview(blueView)
+        stackView.addArrangedSubview(firstBlueView)
         stackView.addArrangedSubview(secondBlueView)
         stackView.addArrangedSubview(thirdBlueView)
     }
@@ -66,7 +66,7 @@ private extension HowItWorksViewController {
         topSubtitleLabel.textColor = .blue
         topSubtitleLabel.font = .systemFont(ofSize: 16, weight: .regular)
         topSubtitleLabel.numberOfLines = 0
-        blueView.setupTextInsideView(number: 1, title: "Submit A Request", subtitle: "Submit A Request \nAll paperwork is gone! The whole process is completely online. Just fill in a few details about yourself and hit \"Get Started\"!")
+        firstBlueView.setupTextInsideView(number: 1, title: "Submit A Request", subtitle: "Submit A Request \nAll paperwork is gone! The whole process is completely online. Just fill in a few details about yourself and hit \"Get Started\"!")
         secondBlueView.setupTextInsideView(number: 2, title: "Check The Offers", subtitle: "If the offer suits your needs and desires, and you agree with all the terms - simply e-sign the deal and get ready to enjoy the money!")
         thirdBlueView.setupTextInsideView(number: 3, title: "Receive Your Money", subtitle: "Once you submit your request, get your offer, and e-sign it, you'll be able to get the funds to your bank account in no time!")
     }

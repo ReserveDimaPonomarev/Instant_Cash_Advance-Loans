@@ -18,10 +18,9 @@ final class LoadingCoordinator: BaseCoordinator {
     
     var onFinish: (() -> Void)?
     
-    private var userData = UserData()
-    private let factoryLoading = FactoryLoading()
+    var userData = UserData()
+    var factoryLoading: LoadingFactoryProtocol!
 
-    
     func start() {
         showLoadingScreen()
     }
@@ -53,14 +52,16 @@ extension LoadingCoordinator: LoginOutput {
     
     func showThirdScreen() {
         let thirdVC = factoryLoading.createThirdScreen(coordinator: self)
-        
-        thirdVC.complitionHandler = { userData in
+        thirdVC.complitionHandler = { [weak self] userData in
+            guard let self else { return }
             self.userData = userData
         }
         router.push(thirdVC)
+
     }
     
     func showMainScreen() {
+        print(userData)
         finish()
     }
 }

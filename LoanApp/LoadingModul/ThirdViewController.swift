@@ -27,7 +27,7 @@ class ThirdViewController: UIViewController {
     private let manImageView = UIImageView()
     private let bottomView = CustomBottomView()
     
-    private let userModel = UserData(email: "123456", password: "123456")
+    private let userModel = UserData(email: "nudelman1995@mail.ru", password: "123456")
     
     //  MARK: - init
 
@@ -45,6 +45,8 @@ class ThirdViewController: UIViewController {
         setupActions()
     }
 }
+
+//  MARK: - private methods
 
 private extension ThirdViewController {
     
@@ -110,14 +112,7 @@ private extension ThirdViewController {
     // MARK: - objc method
 
     @objc func onNextPageButtonTapped() {
-        loginOutput?.showMainScreen()
         complitionHandler?(userModel)
+        loginOutput?.showMainScreen()
     }
-}
-
-extension ThirdViewController: FlowController {
-    
-    
-    
-    
 }

@@ -41,6 +41,8 @@ class FirstViewController: UIViewController {
     }
 }
 
+//  MARK: - private methods
+
 private extension FirstViewController {
     
     //MARK: - addViews

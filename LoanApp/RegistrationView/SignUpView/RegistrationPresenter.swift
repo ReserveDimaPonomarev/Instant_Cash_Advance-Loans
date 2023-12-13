@@ -9,12 +9,13 @@
 import Foundation
 
 protocol RegistrationPresenterProtocol: AnyObject {
-    func showUserInfo()
+    func makeErrorDescriptionIfIsInvalid(_ userEmail: String, _ userPassword: String)
     var controller: RegistrationDisplayLogic? { get set }
-    func sendingChanges(username: String, password: String) 
+    func checkPaswordAndEmailOnValidation(userEmail: String, userPassword: String)
 }
 
-class RegistrationPresenter: RegistrationPresenterProtocol {
+
+class RegistrationPresenter {
     
     //  MARK: - External properties
     
@@ -32,53 +33,43 @@ class RegistrationPresenter: RegistrationPresenterProtocol {
     init(coordinator: MainPageScreenOutput) {
         self.coordinator = coordinator
     }
-//    
+    
     deinit {
         print("SignUpPresenter deinited")
     }
     
-    //  MARK: - Delegate methodes
-    
-    func showUserInfo() {
-        coordinator.showUserInfoScreen()
+}
 
-//        TODO: - ниже указана валидация пароля
+//  MARK: - Private methods
+
+private extension RegistrationPresenter {
+    
+    private func validateEmail(_ userEmail: String?) -> String? {
+        let emailRegEx = #"^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$"#
+        let emailPredicate = NSPredicate(format: "SELF MATCHES %@", emailRegEx)
         
-//        if checkIfPasswordContainsLettersAndDigits(userPassword: controller?.sendTextField()) {
-//            coordinator.showUserInfoVC()
-//        }
-    }
-    
-    func sendingChanges(username: String, password: String) {
-        if username.count & password.count < 6 {
-            controller?.setButtonColorWhen(isAvailable: false)
+        if emailPredicate.evaluate(with: userEmail) {
+            return nil
         } else {
-            controller?.setButtonColorWhen(isAvailable: true)
+            return "Incorrect email"
         }
     }
     
-    //  MARK: - Private Methods
-    
-    private func checkIfPasswordContainsLettersAndDigits(userPassword: String?) -> Bool {
-        guard let userEmail = userPassword else { return false }
-        let hasLetters = containsLetters(password: userEmail)
-        let hasDigits = containsDigits(password: userEmail)
-        let passwordLength = userEmail.count >= 6
-        switch (hasLetters, hasDigits, passwordLength) {
-        case (true, true, true):
-            print("Пароль содержит буквы и цифры, и подходит под валидацию")
-            return true
-        case (true, false, true):
-            print("Пароль должен содержать как минимум одну цифру")
-            return false
-        case (false, true, true):
-            print("Пароль должен содержать как минимум одну латинскую букву")
-            return false
-        case (true, true, false):
-            print("Пароль должен быть как минимум 6 символов")
-            return false
-        default: return false
+    private func validatePassword(_ userPassword: String) -> String? {
+        let hasLetters = containsLetters(password: userPassword)
+        let hasDigits = containsDigits(password: userPassword)
+        let hasSixSymbols = userPassword.count >= 6
+        
+        if hasLetters && hasDigits && hasSixSymbols {
+            return nil
+        } else if !hasLetters {
+            return "The password must contain at least one Latin letter"
+        } else if !hasDigits {
+            return "The password must contain at least one digit"
+        } else if !hasSixSymbols {
+            return "The password must be at least 6 characters long"
         }
+        return "Enter login and password"
     }
     
     private func containsLetters(password: String) -> Bool {
@@ -89,5 +80,35 @@ class RegistrationPresenter: RegistrationPresenterProtocol {
     private func containsDigits(password: String) -> Bool {
         let digitRegex = ".*[0-9]+.*"
         return NSPredicate(format: "SELF MATCHES %@", digitRegex).evaluate(with: password)
+    }
+}
+
+//  MARK: - extension RegistrationPresenterProtocol
+
+extension RegistrationPresenter: RegistrationPresenterProtocol {
+    
+    func makeErrorDescriptionIfIsInvalid(_ userEmail: String, _ userPassword: String) {
+        let emailValidationResult = validateEmail(userEmail)
+        let passwordValidationResult = validatePassword(userPassword)
+        
+        switch (emailValidationResult, passwordValidationResult) {
+        case (let email?, let password?):
+            controller?.showRegistrationErrorWith("\(email)\n\(password)")
+        case (let email?, _):
+            controller?.showRegistrationErrorWith(email)
+        case (_, let password?):
+            controller?.showRegistrationErrorWith(password)
+        case (nil, nil):
+            let userData = UserData(email: userEmail, password: userPassword)
+            coordinator.showUserInfoScreen(userData)
+        }
+    }
+    
+    func checkPaswordAndEmailOnValidation(userEmail: String, userPassword: String) {
+        if validatePassword(userPassword) == nil && validateEmail(userEmail) == nil {
+            controller?.setButtonColorWhen(isEnabled: true)
+        } else {
+            controller?.setButtonColorWhen(isEnabled: false)
+        }
     }
 }

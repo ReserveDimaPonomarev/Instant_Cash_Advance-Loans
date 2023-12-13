@@ -29,8 +29,7 @@
 		4A0CC0272B19CF3C0074EEF1 /* HalfViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A0CC0262B19CF3C0074EEF1 /* HalfViewController.swift */; };
 		4A8042DC2B23404200E15C79 /* CustomSignInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A8042DB2B23404200E15C79 /* CustomSignInView.swift */; };
 		4A8042DE2B24590500E15C79 /* UserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A8042DD2B24590500E15C79 /* UserData.swift */; };
-		4A8042E02B24669A00E15C79 /* FlowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A8042DF2B24669A00E15C79 /* FlowController.swift */; };
-		4A8042E22B2468DE00E15C79 /* FactoryLoading.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A8042E12B2468DE00E15C79 /* FactoryLoading.swift */; };
+		4A8042E22B2468DE00E15C79 /* ScreenFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A8042E12B2468DE00E15C79 /* ScreenFactory.swift */; };
 		4A83BDA82B1EB5B200B2DD53 /* LoadingPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A83BDA62B1EB5B200B2DD53 /* LoadingPageViewController.swift */; };
 		4A83BDA92B1EB5B200B2DD53 /* LoadingPagePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A83BDA72B1EB5B200B2DD53 /* LoadingPagePresenter.swift */; };
 		4A83BDB72B1F4AED00B2DD53 /* PrivacyAndTermsTexts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A83BDB62B1F4AED00B2DD53 /* PrivacyAndTermsTexts.swift */; };
@@ -113,8 +112,7 @@
 		4A0CC0262B19CF3C0074EEF1 /* HalfViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HalfViewController.swift; sourceTree = "<group>"; };
 		4A8042DB2B23404200E15C79 /* CustomSignInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSignInView.swift; sourceTree = "<group>"; };
 		4A8042DD2B24590500E15C79 /* UserData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserData.swift; sourceTree = "<group>"; };
-		4A8042DF2B24669A00E15C79 /* FlowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlowController.swift; sourceTree = "<group>"; };
-		4A8042E12B2468DE00E15C79 /* FactoryLoading.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FactoryLoading.swift; sourceTree = "<group>"; };
+		4A8042E12B2468DE00E15C79 /* ScreenFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenFactory.swift; sourceTree = "<group>"; };
 		4A83BDA62B1EB5B200B2DD53 /* LoadingPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingPageViewController.swift; sourceTree = "<group>"; };
 		4A83BDA72B1EB5B200B2DD53 /* LoadingPagePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingPagePresenter.swift; sourceTree = "<group>"; };
 		4A83BDB62B1F4AED00B2DD53 /* PrivacyAndTermsTexts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyAndTermsTexts.swift; sourceTree = "<group>"; };
@@ -208,8 +206,8 @@
 		4A0CC0082B18EEDA0074EEF1 /* Coordinators */ = {
 			isa = PBXGroup;
 			children = (
+				4A8042E12B2468DE00E15C79 /* ScreenFactory.swift */,
 				4A0CC0062B18ED510074EEF1 /* LoadingCoordinator.swift */,
-				4A8042E12B2468DE00E15C79 /* FactoryLoading.swift */,
 				4A9983D62B17F76F00F4CCE8 /* TapBarCoordinator.swift */,
 				4A9983E02B17F83C00F4CCE8 /* MainPageCoordinator.swift */,
 			);
@@ -233,7 +231,6 @@
 			isa = PBXGroup;
 			children = (
 				4A9983DC2B17F7CD00F4CCE8 /* BaseCoordinator.swift */,
-				4A8042DF2B24669A00E15C79 /* FlowController.swift */,
 				4A9983DE2B17F7E000F4CCE8 /* Router.swift */,
 				4A9983EA2B17FAC700F4CCE8 /* AppCoordinator.swift */,
 			);
@@ -285,18 +282,10 @@
 		4A83BDAA2B1EB5B600B2DD53 /* LoadingPage */ = {
 			isa = PBXGroup;
 			children = (
-				4A83BDB12B1F1BA900B2DD53 /* LoadingView */,
 				4A83BDA62B1EB5B200B2DD53 /* LoadingPageViewController.swift */,
 				4A83BDA72B1EB5B200B2DD53 /* LoadingPagePresenter.swift */,
 			);
 			path = LoadingPage;
-			sourceTree = "<group>";
-		};
-		4A83BDB12B1F1BA900B2DD53 /* LoadingView */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = LoadingView;
 			sourceTree = "<group>";
 		};
 		4A891BEA2B207E8300EF6FD9 /* OneSignalNotificationServiceExtension */ = {
@@ -339,8 +328,8 @@
 				4A0CC0082B18EEDA0074EEF1 /* Coordinators */,
 				4A9983D42B17F6CB00F4CCE8 /* LoadingModul */,
 				4A9983D52B17F75700F4CCE8 /* TabBar */,
-				4A0CC0002B18DAF60074EEF1 /* RegistrationView */,
 				4A0CC0092B18F1760074EEF1 /* MainPageView */,
+				4A0CC0002B18DAF60074EEF1 /* RegistrationView */,
 				4A0CBFF12B18B3DF0074EEF1 /* ContactUsView */,
 				4A9983F02B18859A00F4CCE8 /* HowItWorksView */,
 				4A0CC0222B194E1F0074EEF1 /* Views */,
@@ -581,13 +570,12 @@
 				4A9983D92B17F78C00F4CCE8 /* TabBarViewController.swift in Sources */,
 				4A0CC0032B18DB180074EEF1 /* RegistrationViewController.swift in Sources */,
 				4A0CC00D2B18F1930074EEF1 /* MainPagePresenter.swift in Sources */,
-				4A8042E02B24669A00E15C79 /* FlowController.swift in Sources */,
 				4A0CBFFB2B18BD0D0074EEF1 /* CustomButton.swift in Sources */,
 				4A0CC0042B18DB180074EEF1 /* RegistrationPresenter.swift in Sources */,
 				4A0CC0072B18ED510074EEF1 /* LoadingCoordinator.swift in Sources */,
 				4A8042DC2B23404200E15C79 /* CustomSignInView.swift in Sources */,
 				4A9983C52B17B82200F4CCE8 /* CustomBottomView.swift in Sources */,
-				4A8042E22B2468DE00E15C79 /* FactoryLoading.swift in Sources */,
+				4A8042E22B2468DE00E15C79 /* ScreenFactory.swift in Sources */,
 				4A85E3D32B1A0CD700113B24 /* TermsOfUsePageViewController.swift in Sources */,
 				4A85E3CF2B1A05AA00113B24 /* PrivacyPolicyPageViewController.swift in Sources */,
 				4A9983DF2B17F7E000F4CCE8 /* Router.swift in Sources */,
@@ -690,6 +678,7 @@
 		4A9983BD2B17A8D000F4CCE8 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				AF_APP_ID = "";
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -753,6 +742,7 @@
 		4A9983BE2B17A8D000F4CCE8 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				AF_APP_ID = "";
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
 				CLANG_ANALYZER_NONNULL = YES;

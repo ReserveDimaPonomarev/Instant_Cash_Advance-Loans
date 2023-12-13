@@ -9,8 +9,7 @@
 import UIKit
 
 protocol UserInfoDisplayLogic: AnyObject {
-    func setButtonColorWhen(isAvailable: Bool)
-
+    func setButtonColorWhen(isEnabled: Bool)
 }
 
 final class UserInfoViewController: UIViewController {
@@ -21,17 +20,18 @@ final class UserInfoViewController: UIViewController {
     
     //  MARK: - UI properties
     
+    // TODO: - если необходимо реализовать функционал сменить пароль, то раскоммитить все, связанное с changeButton
+
     private let scrollView = UIScrollView()
     private let contentView = UIView()
     private let backgroundImage = UIImageView()
     private let accountIcon = UIImageView()
     private let userInfoLabel = CustomTitleLabel()
-    private let loginStackView = CustomStackView()
-    private let changeButton = CustomButton()
+    private let emailStackView = CustomStackView()
+//    private let changeButton = CustomButton()
     private let birthDayStackView = CustomStackView()
     private let nameStackView = CustomStackView()
     private let saveButton = CustomButton()
-//    private let logoutButton = CustomViewWithBorder()
     
 
     //  MARK: - init
@@ -66,6 +66,7 @@ private extension UserInfoViewController {
     private func setup() {
         addViews()
         setupViews()
+        endEditingFromClosures()
         setupConstraints()
         addActions()
     }
@@ -78,8 +79,8 @@ private extension UserInfoViewController {
         contentView.addSubview(backgroundImage)
         contentView.addSubview(accountIcon)
         contentView.addSubview(userInfoLabel)
-        contentView.addSubview(loginStackView)
-        contentView.addSubview(changeButton)
+        contentView.addSubview(emailStackView)
+//        contentView.addSubview(changeButton)
         contentView.addSubview(birthDayStackView)
         contentView.addSubview(nameStackView)
         contentView.addSubview(saveButton)
@@ -89,9 +90,9 @@ private extension UserInfoViewController {
         backgroundImage.image = UIImage(resource: .background)
         accountIcon.image = UIImage(resource: .accountPageIcon)
         userInfoLabel.setupCustomTitleLabel(text: "User Info", textColor: .blue)
-        loginStackView.setupSubViews(labelText: "Email", textFieldPlaceholder: "email@mail.ru")
-        loginStackView.inputtedTextField.isEnabled = false
-        changeButton.setupView(title: "Change", color: .blue, titleColor: .white)
+        emailStackView.setupSubViews(labelText: "Email", textFieldPlaceholder: presenter.showUserEmail())
+        emailStackView.inputtedTextField.isEnabled = false
+//        changeButton.setupView(title: "Change password", color: .blue, titleColor: .white)
         
         birthDayStackView.setupSubViews(labelText: "Birthday")
         birthDayStackView.inputtedTextField.delegate = self
@@ -99,16 +100,9 @@ private extension UserInfoViewController {
         nameStackView.setupSubViews(labelText: "Name")
         nameStackView.inputtedTextField.delegate = self
         
-        saveButton.isEnabled = false
-        saveButton.setupView(title: "Save", color: .blue, titleColor: .white)
+        saveButton.setupView(title: "Save", color: .gray, titleColor: .white)
 
         birthDayStackView.inputtedTextField.createDatePicker()
-        setupGestureOnLoginButton()
-        endEditingFromClosures()
-    }
-
-    private func setupGestureOnLoginButton() {
-
     }
     
     private func setupConstraints() {
@@ -133,19 +127,19 @@ private extension UserInfoViewController {
             make.height.equalTo(userInfoLabel.intrinsicContentSize.height + 10)
             make.width.equalTo(accountIcon.snp.height)
         }
-        loginStackView.snp.makeConstraints { make in
+        emailStackView.snp.makeConstraints { make in
             make.top.equalTo(userInfoLabel.snp.bottom).offset(36)
             make.centerX.equalToSuperview()
             make.width.equalToSuperview().inset(50)
         }
-        changeButton.snp.makeConstraints { make in
-            make.top.equalTo(loginStackView.snp.bottom).offset(20)
-            make.centerX.equalToSuperview()
-            make.height.equalTo(60)
-            make.width.equalTo(200)
-        }
+//        changeButton.snp.makeConstraints { make in
+//            make.top.equalTo(emailStackView.snp.bottom).offset(20)
+//            make.centerX.equalToSuperview()
+//            make.height.equalTo(60)
+//            make.width.equalTo(emailStackView)
+//        }
         birthDayStackView.snp.makeConstraints { make in
-            make.top.equalTo(changeButton.snp.bottom).offset(18)
+            make.top.equalTo(emailStackView.snp.bottom).offset(18)
             make.centerX.equalToSuperview()
             make.width.equalToSuperview().inset(50)
         }
@@ -165,8 +159,8 @@ private extension UserInfoViewController {
     //  MARK: - private methods
     
     private func findActiveField() -> UIView? {
-        if loginStackView.inputtedTextField.isFirstResponder {
-            return loginStackView.inputtedTextField
+        if emailStackView.inputtedTextField.isFirstResponder {
+            return emailStackView.inputtedTextField
         } else if birthDayStackView.inputtedTextField.isFirstResponder {
             return birthDayStackView.inputtedTextField
         } else if nameStackView.inputtedTextField.isFirstResponder {
@@ -178,7 +172,7 @@ private extension UserInfoViewController {
     //  MARK: - addActions
 
     private func addActions() {
-        changeButton.addTarget(self, action: #selector(onChangeButtonTap), for: .touchUpInside)
+//        changeButton.addTarget(self, action: #selector(onChangeButtonTap), for: .touchUpInside)
         saveButton.addTarget(self, action: #selector(onSaveButtonTap), for: .touchUpInside)
 
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
@@ -194,7 +188,7 @@ private extension UserInfoViewController {
             guard let self else { return }
             self.view.endEditing(true)
         }
-        loginStackView.inputtedTextField.closure = { [weak self] in
+        emailStackView.inputtedTextField.closure = { [weak self] in
             guard let self else { return }
             self.view.endEditing(true)
         }
@@ -220,29 +214,26 @@ private extension UserInfoViewController {
         self.view.frame.origin.y = 0
     }
     
-    @objc func onChangeButtonTap() {
-        guard let text = loginStackView.inputtedTextField.text else { return }
-        presenter.changeEmail(testEmail: text)
-        
-    }
-    
     @objc func onSaveButtonTap() {
-        presenter.saveUsersDataInProfile()
+        guard let birthday = birthDayStackView.inputtedTextField.text,
+              let name = nameStackView.inputtedTextField.text else { return }
+        presenter.saveUsersDataInProfile(birhday: birthday, name: name)
     }
 }
 
 extension UserInfoViewController: UITextFieldDelegate {
     func textFieldDidChangeSelection(_ textField: UITextField) {
-        guard let nameText = nameStackView.inputtedTextField.text else { return }
-        presenter.sendingChanges(nameText)
+        guard let nameText = nameStackView.inputtedTextField.text,
+              let birthdayText = birthDayStackView.inputtedTextField.text else { return }
+        
+        presenter.sendingChanges(birthdayText, nameText)
     }
 }
 
 //  MARK: - extension UserInfoDisplayLogic
 
 extension UserInfoViewController: UserInfoDisplayLogic {
-    func setButtonColorWhen(isAvailable: Bool) {
-        saveButton.backgroundColor = isAvailable ? .blue : .gray
-        saveButton.isEnabled = isAvailable ? true : false
+    func setButtonColorWhen(isEnabled: Bool) {
+        saveButton.backgroundColor = isEnabled ? .blue : .gray
     }
 }

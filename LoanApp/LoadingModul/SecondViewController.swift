@@ -8,6 +8,7 @@
 
 import UIKit
 import SnapKit
+import AppsFlyerLib
 
 class SecondViewController: UIViewController {
             
@@ -38,8 +39,11 @@ class SecondViewController: UIViewController {
         setupViews()
         makeConstraints()
         setupActions()
+//        test()
     }
 }
+
+//  MARK: - private methods
 
 private extension SecondViewController {
     
@@ -100,5 +104,21 @@ private extension SecondViewController {
 
     @objc func onNextPageButtonTapped() {
         loginOutput?.showThirdScreen()
+    }
+    
+    func test() {
+        AppsFlyerLib.shared().logEvent(name: AFEventParam2,
+                  values: [
+                     AFEventParamPrice: 20,
+                     AFEventParamContentId: "123456"
+                  ],
+                  completionHandler: { (response: [String : Any]?, error: Error?) in
+                    if let response = response {
+                      print("In app event callback Success: ", response)
+                    }
+                    if let error = error {
+                      print("In app event callback ERROR:", error)
+                    }
+                  });
     }
 }

@@ -12,14 +12,18 @@ import FBSDKCoreKit
 protocol MainPagePresenterProtocol: AnyObject {
     var controller: MainPageDisplayLogic? { get set }
     func showWebViewOnMainPage()
-    func showSignInScreen()
+    func isUserAuthorized() -> Bool 
+    func userSignOut() 
+    func userSignedIn()
+    var userData: UserData? { get set }
 }
 
-class MainPagePresenter: MainPagePresenterProtocol {
+class MainPagePresenter {
     
     //  MARK: - External properties
     
     weak var controller: MainPageDisplayLogic?
+    var userData: UserData?
     
     //  MARK: Data Variables
     
@@ -30,24 +34,41 @@ class MainPagePresenter: MainPagePresenterProtocol {
     
     //  MARK: - Init
     
-    init(coordinator: MainPageScreenOutput) {
+    init(coordinator: MainPageScreenOutput, userData: UserData?) {
         self.coordinator = coordinator
+        self.userData = userData
     }
     
     deinit {
         print("RegistrationPresenter deinited")
     }
     
-    //  MARK: - Delegate methodes
+    //  MARK: - Private Methods
+
+}
+
+//  MARK: - extension MainPagePresenterProtocol
+
+extension MainPagePresenter: MainPagePresenterProtocol {
     
     func showWebViewOnMainPage() {
-        let fromOpen = AppEvents.Name("AdsFormOpen")
-        AppEvents.logEvent(fromOpen)
         coordinator.showWebView()
     }
-    func showSignInScreen() {
-        coordinator.showSignInScreen()
-    }
-    //  MARK: - Private Methods
     
+    func isUserAuthorized() -> Bool {
+        if userData != nil {
+            return true
+        } else {
+            return false
+        }
+    }
+    
+    func userSignOut() {
+        userData = nil
+    }
+    
+    func userSignedIn() {
+        coordinator.showSignInScreen()
+//        userData = UserData(email: "koko")
+    }
 }

@@ -11,16 +11,21 @@ protocol MainPageScreenOutput: AnyObject {
     func showWebView()
     func showSignInScreen()
     func showRegistrationScreen()
-    func showMainScreen()
-    func showUserInfoScreen()
+    func showMainScreen(_ userData: UserData)
+    func showUserInfoScreen(_ userData: UserData)
 }
 
 final class MainPageCoordinator: BaseCoordinator {
     
     let parentCoordinator: TabBarCoordinator
+    private let userData: UserData?
+    private var rootViewControll: UIViewController?
+    private let mainPageFactory: MainPageFactoryProtocol
     
-    init(router: Router, parentCoordinator: TabBarCoordinator) {
+    init(router: Router, parentCoordinator: TabBarCoordinator, userData: UserData?, mainPageFactory: MainPageFactoryProtocol) {
         self.parentCoordinator = parentCoordinator
+        self.userData = userData
+        self.mainPageFactory = mainPageFactory
         super.init(router: router)
     }
     
@@ -33,15 +38,8 @@ final class MainPageCoordinator: BaseCoordinator {
     }
     
     private func showMainPageScreen() {
-        let mainPageViewController = getMainPageViewController()
-        mainPageViewController.tabBarItem = UITabBarItem().setupTabBarItem(image: .mainPageIcon, text: "Main")
+        let mainPageViewController = mainPageFactory.getMainPageViewController(coordinator: self, userData: self.userData)
         router.setViewControllers([mainPageViewController])
-    }
-    
-    private func getMainPageViewController() -> UIViewController {
-        let mainPagePresenter = MainPagePresenter(coordinator: self)
-        let mainPageViewController = MainPageViewController(presenter: mainPagePresenter)
-        return mainPageViewController
     }
 }
 
@@ -49,33 +47,26 @@ extension MainPageCoordinator: MainPageScreenOutput {
     
     func showWebView() {
         let webViewController = WebViewViewController()
-        
         router.push(webViewController)
     }
     
     func showSignInScreen() {
-        let signInPresenter = SignInPresenter(coordinator: self)
-        let signInViewController = SignInViewController(presenter: signInPresenter)
-        signInPresenter.controller = signInViewController
-        
+        let signInViewController = mainPageFactory.showSignInScreen(coordinator: self, userData: userData)
         router.push(signInViewController)
     }
     
     func showRegistrationScreen() {
-        let registrationPresenter = RegistrationPresenter(coordinator: self)
-        let registrationVC = RegistrationViewController(presenter: registrationPresenter)
-        registrationPresenter.controller = registrationVC
+        let registrationVC = mainPageFactory.showRegistrationScreen(coordinator: self)
         router.push(registrationVC)
     }
     
-    func showMainScreen() {
-        router.popToRootViewController()
+    func showUserInfoScreen(_ userData: UserData) {
+        let userInfoVC = mainPageFactory.showUserInfoScreen(coordinator: self, userData)
+        router.push(userInfoVC)
     }
     
-    func showUserInfoScreen() {
-        let userInfoPresenter = UserInfoPresenter(coordinator: self)
-        let userInfoVC = UserInfoViewController(presenter: userInfoPresenter)
-        userInfoPresenter.controller = userInfoVC
-        router.push(userInfoVC)
+    func showMainScreen(_ userData: UserData) {
+        let mainPage = mainPageFactory.showMainScreen(userData)
+        router.pop(mainPage, animated: true)
     }
 }

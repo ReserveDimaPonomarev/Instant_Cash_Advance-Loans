@@ -14,7 +14,7 @@ protocol TabBarInputProtocol {
 final class TabBarCoordinator: BaseCoordinator {
     
     var onFinish: (() -> Void)?
-    
+    var userData: UserData?
     private lazy var tabBarViewController = getTabBarViewController()
     
     deinit {
@@ -22,6 +22,7 @@ final class TabBarCoordinator: BaseCoordinator {
     }
     
     func start() {
+        
         setTabBar()
         howItWorksScreen()
         showMainScreen()
@@ -39,24 +40,13 @@ final class TabBarCoordinator: BaseCoordinator {
     private func showMainScreen() {
         let mainPageNavigationController = UINavigationController()
         let mainPageRouter = Router(navigationController: mainPageNavigationController)
-        let mainPageCoordinator = MainPageCoordinator(router: mainPageRouter, parentCoordinator: self)
+        let factory = ScreenFactory()
+        let mainPageCoordinator = MainPageCoordinator(router: mainPageRouter, parentCoordinator: self, userData: userData, mainPageFactory: factory)
         mainPageCoordinator.start()
-        
         addDependency(mainPageCoordinator)
         
         tabBarViewController.viewControllers?.append(mainPageNavigationController)
     }
-    
-//    private func showRegistrationScreen() {
-//        let registerPageNavigationController = UINavigationController()
-//        let registerPageRouter = Router(navigationController: registerPageNavigationController)
-//        let registerPageCoordinator = RegisterPageCoordinator(router: registerPageRouter, parentCoordinator: self)
-//        registerPageCoordinator.start()
-//        
-//        addDependency(registerPageCoordinator)
-//        
-//        tabBarViewController.viewControllers?.append(registerPageNavigationController)
-//    }
     
     private func howItWorksScreen() {
         let howItWorksVC = HowItWorksViewController()

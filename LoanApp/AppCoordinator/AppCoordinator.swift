@@ -19,19 +19,24 @@ extension AppCoordinator {
     
     func showLoadingCoordinator() {
         let loadingCoordinator = LoadingCoordinator(router: router)
+        loadingCoordinator.factoryLoading = ScreenFactory()
         loadingCoordinator.start()
         loadingCoordinator.onFinish = { [weak self] in
-            self?.removeDependency(loadingCoordinator)
-            self?.showTabBarCoordinator()
+            guard let self else { return }
+            self.showTabBarCoordinator(userData: loadingCoordinator.userData)
+            self.removeDependency(loadingCoordinator)
+            
         }
         addDependency(loadingCoordinator)
     }
 
-    func showTabBarCoordinator() {
+    func showTabBarCoordinator(userData: UserData) {
         let tabBarCoordinator = TabBarCoordinator(router: router)
+        tabBarCoordinator.userData = userData
         tabBarCoordinator.start()
         tabBarCoordinator.onFinish = { [weak self] in
-            self?.removeDependency(tabBarCoordinator)
+            guard let self else { return }
+            self.removeDependency(tabBarCoordinator)
         }
         addDependency(tabBarCoordinator)
     }

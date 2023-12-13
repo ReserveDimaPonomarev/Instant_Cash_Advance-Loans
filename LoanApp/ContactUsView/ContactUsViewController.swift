@@ -12,11 +12,11 @@ final class ContactUsViewController: UIViewController {
     
     //  MARK: - UI properties
     
-    let contactLabel = CustomTitleLabel()
-    let subtitleContactLabel = CustomSubTitleLabel()
-    let nameTextField = CusomTextFieldWithBorder()
-    let messageTextView = CustomTextViewWithBorder()
-    let buttonSend = CustomButton()
+    private let contactLabel = CustomTitleLabel()
+    private let subtitleContactLabel = CustomSubTitleLabel()
+    private let nameTextField = CusomTextFieldWithBorder()
+    private let messageTextView = CustomTextViewWithBorder()
+    private let buttonSend = CustomButton()
     
     //  MARK: - life Cycle
     

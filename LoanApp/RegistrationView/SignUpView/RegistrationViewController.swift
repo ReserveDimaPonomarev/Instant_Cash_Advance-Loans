@@ -8,8 +8,8 @@
 import UIKit
 
 protocol RegistrationDisplayLogic: AnyObject {
-    func sendTextField() -> String?
-    func setButtonColorWhen(isAvailable: Bool)
+    func setButtonColorWhen(isEnabled: Bool)
+    func showRegistrationErrorWith(_ text: String)
 }
 
 final class RegistrationViewController: UIViewController {
@@ -62,6 +62,7 @@ private extension RegistrationViewController {
         setupViews()
         setupConstraints()
         addActions()
+        endEditingFromClosures()
     }
     
     func addViews() {
@@ -83,11 +84,8 @@ private extension RegistrationViewController {
         passwordTextField.setupTextField(placeholder: "new password", backgroundColor: .white, borderColor: .blue, placehplderColor: .gray, textColor: .blue, borderWidth: 4)
         passwordTextField.delegate = self
         
-        saveButton.isEnabled = false
-        saveButton.setupView(title: "Save", color: .blue, titleColor: .white)
+        saveButton.setupView(title: "Save", color: .gray, titleColor: .white)
         saveButton.addTarget(self, action: #selector(onSaveButtonTapped), for: .touchUpInside)
-
-        endEditingFromClosures()
     }
     
     func setupConstraints() {
@@ -160,27 +158,37 @@ private extension RegistrationViewController {
     }
     
     @objc func onSaveButtonTapped() {
-        presenter.showUserInfo()
-    }
-}
-
-extension RegistrationViewController: UITextFieldDelegate {
-    func textFieldDidChangeSelection(_ textField: UITextField) {
         guard let usernameText = userNameTextField.text,
               let passwordText = passwordTextField.text else { return }
-        presenter.sendingChanges(username: usernameText, password: passwordText)
+        presenter.makeErrorDescriptionIfIsInvalid(usernameText, passwordText)
     }
 }
 
 //  MARK: - extension SignUpDisplayLogic
 
 extension RegistrationViewController: RegistrationDisplayLogic {
-    func setButtonColorWhen(isAvailable: Bool) {
-        saveButton.backgroundColor = isAvailable ? .blue : .gray
-        saveButton.isEnabled = isAvailable ? true : false
+    
+    func showRegistrationErrorWith(_ text: String) {
+        let alertController = UIAlertController(title: "Incorrect password", message: text, preferredStyle: .alert)
+        let actionCancel = UIAlertAction(title: "No", style: .default)
+        alertController.addAction(actionCancel)
+
+        present(alertController, animated: true)
     }
     
-    func sendTextField() -> String? {
-        return passwordTextField.text
+    func setButtonColorWhen(isEnabled: Bool) {
+        saveButton.backgroundColor = isEnabled ? .blue : .gray
     }
 }
+
+//  MARK: - extension UITextFieldDelegate
+
+extension RegistrationViewController: UITextFieldDelegate {
+    func textFieldDidChangeSelection(_ textField: UITextField) {
+        guard let usernameText = userNameTextField.text,
+              let passwordText = passwordTextField.text else { return }
+        presenter.checkPaswordAndEmailOnValidation(userEmail: usernameText, userPassword: passwordText)
+    }
+}
+
+
