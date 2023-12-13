@@ -58,7 +58,7 @@ final class MainPageViewController: UIViewController, MainPageDisplayLogic {
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        print(presenter.userData)
+//        print(presenter.userData)
     }
 }
 

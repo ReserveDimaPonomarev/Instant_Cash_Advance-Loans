@@ -81,7 +81,7 @@ private extension FirstViewController {
     
     func setupViews() {
         view.backgroundColor = .blue
-        
+        navigationItem.hidesBackButton = true
         topLabelStackView.makeCustomStackView(alignment: .leading)
         easyAndQuicklabel.makespecifiedLabelInStack(text: "Easy and Quick")
         approvalLabel.makespecifiedLabelInStack(text: "Approval")
