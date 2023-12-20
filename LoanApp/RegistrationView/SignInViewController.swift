@@ -85,6 +85,9 @@ private extension SignInViewController {
         signInButton.setupView(title: "Sign In", color: .gray, titleColor: .white)
         
         createAccountButton.setupView(title: "Create account", color: .blue, titleColor: .white)
+        
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(keyboardWillHide))
+        view.addGestureRecognizer(tapGesture)
     }
         
     func setupConstraints() {
@@ -140,8 +143,7 @@ private extension SignInViewController {
     //  MARK: - addActions
 
     func addActions() {
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
+
         signInButton.addTarget(self, action: #selector(onSignInButtonTap), for: .touchUpInside)
         createAccountButton.addTarget(self, action: #selector(showRegistrationScreen), for: .touchUpInside)
     }
@@ -182,8 +184,8 @@ private extension SignInViewController {
         }
     }
     
-    @objc func keyboardWillHide(notification: NSNotification) {
-        self.view.frame.origin.y = 0
+    @objc func keyboardWillHide() {
+        self.view.endEditing(true)
     }
 }
 
@@ -198,6 +200,11 @@ extension SignInViewController: UITextFieldDelegate {
             signInButton.backgroundColor = .gray
         }
     }
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        passwordTextField.resignFirstResponder()
+        emailTextField.resignFirstResponder()
+         return true
+     }
 }
 
 //  MARK: - extension SignUpDisplayLogic

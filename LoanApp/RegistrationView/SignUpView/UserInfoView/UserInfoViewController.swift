@@ -96,6 +96,9 @@ private extension UserInfoViewController {
         saveButton.setupView(title: "Save", color: .gray, titleColor: .white)
 
         birthDayStackView.inputtedTextField.createDatePicker()
+        
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(keyboardWillHide))
+        view.addGestureRecognizer(tapGesture)
     }
     
     private func setupConstraints() {
@@ -196,8 +199,8 @@ private extension UserInfoViewController {
         }
     }
     
-    @objc func keyboardWillHide(notification: NSNotification) {
-        self.view.frame.origin.y = 0
+    @objc func keyboardWillHide() {
+        self.view.endEditing(true)
     }
     
     @objc func onSaveButtonTap() {
@@ -214,6 +217,11 @@ extension UserInfoViewController: UITextFieldDelegate {
         
         presenter.sendingChanges(birthdayText, nameText)
     }
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        nameStackView.inputtedTextField.resignFirstResponder()
+        birthDayStackView.inputtedTextField.resignFirstResponder()
+        return true
+     }
 }
 
 //  MARK: - extension UserInfoDisplayLogic

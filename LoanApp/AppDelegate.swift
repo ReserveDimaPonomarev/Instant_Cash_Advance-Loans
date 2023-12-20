@@ -27,7 +27,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Remove this method to stop OneSignal Debugging
         OneSignal.Debug.setLogLevel(.LL_VERBOSE)
         // OneSignal initialization
-        OneSignal.initialize("9211c99b-412f-4d32-bdec-cdcee33620f9", withLaunchOptions: launchOptions)
+        OneSignal.initialize("b029c735-2bbc-4682-8902-2078177136ed", withLaunchOptions: launchOptions)
         
         // requestPermission will show the native iOS notification permission prompt.
         // We recommend removing the following code and instead using an In-App Message to prompt for notification permission
@@ -47,8 +47,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         AppsFlyerLib.shared().appsFlyerDevKey = "JdRpjKW5ZGx2GH6cekoTtb"
         AppsFlyerLib.shared().appleAppID = "6473890001"
         AppsFlyerLib.shared().waitForATTUserAuthorization(timeoutInterval: 60)
-
-        AppsFlyerLib.shared().isDebug = false
+        AppsFlyerLib.shared().isDebug = true
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(didBecomeActiveNotification),
+                name: UIApplication.didBecomeActiveNotification,
+                object: nil)
     }
     
     // MARK: SceneDelegate support - start AppsFlyer SDK
@@ -76,7 +79,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     // MARK: UISceneSession Lifecycle
     
     func applicationDidBecomeActive(_ application: UIApplication) {
-        AppsFlyerLib.shared().start()
     }
     
     func application(_ application: UIApplication, configurationForConnecting connectingSceneSession: UISceneSession, options: UIScene.ConnectionOptions) -> UISceneConfiguration {

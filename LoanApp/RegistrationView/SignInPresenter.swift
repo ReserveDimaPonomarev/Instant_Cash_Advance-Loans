@@ -42,6 +42,7 @@ class SignInPresenter {
 extension SignInPresenter: SignInPresenterProtocol {
     
     func showMainScreen(email: String?, password: String?) {
+        userData = UserData(email: "testuser@mail.com", password: "testPasswd1")
         if email?.lowercased() == userData?.email?.lowercased() && password == userData?.password {
             let userData = UserData(email: email?.lowercased(), password: password)
             coordinator.showMainScreen(userData)

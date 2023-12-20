@@ -82,6 +82,9 @@ private extension RegistrationViewController {
         
         saveButton.setupView(title: "Save", color: .gray, titleColor: .white)
         saveButton.addTarget(self, action: #selector(onSaveButtonTapped), for: .touchUpInside)
+        
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(keyboardWillHide))
+        view.addGestureRecognizer(tapGesture)
     }
     
     func setupConstraints() {
@@ -122,7 +125,7 @@ private extension RegistrationViewController {
 
     func addActions() {
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
+//        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
     }
     
     func endEditingFromClosures() {
@@ -149,8 +152,8 @@ private extension RegistrationViewController {
         }
     }
     
-    @objc func keyboardWillHide(notification: NSNotification) {
-        self.view.frame.origin.y = 0
+    @objc func keyboardWillHide() {
+        self.view.endEditing(true)
     }
     
     @objc func onSaveButtonTapped() {
@@ -185,6 +188,12 @@ extension RegistrationViewController: UITextFieldDelegate {
               let passwordText = passwordTextField.text else { return }
         presenter.checkPaswordAndEmailOnValidation(userEmail: usernameText, userPassword: passwordText)
     }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        userNameTextField.resignFirstResponder()
+        passwordTextField.resignFirstResponder()
+        return true
+     }
 }
 
 
