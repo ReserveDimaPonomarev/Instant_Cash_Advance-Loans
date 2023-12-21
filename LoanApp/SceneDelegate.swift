@@ -13,8 +13,28 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     var window: UIWindow?
     private var appCoordinator: AppCoordinator?
 
+    func scene(_ scene: UIScene, continue userActivity: NSUserActivity) {
+        NSLog("[AFSDK] 1. %@", "scene with Universal Link")
+        // Universal Link - Background -> foreground
+        AppsFlyerLib.shared().continue(userActivity, restorationHandler: nil)
+    }
+    
+    func scene(_ scene: UIScene, openURLContexts URLContexts: Set<UIOpenURLContext>) {
+        // Background -> foreground
+        NSLog("[AFSDK] 2. %@", "scene with URI scheme")
+        if let url = URLContexts.first?.url {
+            AppsFlyerLib.shared().handleOpen(url, options: nil)
+        }
+    }
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
+        
+        if let userActivity = connectionOptions.userActivities.first {
+            AppsFlyerLib.shared().continue(userActivity, restorationHandler: nil)
+        } else if let url = connectionOptions.urlContexts.first?.url {
+            AppsFlyerLib.shared().handleOpen(url, options: nil)
+        }
+        
         guard let windowScene = (scene as? UIWindowScene) else { return }
         
         let navigationController = UINavigationController()

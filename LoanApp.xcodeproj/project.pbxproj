@@ -63,6 +63,7 @@
 		4A9983E92B17F93500F4CCE8 /* ContactUsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A9983E72B17F93500F4CCE8 /* ContactUsViewModel.swift */; };
 		4A9983EB2B17FAC700F4CCE8 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A9983EA2B17FAC700F4CCE8 /* AppCoordinator.swift */; };
 		4A9983EF2B180A8300F4CCE8 /* BlueViewForHowITWorks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A9983EE2B180A8300F4CCE8 /* BlueViewForHowITWorks.swift */; };
+		4ACDAB0A2B3317DC00F25686 /* testVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ACDAB092B3317DC00F25686 /* testVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -151,6 +152,7 @@
 		4A9983E72B17F93500F4CCE8 /* ContactUsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactUsViewModel.swift; sourceTree = "<group>"; };
 		4A9983EA2B17FAC700F4CCE8 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
 		4A9983EE2B180A8300F4CCE8 /* BlueViewForHowITWorks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlueViewForHowITWorks.swift; sourceTree = "<group>"; };
+		4ACDAB092B3317DC00F25686 /* testVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = testVC.swift; sourceTree = "<group>"; };
 		A18A3FF9B3405FB4D56B4FFE /* Pods-LoanApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LoanApp.debug.xcconfig"; path = "Target Support Files/Pods-LoanApp/Pods-LoanApp.debug.xcconfig"; sourceTree = "<group>"; };
 		F852C9EE73668FA5AFE3AEF0 /* Pods-LoanApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LoanApp.release.xcconfig"; path = "Target Support Files/Pods-LoanApp/Pods-LoanApp.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -323,6 +325,7 @@
 				4A891BE42B207D3100EF6FD9 /* LoanApp.entitlements */,
 				4A9983AE2B17A8CE00F4CCE8 /* AppDelegate.swift */,
 				4A9983B02B17A8CE00F4CCE8 /* SceneDelegate.swift */,
+				4ACDAB092B3317DC00F25686 /* testVC.swift */,
 				4A8042DD2B24590500E15C79 /* UserData.swift */,
 				4A0CC0102B1904970074EEF1 /* AppCoordinator */,
 				4A0CC0082B18EEDA0074EEF1 /* Coordinators */,
@@ -555,6 +558,7 @@
 				4A0CC0202B19468B0074EEF1 /* CustomViewWithBorder.swift in Sources */,
 				4A0CBFFF2B18C00B0074EEF1 /* CustomSubTitleLabel.swift in Sources */,
 				4A0CBFF82B18BBEF0074EEF1 /* SignInViewController.swift in Sources */,
+				4ACDAB0A2B3317DC00F25686 /* testVC.swift in Sources */,
 				4A8042DE2B24590500E15C79 /* UserData.swift in Sources */,
 				4A0CBFF32B18B3FE0074EEF1 /* CusomTextFieldWithBorder.swift in Sources */,
 				4A9983EF2B180A8300F4CCE8 /* BlueViewForHowITWorks.swift in Sources */,

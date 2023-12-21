@@ -7,191 +7,15 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "08425C19-CCDE-4699-BEB8-156F9FDCBE4B"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "LoanApp/AppDelegate.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "61"
-            endingLineNumber = "61"
-            landmarkName = "didBecomeActiveNotification()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "620B7C36-D5EA-49ED-B5F3-9886BC913335"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "LoanApp/AppDelegate.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "62"
-            endingLineNumber = "62"
-            landmarkName = "didBecomeActiveNotification()"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "620B7C36-D5EA-49ED-B5F3-9886BC913335 - ca10423e56b8720e"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "LoanApp.AppDelegate.didBecomeActiveNotification() -&gt; ()"
-                  moduleName = "LoanApp"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/dmitriiponomarev/Desktop/LoanApp/LoanApp/AppDelegate.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "62"
-                  endingLineNumber = "62"
-                  offsetFromSymbolStart = "84">
-               </Location>
-               <Location
-                  uuid = "620B7C36-D5EA-49ED-B5F3-9886BC913335 - c9f677f378319640"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (__C.ATTrackingManagerAuthorizationStatus) -&gt; () in LoanApp.AppDelegate.didBecomeActiveNotification() -&gt; ()"
-                  moduleName = "LoanApp"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/dmitriiponomarev/Desktop/LoanApp/LoanApp/AppDelegate.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "64"
-                  endingLineNumber = "64"
-                  offsetFromSymbolStart = "76">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "AA26E3B7-185B-458F-A00A-8CF15458EE7F"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "LoanApp/AppDelegate.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "63"
-            endingLineNumber = "63"
-            landmarkName = "didBecomeActiveNotification()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "9611F377-DCDB-4B75-AF1E-2D08C738FE9C"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "LoanApp/AppDelegate.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "64"
-            endingLineNumber = "64"
-            landmarkName = "didBecomeActiveNotification()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "32738105-EBC4-4807-B447-7CA061B0CB99"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "LoanApp/AppDelegate.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "52"
-            endingLineNumber = "52"
-            landmarkName = "setupAppsFlyerLib()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "176FDF4A-2AD2-4C3F-BD0A-C386576219FD"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "LoanApp/AppDelegate.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "50"
-            endingLineNumber = "50"
-            landmarkName = "setupAppsFlyerLib()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "F1C1EBDF-9C1B-4C51-B605-9DD8E433AF95"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "LoanApp/AppDelegate.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "49"
-            endingLineNumber = "49"
-            landmarkName = "setupAppsFlyerLib()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "5740D729-86E4-4129-8B2D-96221D0798C9"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "LoanApp/AppDelegate.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "47"
-            endingLineNumber = "47"
-            landmarkName = "setupAppsFlyerLib()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "C3181BD7-4569-4F95-B95D-49F746A482C6"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "LoanApp/AppDelegate.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "48"
-            endingLineNumber = "48"
-            landmarkName = "setupAppsFlyerLib()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
             uuid = "D976BC51-34F3-4336-A95B-EED9DBC93C83"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "LoanApp/AppDelegate.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "19"
-            endingLineNumber = "19"
+            startingLineNumber = "21"
+            endingLineNumber = "21"
             landmarkName = "application(_:didFinishLaunchingWithOptions:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -200,7 +24,7 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "932783C2-DF55-4158-BD16-3074A5DE9B2B"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "LoanApp/LoadingModul/FirstViewController.swift"
@@ -242,6 +66,404 @@
                   offsetFromSymbolStart = "32">
                </Location>
             </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "2BE5AA35-8E4E-49C9-BE9B-2B67AFAC174B"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "LoanApp/AppDelegate.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "128"
+            endingLineNumber = "128"
+            landmarkName = "didResolveDeepLink(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "6D3D7390-470B-45B2-A26D-05F731CF3078"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "LoanApp/AppDelegate.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "129"
+            endingLineNumber = "129"
+            landmarkName = "didResolveDeepLink(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "662E63A5-862A-4FFE-899C-6CFBA9A8E524"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "LoanApp/AppDelegate.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "131"
+            endingLineNumber = "131"
+            landmarkName = "didResolveDeepLink(_:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "662E63A5-862A-4FFE-899C-6CFBA9A8E524 - 2211e0bebab8869b"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "LoanApp.AppDelegate.walkToSceneWithParams(fruitName: Swift.String, deepLinkData: Swift.Optional&lt;Swift.Dictionary&lt;Swift.String, Any&gt;&gt;) -&gt; ()"
+                  moduleName = "LoanApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/dmitriiponomarev/Desktop/LoanApp/LoanApp/AppDelegate.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "133"
+                  endingLineNumber = "133"
+                  offsetFromSymbolStart = "1036">
+               </Location>
+               <Location
+                  uuid = "662E63A5-862A-4FFE-899C-6CFBA9A8E524 - ea08d8f20a147beb"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "LoanApp.AppDelegate.didResolveDeepLink(__C.AppsFlyerDeepLinkResult) -&gt; ()"
+                  moduleName = "LoanApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/dmitriiponomarev/Desktop/LoanApp/LoanApp/AppDelegate.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "131"
+                  endingLineNumber = "131"
+                  offsetFromSymbolStart = "292">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "AF02E574-260C-4FA2-8569-C120FD26CFB0"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "LoanApp/AppDelegate.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "130"
+            endingLineNumber = "130"
+            landmarkName = "didResolveDeepLink(_:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "AF02E574-260C-4FA2-8569-C120FD26CFB0 - 2211e0bebab88504"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "LoanApp.AppDelegate.walkToSceneWithParams(fruitName: Swift.String, deepLinkData: Swift.Optional&lt;Swift.Dictionary&lt;Swift.String, Any&gt;&gt;) -&gt; ()"
+                  moduleName = "LoanApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/dmitriiponomarev/Desktop/LoanApp/LoanApp/AppDelegate.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "130"
+                  endingLineNumber = "130"
+                  offsetFromSymbolStart = "712">
+               </Location>
+               <Location
+                  uuid = "AF02E574-260C-4FA2-8569-C120FD26CFB0 - ea08d8f20a14780a"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "LoanApp.AppDelegate.didResolveDeepLink(__C.AppsFlyerDeepLinkResult) -&gt; ()"
+                  moduleName = "LoanApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/dmitriiponomarev/Desktop/LoanApp/LoanApp/AppDelegate.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "130"
+                  endingLineNumber = "130"
+                  offsetFromSymbolStart = "216">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "B9869562-E692-40A3-AD13-129FD819A757"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "LoanApp/AppDelegate.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "152"
+            endingLineNumber = "152"
+            landmarkName = "didResolveDeepLink(_:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "B9869562-E692-40A3-AD13-129FD819A757 - ea08d8f20a1474ac"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "LoanApp.AppDelegate.didResolveDeepLink(__C.AppsFlyerDeepLinkResult) -&gt; ()"
+                  moduleName = "LoanApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/dmitriiponomarev/Desktop/LoanApp/LoanApp/AppDelegate.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "156"
+                  endingLineNumber = "156"
+                  offsetFromSymbolStart = "988">
+               </Location>
+               <Location
+                  uuid = "B9869562-E692-40A3-AD13-129FD819A757 - ea08d8f20a147520"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "LoanApp.AppDelegate.didResolveDeepLink(__C.AppsFlyerDeepLinkResult) -&gt; ()"
+                  moduleName = "LoanApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/dmitriiponomarev/Desktop/LoanApp/LoanApp/AppDelegate.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "152"
+                  endingLineNumber = "152"
+                  offsetFromSymbolStart = "856">
+               </Location>
+               <Location
+                  uuid = "B9869562-E692-40A3-AD13-129FD819A757 - ea08d8f20a147520"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "LoanApp.AppDelegate.didResolveDeepLink(__C.AppsFlyerDeepLinkResult) -&gt; ()"
+                  moduleName = "LoanApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/dmitriiponomarev/Desktop/LoanApp/LoanApp/AppDelegate.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "152"
+                  endingLineNumber = "152"
+                  offsetFromSymbolStart = "2144">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "121AA096-513F-447D-852A-F81889FBD5B1"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "LoanApp/AppDelegate.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "154"
+            endingLineNumber = "154"
+            landmarkName = "didResolveDeepLink(_:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "121AA096-513F-447D-852A-F81889FBD5B1 - ea08d8f20a1474ac"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "LoanApp.AppDelegate.didResolveDeepLink(__C.AppsFlyerDeepLinkResult) -&gt; ()"
+                  moduleName = "LoanApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/dmitriiponomarev/Desktop/LoanApp/LoanApp/AppDelegate.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "156"
+                  endingLineNumber = "156"
+                  offsetFromSymbolStart = "988">
+               </Location>
+               <Location
+                  uuid = "121AA096-513F-447D-852A-F81889FBD5B1 - ea08d8f20a1474c3"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "LoanApp.AppDelegate.didResolveDeepLink(__C.AppsFlyerDeepLinkResult) -&gt; ()"
+                  moduleName = "LoanApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/dmitriiponomarev/Desktop/LoanApp/LoanApp/AppDelegate.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "155"
+                  endingLineNumber = "155"
+                  offsetFromSymbolStart = "2556">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "162E2E9E-9D4A-46ED-889A-9069F3538910"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "LoanApp/AppDelegate.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "156"
+            endingLineNumber = "156"
+            landmarkName = "didResolveDeepLink(_:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "162E2E9E-9D4A-46ED-889A-9069F3538910 - ea08d8f20a14746e"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "LoanApp.AppDelegate.didResolveDeepLink(__C.AppsFlyerDeepLinkResult) -&gt; ()"
+                  moduleName = "LoanApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/dmitriiponomarev/Desktop/LoanApp/LoanApp/AppDelegate.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "158"
+                  endingLineNumber = "158"
+                  offsetFromSymbolStart = "3480">
+               </Location>
+               <Location
+                  uuid = "162E2E9E-9D4A-46ED-889A-9069F3538910 - ea08d8f20a1474ac"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "LoanApp.AppDelegate.didResolveDeepLink(__C.AppsFlyerDeepLinkResult) -&gt; ()"
+                  moduleName = "LoanApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/dmitriiponomarev/Desktop/LoanApp/LoanApp/AppDelegate.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "156"
+                  endingLineNumber = "156"
+                  offsetFromSymbolStart = "988">
+               </Location>
+               <Location
+                  uuid = "162E2E9E-9D4A-46ED-889A-9069F3538910 - ea08d8f20a14748d"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "LoanApp.AppDelegate.didResolveDeepLink(__C.AppsFlyerDeepLinkResult) -&gt; ()"
+                  moduleName = "LoanApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/dmitriiponomarev/Desktop/LoanApp/LoanApp/AppDelegate.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "157"
+                  endingLineNumber = "157"
+                  offsetFromSymbolStart = "3112">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "F3D6006A-D096-4FB9-8C12-5D1AA9A3F6E8"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "LoanApp/AppDelegate.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "155"
+            endingLineNumber = "155"
+            landmarkName = "didResolveDeepLink(_:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "F3D6006A-D096-4FB9-8C12-5D1AA9A3F6E8 - ea08d8f20a1474ac"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "LoanApp.AppDelegate.didResolveDeepLink(__C.AppsFlyerDeepLinkResult) -&gt; ()"
+                  moduleName = "LoanApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/dmitriiponomarev/Desktop/LoanApp/LoanApp/AppDelegate.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "156"
+                  endingLineNumber = "156"
+                  offsetFromSymbolStart = "988">
+               </Location>
+               <Location
+                  uuid = "F3D6006A-D096-4FB9-8C12-5D1AA9A3F6E8 - ea08d8f20a1474c3"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "LoanApp.AppDelegate.didResolveDeepLink(__C.AppsFlyerDeepLinkResult) -&gt; ()"
+                  moduleName = "LoanApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/dmitriiponomarev/Desktop/LoanApp/LoanApp/AppDelegate.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "155"
+                  endingLineNumber = "155"
+                  offsetFromSymbolStart = "2556">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "E2A204EF-DE42-43E0-84F7-8C6F37A4A79E"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "LoanApp/AppDelegate.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "57"
+            endingLineNumber = "57"
+            landmarkName = "setupAppsFlyerLib()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "E102BDF6-27E6-48C2-A52B-79690F6385FD"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "LoanApp/AppDelegate.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "56"
+            endingLineNumber = "56"
+            landmarkName = "setupAppsFlyerLib()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "5E070B38-48A1-4232-BFC6-FAC51CB1BABB"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "LoanApp/AppDelegate.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "55"
+            endingLineNumber = "55"
+            landmarkName = "setupAppsFlyerLib()"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>
