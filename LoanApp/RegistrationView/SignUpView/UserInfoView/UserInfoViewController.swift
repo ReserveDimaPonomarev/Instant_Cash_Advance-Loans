@@ -32,7 +32,6 @@ final class UserInfoViewController: UIViewController {
     private let nameStackView = CustomStackView()
     private let saveButton = CustomButton()
     
-
     //  MARK: - init
 
     init(presenter: UserInfoPresenterProtocol) {

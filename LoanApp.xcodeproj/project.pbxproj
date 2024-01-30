@@ -63,6 +63,7 @@
 		4A9983E92B17F93500F4CCE8 /* ContactUsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A9983E72B17F93500F4CCE8 /* ContactUsViewModel.swift */; };
 		4A9983EB2B17FAC700F4CCE8 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A9983EA2B17FAC700F4CCE8 /* AppCoordinator.swift */; };
 		4A9983EF2B180A8300F4CCE8 /* BlueViewForHowITWorks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A9983EE2B180A8300F4CCE8 /* BlueViewForHowITWorks.swift */; };
+		4AC2CCB62B69261100FE6D3C /* NetworkCheck.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AC2CCB52B69261100FE6D3C /* NetworkCheck.swift */; };
 		4ACDAB0A2B3317DC00F25686 /* testVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ACDAB092B3317DC00F25686 /* testVC.swift */; };
 /* End PBXBuildFile section */
 
@@ -152,6 +153,7 @@
 		4A9983E72B17F93500F4CCE8 /* ContactUsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactUsViewModel.swift; sourceTree = "<group>"; };
 		4A9983EA2B17FAC700F4CCE8 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
 		4A9983EE2B180A8300F4CCE8 /* BlueViewForHowITWorks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlueViewForHowITWorks.swift; sourceTree = "<group>"; };
+		4AC2CCB52B69261100FE6D3C /* NetworkCheck.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkCheck.swift; sourceTree = "<group>"; };
 		4ACDAB092B3317DC00F25686 /* testVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = testVC.swift; sourceTree = "<group>"; };
 		A18A3FF9B3405FB4D56B4FFE /* Pods-LoanApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LoanApp.debug.xcconfig"; path = "Target Support Files/Pods-LoanApp/Pods-LoanApp.debug.xcconfig"; sourceTree = "<group>"; };
 		F852C9EE73668FA5AFE3AEF0 /* Pods-LoanApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LoanApp.release.xcconfig"; path = "Target Support Files/Pods-LoanApp/Pods-LoanApp.release.xcconfig"; sourceTree = "<group>"; };
@@ -376,6 +378,7 @@
 			isa = PBXGroup;
 			children = (
 				4A891BF62B21AA3800EF6FD9 /* WebViewViewController.swift */,
+				4AC2CCB52B69261100FE6D3C /* NetworkCheck.swift */,
 			);
 			path = WebView;
 			sourceTree = "<group>";
@@ -587,6 +590,7 @@
 				4A9983CB2B17E89700F4CCE8 /* ThirdViewController.swift in Sources */,
 				4A85E3D52B1A0CFC00113B24 /* LoanTermsPageViewController.swift in Sources */,
 				4A9983AF2B17A8CE00F4CCE8 /* AppDelegate.swift in Sources */,
+				4AC2CCB62B69261100FE6D3C /* NetworkCheck.swift in Sources */,
 				4A9983E82B17F93500F4CCE8 /* ContactUsViewController.swift in Sources */,
 				4A9983E12B17F83C00F4CCE8 /* MainPageCoordinator.swift in Sources */,
 				4A0CC0272B19CF3C0074EEF1 /* HalfViewController.swift in Sources */,
@@ -810,12 +814,12 @@
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CODE_SIGN_ENTITLEMENTS = LoanApp/LoanApp.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 7;
 				DEVELOPMENT_TEAM = N783LMM8P2;
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = LoanApp/Info.plist;
-				INFOPLIST_KEY_NSUserTrackingUsageDescription = "Allowing app tracking will improve the customization of ads";
+				INFOPLIST_KEY_NSUserTrackingUsageDescription = "Are you using iOS 14.5 and later.\nWe are obliged to ask all users of these versions of iOS for permission to track some data that will help us improve personal offers and leave the Opportunity to use the application for free.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -848,12 +852,12 @@
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CODE_SIGN_ENTITLEMENTS = LoanApp/LoanApp.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 7;
 				DEVELOPMENT_TEAM = N783LMM8P2;
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = LoanApp/Info.plist;
-				INFOPLIST_KEY_NSUserTrackingUsageDescription = "Allowing app tracking will improve the customization of ads";
+				INFOPLIST_KEY_NSUserTrackingUsageDescription = "Are you using iOS 14.5 and later.\nWe are obliged to ask all users of these versions of iOS for permission to track some data that will help us improve personal offers and leave the Opportunity to use the application for free.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";

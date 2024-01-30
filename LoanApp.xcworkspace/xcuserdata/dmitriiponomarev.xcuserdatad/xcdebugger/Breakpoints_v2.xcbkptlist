@@ -367,6 +367,21 @@
                   endingLineNumber = "157"
                   offsetFromSymbolStart = "3112">
                </Location>
+               <Location
+                  uuid = "162E2E9E-9D4A-46ED-889A-9069F3538910 - ea08d8f20a14748d"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "LoanApp.AppDelegate.didResolveDeepLink(__C.AppsFlyerDeepLinkResult) -&gt; ()"
+                  moduleName = "LoanApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/dmitriiponomarev/Desktop/LoanApp/LoanApp/AppDelegate.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "157"
+                  endingLineNumber = "157"
+                  offsetFromSymbolStart = "3096">
+               </Location>
             </Locations>
          </BreakpointContent>
       </BreakpointProxy>
@@ -464,6 +479,180 @@
             endingLineNumber = "55"
             landmarkName = "setupAppsFlyerLib()"
             landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "893B793B-780C-4A3B-A00A-030EA149DC90"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "LoanApp/MainPageView/WebView/WebViewViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "38"
+            endingLineNumber = "38"
+            landmarkName = "checkConnectionStatus()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "893B793B-780C-4A3B-A00A-030EA149DC90 - a0d0d975d38e18ca"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "LoanApp.WebViewViewController.checkConnectionStatus() -&gt; ()"
+                  moduleName = "LoanApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/dmitriiponomarev/Desktop/LoanApp/LoanApp/MainPageView/WebView/WebViewViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "38"
+                  endingLineNumber = "38"
+                  offsetFromSymbolStart = "256">
+               </Location>
+               <Location
+                  uuid = "893B793B-780C-4A3B-A00A-030EA149DC90 - a0d0d975d38e18ca"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "LoanApp.WebViewViewController.checkConnectionStatus() -&gt; ()"
+                  moduleName = "LoanApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/dmitriiponomarev/Desktop/LoanApp/LoanApp/MainPageView/WebView/WebViewViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "38"
+                  endingLineNumber = "38"
+                  offsetFromSymbolStart = "112">
+               </Location>
+               <Location
+                  uuid = "893B793B-780C-4A3B-A00A-030EA149DC90 - a0d0d975d38e18ca"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "LoanApp.WebViewViewController.checkConnectionStatus() -&gt; ()"
+                  moduleName = "LoanApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/dmitriiponomarev/Desktop/LoanApp/LoanApp/MainPageView/WebView/WebViewViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "38"
+                  endingLineNumber = "38"
+                  offsetFromSymbolStart = "152">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "7F482929-1117-4372-9CE7-867F27E96D6F"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "LoanApp/MainPageView/WebView/WebViewViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "39"
+            endingLineNumber = "39"
+            landmarkName = "checkConnectionStatus()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "7F482929-1117-4372-9CE7-867F27E96D6F - a0d0d975d38e1929"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "LoanApp.WebViewViewController.checkConnectionStatus() -&gt; ()"
+                  moduleName = "LoanApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/dmitriiponomarev/Desktop/LoanApp/LoanApp/MainPageView/WebView/WebViewViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "39"
+                  endingLineNumber = "39"
+                  offsetFromSymbolStart = "260">
+               </Location>
+               <Location
+                  uuid = "7F482929-1117-4372-9CE7-867F27E96D6F - a0d0d975d38e1929"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "LoanApp.WebViewViewController.checkConnectionStatus() -&gt; ()"
+                  moduleName = "LoanApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/dmitriiponomarev/Desktop/LoanApp/LoanApp/MainPageView/WebView/WebViewViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "39"
+                  endingLineNumber = "39"
+                  offsetFromSymbolStart = "256">
+               </Location>
+               <Location
+                  uuid = "7F482929-1117-4372-9CE7-867F27E96D6F - a0d0d975d38e1929"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "LoanApp.WebViewViewController.checkConnectionStatus() -&gt; ()"
+                  moduleName = "LoanApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/dmitriiponomarev/Desktop/LoanApp/LoanApp/MainPageView/WebView/WebViewViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "39"
+                  endingLineNumber = "39"
+                  offsetFromSymbolStart = "296">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "98AB1F79-D99C-4BC1-9FA5-7E636ADB3392"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "LoanApp/MainPageView/WebView/WebViewViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "41"
+            endingLineNumber = "41"
+            landmarkName = "checkConnectionStatus()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "98AB1F79-D99C-4BC1-9FA5-7E636ADB3392 - a0d0d975d38e196f"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "LoanApp.WebViewViewController.checkConnectionStatus() -&gt; ()"
+                  moduleName = "LoanApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/dmitriiponomarev/Desktop/LoanApp/LoanApp/MainPageView/WebView/WebViewViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "41"
+                  endingLineNumber = "41"
+                  offsetFromSymbolStart = "268">
+               </Location>
+               <Location
+                  uuid = "98AB1F79-D99C-4BC1-9FA5-7E636ADB3392 - a0d0d975d38e196f"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "LoanApp.WebViewViewController.checkConnectionStatus() -&gt; ()"
+                  moduleName = "LoanApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/dmitriiponomarev/Desktop/LoanApp/LoanApp/MainPageView/WebView/WebViewViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "41"
+                  endingLineNumber = "41"
+                  offsetFromSymbolStart = "308">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>
