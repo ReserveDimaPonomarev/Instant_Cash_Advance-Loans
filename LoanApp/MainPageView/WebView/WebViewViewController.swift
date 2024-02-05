@@ -50,8 +50,8 @@ class WebViewViewController: UIViewController {
     }
     
     private func showAlert() {
-        let alert = UIAlertController(title: "Ошибка", message: "Проверьте интернет соединение", preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "Ок", style: .default, handler: nil))
+        let alert = UIAlertController(title: "Error", message: "Check your internet connection", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
         present(alert, animated: true, completion: nil)
     }
 }
