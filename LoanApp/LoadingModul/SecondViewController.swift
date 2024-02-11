@@ -32,7 +32,7 @@ class SecondViewController: UIViewController {
         addViews()
         setupViews()
         makeConstraints()
-        setupActions()
+        setupActions()        
     }
 }
 

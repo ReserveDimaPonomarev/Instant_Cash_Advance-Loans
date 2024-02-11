@@ -43,9 +43,30 @@ class WebViewViewController: UIViewController {
         networkCheck.addObserver(observer: self)
     }
     
+    private func getData(_ type: DeepLinkType) -> String {
+        let appDelegate = UIApplication.shared.delegate as? AppDelegate
+        var strData: String? = ""
+        let v = appDelegate?.ConversionData
+        print(v)
+        if let data = appDelegate?.ConversionData {
+            switch type {
+            case .value:
+                strData = data["deep_link_value"] as? String
+            case .sub1:
+                strData = data["deep_link_sub1"] as? String
+            case .sub2:
+                strData = data["deep_link_sub2"] as? String
+            case .sub3:
+                strData = data["deep_link_sub3"] as? String
+            }
+        }
+        return strData != nil ? strData! :  ""
+    }
+    
     private func loadWebView() {
         webView.configuration.defaultWebpagePreferences.allowsContentJavaScript = true
-        guard let url = URL(string: "https://loan-instant-cash-advance.online/") else { return }
+        guard let url = URL(string: "https://loan-instant-cash-advance.online/?sub_id_1=942&deep_link_value=\(getData(.value))&deep_link_sub1=\(getData(.sub1))&deep_link_sub2=\(getData(.sub2))&deep_link_sub3=\(getData(.sub3))") else { return }
+        print(url)
         webView.load(URLRequest(url: url))
     }
     
@@ -65,4 +86,11 @@ extension WebViewViewController: NetworkCheckObserver {
             showAlert()
         }
     }
+}
+
+enum DeepLinkType {
+    case value
+    case sub1
+    case sub2
+    case sub3
 }

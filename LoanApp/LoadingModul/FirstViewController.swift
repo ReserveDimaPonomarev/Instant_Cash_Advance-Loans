@@ -7,6 +7,7 @@
 
 import UIKit
 import SnapKit
+import AppsFlyerLib
 
 class FirstViewController: UIViewController {
            

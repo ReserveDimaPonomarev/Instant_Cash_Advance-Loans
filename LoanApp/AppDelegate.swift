@@ -46,7 +46,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func setupAppsFlyerLib() {
         // MARK: keys for AppsFlyerLib
         
-        AppsFlyerLib.shared().isDebug = true
+        AppsFlyerLib.shared().isDebug = false
         
         // Replace 'appsFlyerDevKey', `appleAppID` with your DevKey, Apple App ID
         AppsFlyerLib.shared().appsFlyerDevKey = "JdRpjKW5ZGx2GH6cekoTtb"
@@ -56,8 +56,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                
         AppsFlyerLib.shared().delegate = self
         AppsFlyerLib.shared().deepLinkDelegate = self
-        AppsFlyerLib.shared().appendParametersToDeeplinkURL(contains: "testloanas.onelink.me", parameters: ["pid" : "exampleDomain"])
-
+        AppsFlyerLib.shared().appendParametersToDeeplinkURL(contains: "testloanas.onelink.me", parameters: ["pid" : "test"])
+        print(AppsFlyerLib.shared().description)
         //set the OneLink template id for share invite links
         AppsFlyerLib.shared().appInviteOneLinkID = "vwU8"
         
@@ -65,7 +65,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         NotificationCenter.default.addObserver(self, selector: #selector(didBecomeActiveNotification),
                 name: UIApplication.didBecomeActiveNotification,
                 object: nil)
-                
     }
     
     // MARK: SceneDelegate support - start AppsFlyer SDK
@@ -155,11 +154,12 @@ extension AppDelegate: DeepLinkDelegate {
         fruitNameStr = deepLinkObj.deeplinkValue
         ConversionData = result.deepLink?.clickEvent
         //If deep_link_value doesn't exist
-        if fruitNameStr == nil || fruitNameStr == "" {
+        if fruitNameStr != nil || fruitNameStr != "" {
             //check if fruit_name exists
-            switch deepLinkObj.clickEvent["fruit_name"] {
+            switch deepLinkObj.clickEvent["af_sub1"] {
                 case let s as String:
                     fruitNameStr = s
+                print("111111121111111111111111111111111111111111 \(s)")
                 default:
                     print("[AFSDK] Could not extract deep_link_value or fruit_name from deep link object with unified deep linking")
                     return
